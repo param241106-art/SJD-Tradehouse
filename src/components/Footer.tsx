@@ -123,10 +123,16 @@ export function Footer() {
                   <Mail size={15} /> aadi.singh@avantspecs.com
                 </a>
                 <a
-                  href="tel:+971506650173"
+                  href="tel:+971585927251"
                   className="flex items-center gap-2 text-sm text-white/70 hover:text-white"
                 >
-                  <Phone size={15} /> +971 50 665 0173
+                  <Phone size={15} /> +971 58 592 7251
+                </a>
+                <a
+                  href="tel:+919996064220"
+                  className="flex items-center gap-2 text-sm text-white/70 hover:text-white"
+                >
+                  <Phone size={15} /> +91 99960 64220
                 </a>
                 <p className="flex items-center gap-2 text-sm text-white/70">
                   <MapPin size={15} /> Rohtak, India 124001

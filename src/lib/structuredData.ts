@@ -33,7 +33,7 @@ export function organizationSchema(team: TeamMember[], certifications: Certifica
         description:
           'AvantSpecs is a merchant export house sourcing, testing, and shipping essential oils, oleoresins, spices, nuts, dried fruits, powders, and eco disposables to wholesale buyers, formulators, and flavour houses worldwide.',
         email: 'param@avantspecs.com',
-        telephone: '+971-50-665-0173',
+        telephone: '+971-58-592-7251',
         address: {
           '@type': 'PostalAddress',
           addressLocality: 'Rohtak',
@@ -57,8 +57,16 @@ export function organizationSchema(team: TeamMember[], certifications: Certifica
             '@type': 'ContactPoint',
             contactType: 'sales',
             email: 'param@avantspecs.com',
-            telephone: '+971-50-665-0173',
+            telephone: '+971-58-592-7251',
             areaServed: 'Worldwide',
+            availableLanguage: ['English'],
+          },
+          {
+            '@type': 'ContactPoint',
+            contactType: 'sales',
+            email: 'param@avantspecs.com',
+            telephone: '+91-99960-64220',
+            areaServed: 'IN',
             availableLanguage: ['English'],
           },
           {

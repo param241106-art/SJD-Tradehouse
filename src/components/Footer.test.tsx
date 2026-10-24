@@ -94,7 +94,8 @@ describe('Footer newsletter form', () => {
     window.history.pushState({}, '', `${import.meta.env.BASE_URL}contact`);
     render(<Footer />);
     expect(screen.queryByRole('link', { name: /param@avantspecs.com/ })).not.toBeInTheDocument();
-    expect(screen.queryByRole('link', { name: /\+971 50 665 0173/ })).not.toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: /\+971 58 592 7251/ })).not.toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: /\+91 99960 64220/ })).not.toBeInTheDocument();
     window.history.pushState({}, '', import.meta.env.BASE_URL);
   });
 });
