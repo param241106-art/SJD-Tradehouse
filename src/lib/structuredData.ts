@@ -21,7 +21,7 @@ export function organizationSchema(team: TeamMember[], certifications: Certifica
         '@type': 'Organization',
         '@id': ORGANIZATION_ID,
         name: 'AvantSpecs',
-        alternateName: 'AvantSpecs — Synergistic Herbal Solutions',
+        alternateName: 'AvantSpecs — Merchant Trading',
         url: `${SITE_URL}/`,
         logo: {
           '@type': 'ImageObject',

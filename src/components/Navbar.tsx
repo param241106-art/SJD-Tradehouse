@@ -62,7 +62,7 @@ export function Navbar() {
             <div className="leading-none">
               <p className="font-heading text-base font-semibold text-white">AvantSpecs</p>
               <p className="font-mono text-[0.6rem] uppercase tracking-wider text-gold-light">
-                Synergistic Herbal Solutions
+                Merchant Trading
               </p>
             </div>
           </a>
