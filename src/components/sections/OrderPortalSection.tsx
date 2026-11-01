@@ -12,7 +12,7 @@ import {
 } from 'lucide-react';
 import { Section } from '@/components/Section';
 import { useReveal } from '@/lib/hooks';
-import { products, volumeOptions, incotermOptions } from '@/data/content';
+import { availableProducts, products, volumeOptions, incotermOptions } from '@/data/content';
 import { supabase } from '@/lib/supabase';
 import { navigate, routeHref, handleRouteLinkClick } from '@/lib/router';
 
@@ -283,7 +283,7 @@ export function OrderPortalSection({ preselectedProduct, resetSignal }: Props) {
                   Choose one or more products to include in your quote request.
                 </p>
                 <div className="mt-6 flex flex-wrap gap-3">
-                  {products.map((product) => {
+                  {availableProducts.map((product) => {
                     const selected = data.selectedProducts.includes(product.id);
                     return (
                       <button

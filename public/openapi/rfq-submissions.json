@@ -39,7 +39,7 @@
               "schema": { "$ref": "#/components/schemas/RfqSubmissionInput" },
               "example": {
                 "reference": "AVS-2026-7K2QX",
-                "products": ["saffron", "cumin-seed"],
+                "products": ["medjool-dates", "turkish-figs"],
                 "volume": "500-1000kg",
                 "incoterm": "FOB",
                 "port": "Nhava Sheva",
@@ -83,7 +83,7 @@
         "required": ["reference"],
         "properties": {
           "reference": { "type": "string", "description": "Client-generated reference code, format AVS-<year>-<5 alphanumeric chars>.", "example": "AVS-2026-7K2QX" },
-          "products": { "type": "array", "items": { "type": "string" }, "description": "Product IDs from the register (see /register), e.g. \"saffron\", \"cumin-seed\"." },
+          "products": { "type": "array", "items": { "type": "string" }, "description": "Product IDs from the Products page (see /register), e.g. \"medjool-dates\", \"turkish-figs\"." },
           "volume": { "type": "string", "description": "Requested order volume range." },
           "incoterm": { "type": "string", "description": "Requested Incoterm, e.g. FOB, CIF, EXW." },
           "port": { "type": "string", "description": "Destination or loading port." },

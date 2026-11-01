@@ -7,7 +7,7 @@ import { Picture } from '@/components/Picture';
 
 const navLinks: { label: string; route: Exclude<Route, 'product'> }[] = [
   { label: 'Home', route: 'home' },
-  { label: 'Product Register', route: 'register' },
+  { label: 'Products', route: 'register' },
   { label: 'The House', route: 'house' },
   { label: 'About Us', route: 'about' },
   { label: 'Trade & Markets', route: 'trade' },

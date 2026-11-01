@@ -13,6 +13,8 @@ export type Product = {
     | 'Solvent Extracted'
     | 'Hand-Harvested & Sun Dried'
     | 'Tree-Ripened & Graded'
+    | 'Sun Dried & Graded'
+    | 'Cleaned & Graded'
     | 'Cleaned & Sieved'
     | 'Roasted & Graded'
     | 'Milled & Sieved'
@@ -26,6 +28,10 @@ export type Product = {
   moq?: string;
   coaAvailable: boolean;
   photoUrl: string;
+  // Listed for visibility but not yet quotable: shows a "Coming Soon" badge,
+  // hides the quote CTAs, and is left out of the Order Portal. Delete this
+  // line from a product to make it available.
+  comingSoon?: boolean;
 };
 
 export const categoryLabels: Record<Product['category'], string> = {
@@ -85,6 +91,62 @@ export const products: Product[] = [
     photoUrl: '/images/Medjool_Dates.jpg',
   },
   {
+    id: 'turkish-figs',
+    name: 'Turkish Figs',
+    seoTitle: 'Turkish Dried Figs Supplier',
+    latinBinomial: 'Ficus carica',
+    category: 'fruits',
+    extractionMethod: 'Sun Dried & Graded',
+    origin: 'Turkey',
+    originCountry: 'Turkey',
+    description:
+      'Soft, naturally sweet Ficus carica dried figs from Turkey, sun dried and graded by size for retail packing, confectionery, bakery, and food manufacturing. AvantSpecs supplies wholesale Turkish dried figs as a bulk dried figs supplier to importers and food brands worldwide.',
+    coaAvailable: true,
+    photoUrl: '/images/Turkish_Figs.jpg',
+  },
+  {
+    id: 'turkish-apricots',
+    name: 'Turkish Apricots',
+    seoTitle: 'Turkish Dried Apricots Supplier',
+    latinBinomial: 'Prunus armeniaca',
+    category: 'fruits',
+    extractionMethod: 'Sun Dried & Graded',
+    origin: 'Turkey',
+    originCountry: 'Turkey',
+    description:
+      'Bright, naturally sweet Prunus armeniaca dried apricots from Turkey, sun dried and graded by size for retail packing, snack mixes, bakery, and food manufacturing. AvantSpecs supplies wholesale Turkish dried apricots as a bulk dried apricots supplier to importers and food brands worldwide.',
+    coaAvailable: true,
+    photoUrl: '/images/Turkish_Apricots.jpg',
+  },
+  {
+    id: 'irani-pista',
+    name: 'Irani Pista',
+    seoTitle: 'Iranian Pistachios Supplier',
+    latinBinomial: 'Pistacia vera',
+    category: 'nuts',
+    extractionMethod: 'Cleaned & Graded',
+    origin: 'Iran',
+    originCountry: 'Iran',
+    description:
+      'Rich, buttery Pistacia vera pistachios (pista) from Iran, cleaned and graded by size for retail packing, confectionery, bakery, and food manufacturing. AvantSpecs supplies wholesale Iranian pistachios as a bulk pista supplier to importers and food brands.',
+    coaAvailable: true,
+    photoUrl: '/images/Irani_Pista.jpg',
+  },
+  {
+    id: 'irani-mamra',
+    name: 'Irani Mamra',
+    seoTitle: 'Iranian Mamra Almonds Supplier',
+    latinBinomial: 'Prunus dulcis',
+    category: 'nuts',
+    extractionMethod: 'Cleaned & Graded',
+    origin: 'Iran',
+    originCountry: 'Iran',
+    description:
+      'Small, concave Prunus dulcis Mamra almonds from Iran, valued for their rich flavour and natural oil content, cleaned and graded for retail packing, gifting, and food manufacturing. AvantSpecs supplies wholesale Iranian Mamra almonds as a bulk Mamra supplier to importers and food brands.',
+    coaAvailable: true,
+    photoUrl: '/images/Irani_Mamra.jpg',
+  },
+  {
     id: 'eucalyptus-oil',
     name: 'Eucalyptus Oil',
     seoTitle: 'Eucalyptus Oil Exporter India',
@@ -97,6 +159,7 @@ export const products: Product[] = [
     moq: '25 kg',
     coaAvailable: true,
     photoUrl: 'https://images.pexels.com/photos/6720282/pexels-photo-6720282.jpeg?auto=compress&cs=tinysrgb&w=800',
+    comingSoon: true,
   },
   {
     id: 'clove-bud-oil',
@@ -111,6 +174,7 @@ export const products: Product[] = [
     moq: '25 kg',
     coaAvailable: true,
     photoUrl: '/images/Clove_Buds.jpg',
+    comingSoon: true,
   },
   {
     id: 'lemongrass-oil',
@@ -125,6 +189,7 @@ export const products: Product[] = [
     moq: '25 kg',
     coaAvailable: true,
     photoUrl: '/images/Lemon_Grass.jpg',
+    comingSoon: true,
   },
   {
     id: 'citronella-oil',
@@ -139,6 +204,7 @@ export const products: Product[] = [
     moq: '25 kg',
     coaAvailable: true,
     photoUrl: '/images/Citronella_Oil.jpg',
+    comingSoon: true,
   },
   {
     id: 'black-pepper-oleoresin',
@@ -153,6 +219,7 @@ export const products: Product[] = [
     moq: '10 kg',
     coaAvailable: true,
     photoUrl: '/images/Black_Pepper_Oleoresin.jpg',
+    comingSoon: true,
   },
   {
     id: 'saffron',
@@ -167,6 +234,7 @@ export const products: Product[] = [
     moq: '500 g',
     coaAvailable: true,
     photoUrl: '/images/Saffron.jpg',
+    comingSoon: true,
   },
   {
     id: 'cumin-seed',
@@ -181,6 +249,7 @@ export const products: Product[] = [
     moq: '25 kg',
     coaAvailable: true,
     photoUrl: '/images/Cumin.jpg',
+    comingSoon: true,
   },
   {
     id: 'areca-leaf-plates',
@@ -195,6 +264,7 @@ export const products: Product[] = [
     moq: '5,000 pieces',
     coaAvailable: false,
     photoUrl: '/images/Areca_Plates.jpg',
+    comingSoon: true,
   },
   {
     id: 'cashew-kernels',
@@ -209,6 +279,7 @@ export const products: Product[] = [
     moq: '25 kg',
     coaAvailable: true,
     photoUrl: '/images/Cashews.jpg',
+    comingSoon: true,
   },
   {
     id: 'guar-gum-powder',
@@ -223,6 +294,7 @@ export const products: Product[] = [
     moq: '25 kg',
     coaAvailable: true,
     photoUrl: '/images/Guar_Gum.jpg',
+    comingSoon: true,
   },
   {
     id: 'onion-powder',
@@ -237,6 +309,7 @@ export const products: Product[] = [
     moq: '25 kg',
     coaAvailable: true,
     photoUrl: '/images/Onion_Powder.jpg',
+    comingSoon: true,
   },
   {
     id: 'potato-powder',
@@ -251,8 +324,11 @@ export const products: Product[] = [
     moq: '25 kg',
     coaAvailable: true,
     photoUrl: '/images/Potato_Powder.jpg',
+    comingSoon: true,
   },
 ];
+
+export const availableProducts = products.filter((p) => !p.comingSoon);
 
 export const regions: Region[] = [
   {
@@ -337,7 +413,7 @@ export const volumeOptions = [
 export const incotermOptions = ['EXW', 'FOB', 'CIF', 'DAP', 'DDP'];
 
 export const stats = [
-  { value: 13, suffix: '', label: 'Core SKUs in register' },
+  { value: products.length, suffix: '', label: 'Core products listed' },
   { value: 48, suffix: 'h', label: 'Quote response window' },
   { value: 8, suffix: '', label: 'Documents per consignment' },
 ];

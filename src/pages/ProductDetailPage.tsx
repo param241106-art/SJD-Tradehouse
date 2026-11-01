@@ -20,19 +20,18 @@ export function ProductDetailPage({ productId }: Props) {
     return (
       <Section id="product-detail" bg="plain">
         <div className="container-tight text-center">
-          <p className="eyebrow mx-auto justify-center">Product Register</p>
+          <p className="eyebrow mx-auto justify-center">Products</p>
           <h1 className="mt-3 text-4xl leading-tight md:text-5xl">Product not found</h1>
           <span className="heading-accent mx-auto" />
           <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-ink-secondary">
-            We could not find that product in the register. It may have been renamed or
-            removed.
+            We could not find that product. It may have been renamed or removed.
           </p>
           <a
             href={routeHref('register')}
             onClick={(e) => handleRouteLinkClick(e, () => navigate('register'))}
             className="btn-gold mt-8"
           >
-            Browse the Register
+            Browse Products
           </a>
         </div>
       </Section>
@@ -43,6 +42,7 @@ export function ProductDetailPage({ productId }: Props) {
   const isExtracted = product.category === 'oils' || product.category === 'oleoresins';
 
   const facts: { label: string; value: string }[] = [
+    ...(product.comingSoon ? [{ label: 'Availability', value: 'Coming Soon' }] : []),
     { label: isExtracted ? 'Extraction Method' : 'Processing Method', value: product.extractionMethod },
     { label: 'Origin', value: product.origin },
     ...(product.moq ? [{ label: 'MOQ', value: product.moq }] : []),
@@ -57,7 +57,7 @@ export function ProductDetailPage({ productId }: Props) {
           onClick={(e) => handleRouteLinkClick(e, () => navigate('register'))}
           className="btn-ghost"
         >
-          <ChevronLeft size={17} /> Back to Register
+          <ChevronLeft size={17} /> Back to Products
         </a>
 
         <div className="mt-8 grid gap-10 lg:grid-cols-2 lg:items-start">
@@ -74,7 +74,12 @@ export function ProductDetailPage({ productId }: Props) {
           </div>
 
           <div>
-            <p className="eyebrow">{categoryLabel}</p>
+            <div className="flex flex-wrap items-center gap-3">
+              <p className="eyebrow">{categoryLabel}</p>
+              {product.comingSoon && (
+                <span className="badge border-gold bg-gold text-white">Coming Soon</span>
+              )}
+            </div>
             <h1 className="mt-3 text-4xl leading-tight md:text-5xl">{product.name}</h1>
             <span className="heading-accent" />
             <p className="mt-3 text-base italic text-ink-muted">{product.latinBinomial}</p>
@@ -124,13 +129,15 @@ export function ProductDetailPage({ productId }: Props) {
               </div>
             </div>
 
-            <button
-              type="button"
-              onClick={() => navigateToOrderPortalWithProduct(product.id)}
-              className="btn-gold mt-6"
-            >
-              Request a Quote for {product.name}
-            </button>
+            {!product.comingSoon && (
+              <button
+                type="button"
+                onClick={() => navigateToOrderPortalWithProduct(product.id)}
+                className="btn-gold mt-6"
+              >
+                Request a Quote for {product.name}
+              </button>
+            )}
           </div>
         </div>
       </div>
@@ -138,35 +145,39 @@ export function ProductDetailPage({ productId }: Props) {
       <div className="mt-20">
         <CTABand
           title="Need a custom or unlisted specification?"
-          description="If you need a product or spec not shown in the register, tell us what you are looking for. We source to order for qualified buyers."
+          description="If you need a product or spec not listed here, tell us what you are looking for. We source to order for qualified buyers."
           primaryLabel="Contact the Trade Desk"
           primaryRoute="contact"
-          secondaryLabel="Browse the Register"
+          secondaryLabel="Browse Products"
           secondaryRoute="register"
         />
       </div>
 
-      {/* Reserves scroll space so the fixed bar below never covers the
-          CTABand/Footer at the bottom of the page — see the audit finding
-          about the RFQ CTA being unreachable without scrolling on mobile. */}
-      <div className="h-20 sm:hidden" aria-hidden="true" />
+      {!product.comingSoon && (
+        <>
+          {/* Reserves scroll space so the fixed bar below never covers the
+              CTABand/Footer at the bottom of the page — see the audit finding
+              about the RFQ CTA being unreachable without scrolling on mobile. */}
+          <div className="h-20 sm:hidden" aria-hidden="true" />
 
-      {/* Sticky mobile RFQ bar: on a narrow viewport the inline "Request a
-          Quote" button above is several screens down (hero image + facts +
-          trust block), so this keeps the primary conversion action reachable
-          without scrolling. Desktop already surfaces it in the Navbar. */}
-      <div
-        className="fixed inset-x-0 bottom-0 z-30 border-t border-line bg-bg/95 px-4 py-3 shadow-soft backdrop-blur sm:hidden"
-        style={{ paddingBottom: 'max(0.75rem, env(safe-area-inset-bottom))' }}
-      >
-        <button
-          type="button"
-          onClick={() => navigateToOrderPortalWithProduct(product.id)}
-          className="btn-gold w-full"
-        >
-          Request a Quote
-        </button>
-      </div>
+          {/* Sticky mobile RFQ bar: on a narrow viewport the inline "Request a
+              Quote" button above is several screens down (hero image + facts +
+              trust block), so this keeps the primary conversion action reachable
+              without scrolling. Desktop already surfaces it in the Navbar. */}
+          <div
+            className="fixed inset-x-0 bottom-0 z-30 border-t border-line bg-bg/95 px-4 py-3 shadow-soft backdrop-blur sm:hidden"
+            style={{ paddingBottom: 'max(0.75rem, env(safe-area-inset-bottom))' }}
+          >
+            <button
+              type="button"
+              onClick={() => navigateToOrderPortalWithProduct(product.id)}
+              className="btn-gold w-full"
+            >
+              Request a Quote
+            </button>
+          </div>
+        </>
+      )}
     </Section>
   );
 }

@@ -85,7 +85,7 @@ export function HomeSection() {
               <span className="rounded-full bg-gold px-2 py-0.5 font-label text-[0.65rem] uppercase tracking-wider text-white">
                 New
               </span>
-              Medjool Dates from Jordan now in the register
+              Medjool Dates from Jordan now available
               <ArrowRight size={15} />
             </a>
             <p className="eyebrow">Rohtak, India</p>
@@ -112,7 +112,7 @@ export function HomeSection() {
                 onClick={(e) => handleRouteLinkClick(e, () => navigate('register'))}
                 className="btn-outline"
               >
-                Browse the Register
+                Browse Products
               </a>
             </div>
           </div>

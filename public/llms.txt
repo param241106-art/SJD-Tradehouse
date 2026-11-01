@@ -2,15 +2,21 @@
 
 > AvantSpecs is a merchant export house based in Rohtak, India, sourcing, testing, and shipping essential oils, oleoresins, spices, nuts, dried fruits, powders, and eco disposables to wholesale buyers, formulators, and flavour houses worldwide. Every consignment ships with a full documentation set (COA, TDS, SDS, Certificate of Origin, Phytosanitary Certificate, Commercial Invoice & Packing List, Bill of Lading, and an Allergen/Non-GMO Declaration).
 
-## Product Register
+## Products
 
-13 core SKUs across seven categories. Full details, MOQ, and COA availability at https://avantspecs.com/register, or view an individual product at https://avantspecs.com/product/<id>.
+17 core SKUs across seven categories. Full details at https://avantspecs.com/register, or view an individual product at https://avantspecs.com/product/<id>.
+
+Available now:
+
+- Dried Fruits: Medjool Dates (Jordan), Turkish Figs, Turkish Apricots
+- Nuts: Irani Pista (Iranian pistachios), Irani Mamra (Iranian Mamra almonds)
+
+Coming soon (not yet available to quote):
 
 - Essential Oils: Eucalyptus Oil, Clove Bud Oil, Lemongrass Oil, Citronella Oil
 - Oleoresins: Black Pepper Oleoresin
 - Spices: Saffron, Cumin Seed
 - Nuts: Cashew Kernels
-- Dried Fruits: Medjool Dates
 - Powders: Guar Gum Powder, Onion Powder, Potato Powder
 - Eco Disposables: Areca Leaf Plates
 

@@ -107,7 +107,14 @@ export function productSchema(product: Product) {
   const additionalProperty = [
     { '@type': 'PropertyValue', name: 'Botanical name', value: product.latinBinomial },
     { '@type': 'PropertyValue', name: 'Processing method', value: product.extractionMethod },
-    { '@type': 'PropertyValue', name: 'Origin region', value: `${product.origin}, ${product.originCountry ?? 'India'}` },
+    {
+      '@type': 'PropertyValue',
+      name: 'Origin region',
+      value:
+        product.origin === product.originCountry
+          ? product.origin
+          : `${product.origin}, ${product.originCountry ?? 'India'}`,
+    },
     ...(product.moq ? [{ '@type': 'PropertyValue', name: 'Minimum order quantity', value: product.moq }] : []),
     {
       '@type': 'PropertyValue',
@@ -132,7 +139,9 @@ export function productSchema(product: Product) {
     additionalProperty,
     offers: {
       '@type': 'Offer',
-      availability: 'https://schema.org/InStock',
+      availability: product.comingSoon
+        ? 'https://schema.org/OutOfStock'
+        : 'https://schema.org/InStock',
       priceSpecification: {
         '@type': 'PriceSpecification',
         description: product.moq

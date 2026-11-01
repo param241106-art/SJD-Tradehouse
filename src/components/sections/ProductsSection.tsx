@@ -29,7 +29,9 @@ export function ProductsSection({ onRequestSpecs, headingLevel }: Props) {
       const matchesSearch =
         q === '' ||
         p.name.toLowerCase().includes(q) ||
-        p.latinBinomial.toLowerCase().includes(q);
+        p.latinBinomial.toLowerCase().includes(q) ||
+        // Lets buyers find "Irani Pista" by "pistachio" and "Irani Mamra" by "almond".
+        p.description.toLowerCase().includes(q);
       return matchesCategory && matchesSearch;
     });
   }, [filter, search]);
@@ -50,9 +52,9 @@ export function ProductsSection({ onRequestSpecs, headingLevel }: Props) {
       <div className="container-wrap">
         <div ref={headerReveal.ref} className={`reveal ${headerReveal.visible ? 'is-visible' : ''}`}>
           <SectionHeader
-            eyebrow="The Product Register"
-            title="Browse available SKUs"
-            description={`${products.length} core products in register. Filter by category or search by product name or Latin binomial. Click "Request Specs" on any card to start a quote.`}
+            eyebrow="Products"
+            title="Browse our range"
+            description={`${products.length} core products. Filter by category or search by product name or Latin binomial. Click "Request Specs" on any available product to start a quote.`}
             headingLevel={headingLevel}
           />
         </div>
@@ -117,7 +119,7 @@ export function ProductsSection({ onRequestSpecs, headingLevel }: Props) {
       <div className="mt-20">
         <CTABand
           title="Need a custom or unlisted specification?"
-          description="If you need a product or spec not shown in the register, tell us what you are looking for. We source to order for qualified buyers."
+          description="If you need a product or spec not listed here, tell us what you are looking for. We source to order for qualified buyers."
           primaryLabel="Make a Custom Request"
           primaryOnClick={() =>
             document.getElementById('portal-page')?.scrollIntoView({ behavior: 'smooth' })
@@ -174,6 +176,11 @@ function ProductCard({
         <span className="badge absolute left-3 top-3 border-white/20 bg-white/90 text-green">
           {categoryLabels[product.category]}
         </span>
+        {product.comingSoon && (
+          <span className="badge absolute right-3 top-3 border-gold bg-gold text-white">
+            Coming Soon
+          </span>
+        )}
       </a>
       <div className="p-6">
         <p className="text-xs italic text-ink-muted">{product.latinBinomial}</p>
@@ -198,13 +205,15 @@ function ProductCard({
             </span>
           )}
         </div>
-        <button
-          type="button"
-          onClick={() => onRequestSpecs(product.id)}
-          className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-green transition-colors hover:text-gold"
-        >
-          Request Specs <ArrowRight size={15} />
-        </button>
+        {!product.comingSoon && (
+          <button
+            type="button"
+            onClick={() => onRequestSpecs(product.id)}
+            className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-green transition-colors hover:text-gold"
+          >
+            Request Specs <ArrowRight size={15} />
+          </button>
+        )}
       </div>
     </div>
   );

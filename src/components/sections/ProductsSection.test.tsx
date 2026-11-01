@@ -51,14 +51,46 @@ describe('ProductsSection', () => {
     ).toBeInTheDocument();
   });
 
+  it('finds products by a term that only appears in the description', async () => {
+    const user = userEvent.setup();
+    render(<ProductsSection onRequestSpecs={vi.fn()} />);
+    await user.type(screen.getByLabelText('Search products'), 'pistachio');
+    expect(screen.getByText('Irani Pista')).toBeInTheDocument();
+    expect(screen.queryByText('Irani Mamra')).not.toBeInTheDocument();
+  });
+
   it('calls onRequestSpecs with the product id when "Request Specs" is clicked', async () => {
     const user = userEvent.setup();
     const onRequestSpecs = vi.fn();
     render(<ProductsSection onRequestSpecs={onRequestSpecs} />);
-    const card = screen.getByText('Eucalyptus Oil').closest('div.card');
+    const card = screen.getByText('Medjool Dates').closest('div.card');
     const button = within(card as HTMLElement).getByRole('button', { name: /Request Specs/ });
     await user.click(button);
-    expect(onRequestSpecs).toHaveBeenCalledWith('eucalyptus-oil');
+    expect(onRequestSpecs).toHaveBeenCalledWith('medjool-dates');
+  });
+
+  it('shows Coming Soon instead of "Request Specs" on coming-soon products', () => {
+    render(<ProductsSection onRequestSpecs={vi.fn()} />);
+    products.forEach((p) => {
+      const card = within(screen.getByText(p.name).closest('div.card') as HTMLElement);
+      if (p.comingSoon) {
+        expect(card.getByText('Coming Soon')).toBeInTheDocument();
+        expect(card.queryByRole('button', { name: /Request Specs/ })).not.toBeInTheDocument();
+      } else {
+        expect(card.queryByText('Coming Soon')).not.toBeInTheDocument();
+        expect(card.getByRole('button', { name: /Request Specs/ })).toBeInTheDocument();
+      }
+    });
+  });
+
+  it('keeps only the dates and the four new SKUs available', () => {
+    expect(products.filter((p) => !p.comingSoon).map((p) => p.id)).toEqual([
+      'medjool-dates',
+      'turkish-figs',
+      'turkish-apricots',
+      'irani-pista',
+      'irani-mamra',
+    ]);
   });
 
   it('navigates to the product detail page when its image is clicked', async () => {

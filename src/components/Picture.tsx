@@ -29,7 +29,7 @@ export function Picture({ src, alt, width, height, className, loading = 'lazy', 
   return (
     // bg-green-tint shows behind the image while it loads, so a lazy image
     // on a slow connection reads as "loading" rather than a blank white gap.
-    <picture className="block bg-green-tint">
+    <picture className="block h-full bg-green-tint">
       <source srcSet={webpSrc} type="image/webp" />
       <img
         src={resolvedSrc}

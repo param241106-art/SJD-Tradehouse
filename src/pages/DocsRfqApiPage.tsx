@@ -7,7 +7,7 @@ const CURL_EXAMPLE = `curl -X POST 'https://wkpnnmjjkicsplvwcebk.supabase.co/res
   -H "Prefer: return=minimal" \\
   -d '{
     "reference": "AVS-2026-7K2QX",
-    "products": ["saffron", "cumin-seed"],
+    "products": ["medjool-dates", "turkish-figs"],
     "volume": "500-1000kg",
     "incoterm": "FOB",
     "port": "Nhava Sheva",
@@ -21,7 +21,7 @@ const CURL_EXAMPLE = `curl -X POST 'https://wkpnnmjjkicsplvwcebk.supabase.co/res
 
 const fields: { name: string; type: string; description: string }[] = [
   { name: 'reference', type: 'string (required)', description: 'Client-generated reference code, format AVS-<year>-<5 alphanumeric chars>.' },
-  { name: 'products', type: 'string[]', description: 'Product IDs from the register (see /register), e.g. "saffron", "cumin-seed".' },
+  { name: 'products', type: 'string[]', description: 'Product IDs from the Products page (see /register), e.g. "medjool-dates", "turkish-figs".' },
   { name: 'volume', type: 'string', description: 'Requested order volume range.' },
   { name: 'incoterm', type: 'string', description: 'Requested Incoterm, e.g. FOB, CIF, EXW.' },
   { name: 'port', type: 'string', description: 'Destination or loading port.' },
@@ -138,7 +138,7 @@ export function DocsRfqApiPage() {
       <div className="mt-20">
         <CTABand
           title="Prefer to talk to a person instead?"
-          description="The Order Portal on the Product Register submits to this same endpoint through a guided form — no API client required."
+          description="The Order Portal on the Products page submits to this same endpoint through a guided form — no API client required."
           primaryLabel="Open the Order Portal"
           primaryRoute="register"
           secondaryLabel="Contact the Trade Desk"

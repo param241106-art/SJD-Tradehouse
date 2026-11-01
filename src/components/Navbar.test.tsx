@@ -14,7 +14,7 @@ describe('Navbar', () => {
     render(<Navbar />);
     const desktopNav = screen.getAllByRole('link', { name: 'Home' })[0];
     expect(desktopNav).toBeInTheDocument();
-    ['Register', 'House', 'Trade', 'Contact'].forEach((label) => {
+    ['Products', 'House', 'Trade', 'Contact'].forEach((label) => {
       expect(screen.getAllByRole('link', { name: label }).length).toBeGreaterThan(0);
     });
     expect(screen.getByRole('button', { name: 'Request a Quote' })).toBeInTheDocument();

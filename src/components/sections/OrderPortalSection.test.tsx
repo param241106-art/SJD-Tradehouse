@@ -44,7 +44,7 @@ describe('OrderPortalSection (RFQ wizard)', () => {
   it('toggles product selection on and off', async () => {
     const user = userEvent.setup();
     render(<OrderPortalSection preselectedProduct={null} resetSignal={0} />);
-    const productBtn = screen.getByRole('button', { name: 'Eucalyptus Oil' });
+    const productBtn = screen.getByRole('button', { name: 'Medjool Dates' });
     expect(productBtn.className).not.toContain('bg-green text-white');
     await user.click(productBtn);
     expect(productBtn.className).toContain('bg-green text-white');
@@ -56,15 +56,21 @@ describe('OrderPortalSection (RFQ wizard)', () => {
     const { rerender } = render(
       <OrderPortalSection preselectedProduct={null} resetSignal={0} />,
     );
-    rerender(<OrderPortalSection preselectedProduct="clove-bud-oil" resetSignal={1} />);
-    const productBtn = screen.getByRole('button', { name: 'Clove Bud Oil' });
+    rerender(<OrderPortalSection preselectedProduct="turkish-figs" resetSignal={1} />);
+    const productBtn = screen.getByRole('button', { name: 'Turkish Figs' });
     expect(productBtn.className).toContain('bg-green text-white');
+  });
+
+  it('leaves coming-soon products out of the product picker', () => {
+    render(<OrderPortalSection preselectedProduct={null} resetSignal={0} />);
+    expect(screen.getByRole('button', { name: 'Irani Mamra' })).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: 'Eucalyptus Oil' })).not.toBeInTheDocument();
   });
 
   it('requires volume, incoterm, and port before advancing from shipping', async () => {
     const user = userEvent.setup();
     render(<OrderPortalSection preselectedProduct={null} resetSignal={0} />);
-    await user.click(screen.getByRole('button', { name: 'Eucalyptus Oil' }));
+    await user.click(screen.getByRole('button', { name: 'Medjool Dates' }));
     await user.click(screen.getByRole('button', { name: /Next/ }));
     expect(screen.getByText('Shipping details')).toBeInTheDocument();
 
@@ -78,7 +84,7 @@ describe('OrderPortalSection (RFQ wizard)', () => {
   it('requires company, country, name, and a valid email before advancing from buyer details', async () => {
     const user = userEvent.setup();
     render(<OrderPortalSection preselectedProduct={null} resetSignal={0} />);
-    await user.click(screen.getByRole('button', { name: 'Eucalyptus Oil' }));
+    await user.click(screen.getByRole('button', { name: 'Medjool Dates' }));
     await user.click(screen.getByRole('button', { name: /Next/ }));
     await fillShippingStep(user);
     await user.click(screen.getByRole('button', { name: /Next/ }));
@@ -94,7 +100,7 @@ describe('OrderPortalSection (RFQ wizard)', () => {
   it('shows a review summary reflecting entered data', async () => {
     const user = userEvent.setup();
     render(<OrderPortalSection preselectedProduct={null} resetSignal={0} />);
-    await user.click(screen.getByRole('button', { name: 'Eucalyptus Oil' }));
+    await user.click(screen.getByRole('button', { name: 'Medjool Dates' }));
     await user.click(screen.getByRole('button', { name: /Next/ }));
     await fillShippingStep(user);
     await user.click(screen.getByRole('button', { name: /Next/ }));
@@ -102,7 +108,7 @@ describe('OrderPortalSection (RFQ wizard)', () => {
     await user.click(screen.getByRole('button', { name: /Next/ }));
 
     expect(screen.getByText('Review your enquiry')).toBeInTheDocument();
-    expect(screen.getByText('Eucalyptus Oil')).toBeInTheDocument();
+    expect(screen.getByText('Medjool Dates')).toBeInTheDocument();
     expect(screen.getByText('Port of Hamburg')).toBeInTheDocument();
     expect(screen.getByText('Buyer Co')).toBeInTheDocument();
     expect(screen.getByText('jane@example.com')).toBeInTheDocument();
@@ -111,7 +117,7 @@ describe('OrderPortalSection (RFQ wizard)', () => {
   it('submits the RFQ to rfq_submissions and shows a reference number', async () => {
     const user = userEvent.setup();
     render(<OrderPortalSection preselectedProduct={null} resetSignal={0} />);
-    await user.click(screen.getByRole('button', { name: 'Eucalyptus Oil' }));
+    await user.click(screen.getByRole('button', { name: 'Medjool Dates' }));
     await user.click(screen.getByRole('button', { name: /Next/ }));
     await fillShippingStep(user);
     await user.click(screen.getByRole('button', { name: /Next/ }));
@@ -124,7 +130,7 @@ describe('OrderPortalSection (RFQ wizard)', () => {
     });
     expect(supabaseMock.insert).toHaveBeenCalledWith(
       expect.objectContaining({
-        products: ['eucalyptus-oil'],
+        products: ['medjool-dates'],
         volume: 'small',
         incoterm: 'FOB',
         port: 'Port of Hamburg',
@@ -144,7 +150,7 @@ describe('OrderPortalSection (RFQ wizard)', () => {
   it('lets the user step back through the wizard', async () => {
     const user = userEvent.setup();
     render(<OrderPortalSection preselectedProduct={null} resetSignal={0} />);
-    await user.click(screen.getByRole('button', { name: 'Eucalyptus Oil' }));
+    await user.click(screen.getByRole('button', { name: 'Medjool Dates' }));
     await user.click(screen.getByRole('button', { name: /Next/ }));
     expect(screen.getByText('Shipping details')).toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: /Back/ }));
