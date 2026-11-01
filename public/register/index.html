@@ -1,0 +1,22 @@
+<!doctype html>
+<!--
+  The products page moved from /register to /products. GitHub Pages can't send
+  a server-side 301, so this static page does the redirect: an instant meta
+  refresh (which Google treats as a permanent redirect) plus a canonical tag.
+  Keep this file so old links and backlinks to /register keep working. It is
+  not in sitemap.xml, so scripts/prerender.mjs leaves it alone.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Products | AvantSpecs</title>
+    <link rel="canonical" href="https://avantspecs.com/products/" />
+    <meta http-equiv="refresh" content="0; url=/products/" />
+    <script>
+      location.replace('/products/' + location.search + location.hash);
+    </script>
+  </head>
+  <body>
+    <p>This page has moved to <a href="/products/">avantspecs.com/products</a>.</p>
+  </body>
+</html>

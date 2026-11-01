@@ -54,7 +54,7 @@ to source the right product from origin, verify it with GC-MS constituent
 profiling and microbial/heavy-metal testing, document it, and deliver it to
 formulators and flavour houses worldwide.
 
-Our current product register spans essential oils (eucalyptus, clove bud,
+Our current product range spans essential oils (eucalyptus, clove bud,
 lemongrass, citronella), an oleoresin (black pepper), spices (Kashmir
 saffron, cumin seed), cashew kernels, powders (guar gum, onion, potato),
 and compostable areca leaf tableware.
@@ -68,7 +68,7 @@ consignments), with a stated 48-hour quote response window on every RFQ.
 
 Certifications: FSSAI, ISO 9001, ISO 22000.
 Website: https://avantspecs.com — request a quote at
-https://avantspecs.com/register/
+https://avantspecs.com/products/
 
 ===========================================================================
 4. PRIORITIZED SUBMISSION TARGETS
@@ -82,7 +82,7 @@ crawl.
    The largest India B2B marketplace — buyers in this exact category search
    it directly. Create a free Seller/Supplier account, list the company
    under "Essential Oils / Spices Exporters," add all 12 SKUs as products
-   using the product names + descriptions already on /register/, and link
+   using the product names + descriptions already on /products/, and link
    the company profile to https://avantspecs.com/.
 
 2. TradeIndia (tradeindia.com)

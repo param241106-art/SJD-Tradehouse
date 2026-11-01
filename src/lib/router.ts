@@ -18,6 +18,9 @@ export type Route =
 const routeMap: Record<string, Route> = {
   '/': 'home',
   '/home': 'home',
+  '/products': 'register',
+  // Old URL for this page. public/register/index.html redirects it to
+  // /products/; this alias only matters where that static file isn't served.
   '/register': 'register',
   '/house': 'house',
   '/about': 'about',
@@ -29,7 +32,7 @@ const routeMap: Record<string, Route> = {
 
 const pathForRoute: Record<Exclude<Route, 'product'>, string> = {
   home: '/',
-  register: '/register',
+  register: '/products',
   house: '/house',
   about: '/about',
   trade: '/trade',
@@ -113,8 +116,8 @@ export function getRouteFromPath(): Route {
   let path = stripBase(window.location.pathname).toLowerCase();
   // Static per-route shells (see scripts/prerender-shells.mjs) are served
   // from a directory index, so GitHub Pages serves them at a trailing-slash
-  // URL (e.g. /register/) — strip it before matching so both /register and
-  // /register/ resolve the same way.
+  // URL (e.g. /products/) — strip it before matching so both /products and
+  // /products/ resolve the same way.
   if (path.length > 1 && path.endsWith('/')) path = path.slice(0, -1);
   if (/^\/product\/.+/i.test(path)) return 'product';
   return routeMap[path] ?? 'home';

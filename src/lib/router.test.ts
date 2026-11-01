@@ -24,6 +24,7 @@ describe('getRouteFromPath', () => {
 
   it.each([
     ['home', 'home'],
+    ['products', 'register'],
     ['register', 'register'],
     ['house', 'house'],
     ['trade', 'trade'],
@@ -62,6 +63,7 @@ describe('routeHref / productHref', () => {
   it('resolves route paths', () => {
     expect(routeHref('home')).toBe(base);
     expect(routeHref('contact')).toBe(`${base}contact`);
+    expect(routeHref('register')).toBe(`${base}products`);
     expect(routeHref('guide')).toBe(`${base}guide/how-to-choose-an-essential-oil-export-partner`);
   });
 

@@ -4,7 +4,7 @@
 
 ## Products
 
-17 core SKUs across seven categories. Full details at https://avantspecs.com/register, or view an individual product at https://avantspecs.com/product/<id>.
+17 core SKUs across seven categories. Full details at https://avantspecs.com/products, or view an individual product at https://avantspecs.com/product/<id>.
 
 Available now:
 

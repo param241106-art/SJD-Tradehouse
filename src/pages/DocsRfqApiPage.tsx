@@ -21,7 +21,7 @@ const CURL_EXAMPLE = `curl -X POST 'https://wkpnnmjjkicsplvwcebk.supabase.co/res
 
 const fields: { name: string; type: string; description: string }[] = [
   { name: 'reference', type: 'string (required)', description: 'Client-generated reference code, format AVS-<year>-<5 alphanumeric chars>.' },
-  { name: 'products', type: 'string[]', description: 'Product IDs from the Products page (see /register), e.g. "medjool-dates", "turkish-figs".' },
+  { name: 'products', type: 'string[]', description: 'Product IDs from the Products page (see /products), e.g. "medjool-dates", "turkish-figs".' },
   { name: 'volume', type: 'string', description: 'Requested order volume range.' },
   { name: 'incoterm', type: 'string', description: 'Requested Incoterm, e.g. FOB, CIF, EXW.' },
   { name: 'port', type: 'string', description: 'Destination or loading port.' },
