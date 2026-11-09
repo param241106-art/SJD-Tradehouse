@@ -1,9 +1,10 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, type ComponentType } from 'react';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { ScrollProgress } from '@/components/ScrollProgress';
 import { BackToTop } from '@/components/BackToTop';
-import { useRoute, useProductId, canonicalPathForRoute, canonicalPathForProduct } from '@/lib/router';
+import { PageBanner } from '@/components/PageBanner';
+import { useRoute, useProductId, canonicalPathForRoute, canonicalPathForProduct, getRouteFromPath } from '@/lib/router';
 import { useDocumentHead } from '@/lib/hooks';
 import { HomePage } from '@/pages/HomePage';
 import { products } from '@/data/content';
@@ -55,24 +56,55 @@ const routeHead: Record<Exclude<Route, 'product'>, { title: string; description:
 // Home is the default route and stays eager so the first paint has no
 // Suspense round-trip; every other route is fetched on demand so its code
 // doesn't add to the initial bundle a visitor has to download for Home.
-const RegisterPage = lazy(() =>
-  import('@/pages/RegisterPage').then((m) => ({ default: m.RegisterPage })),
+//
+// Each lazy page can also be preloaded. main.tsx preloads the current
+// route's chunk before the first render, and once loaded the page renders
+// directly instead of through React.lazy — so React never swaps the
+// prerendered HTML for the "Loading…" fallback (which collapsed the page
+// and caused a large layout shift on direct visits to inner pages).
+
+function lazyPage<P extends object>(factory: () => Promise<ComponentType<P>>) {
+  let Loaded: ComponentType<P> | null = null;
+  const load = () =>
+    factory().then((C) => {
+      Loaded = C;
+      return { default: C };
+    });
+  const Lazy = lazy(load) as unknown as ComponentType<P>;
+  function Page(props: P) {
+    return Loaded ? <Loaded {...props} /> : <Lazy {...props} />;
+  }
+  Page.preload = load;
+  return Page;
+}
+
+const RegisterPage = lazyPage(() => import('@/pages/RegisterPage').then((m) => m.RegisterPage));
+const HousePage = lazyPage(() => import('@/pages/HousePage').then((m) => m.HousePage));
+const AboutUsPage = lazyPage(() => import('@/pages/AboutUsPage').then((m) => m.AboutUsPage));
+const TradePage = lazyPage(() => import('@/pages/TradePage').then((m) => m.TradePage));
+const ContactPage = lazyPage(() => import('@/pages/ContactPage').then((m) => m.ContactPage));
+const ProductDetailPage = lazyPage(() =>
+  import('@/pages/ProductDetailPage').then((m) => m.ProductDetailPage),
 );
-const HousePage = lazy(() => import('@/pages/HousePage').then((m) => ({ default: m.HousePage })));
-const AboutUsPage = lazy(() =>
-  import('@/pages/AboutUsPage').then((m) => ({ default: m.AboutUsPage })),
-);
-const TradePage = lazy(() => import('@/pages/TradePage').then((m) => ({ default: m.TradePage })));
-const ContactPage = lazy(() =>
-  import('@/pages/ContactPage').then((m) => ({ default: m.ContactPage })),
-);
-const ProductDetailPage = lazy(() =>
-  import('@/pages/ProductDetailPage').then((m) => ({ default: m.ProductDetailPage })),
-);
-const GuidePage = lazy(() => import('@/pages/GuidePage').then((m) => ({ default: m.GuidePage })));
-const DocsRfqApiPage = lazy(() =>
-  import('@/pages/DocsRfqApiPage').then((m) => ({ default: m.DocsRfqApiPage })),
-);
+const GuidePage = lazyPage(() => import('@/pages/GuidePage').then((m) => m.GuidePage));
+const DocsRfqApiPage = lazyPage(() => import('@/pages/DocsRfqApiPage').then((m) => m.DocsRfqApiPage));
+
+const routePreloaders: Partial<Record<Route, () => Promise<unknown>>> = {
+  register: RegisterPage.preload,
+  house: HousePage.preload,
+  about: AboutUsPage.preload,
+  trade: TradePage.preload,
+  contact: ContactPage.preload,
+  product: ProductDetailPage.preload,
+  guide: GuidePage.preload,
+  'docs-rfq-api': DocsRfqApiPage.preload,
+};
+
+/** Loads the code for the route in the address bar (no-op for Home). */
+// eslint-disable-next-line react-refresh/only-export-components
+export function preloadCurrentRoute(): Promise<unknown> {
+  return routePreloaders[getRouteFromPath()]?.() ?? Promise.resolve();
+}
 
 function RouteFallback() {
   return (
@@ -108,8 +140,9 @@ export default function App() {
     <div className="min-h-screen bg-bg">
       <ScrollProgress />
       <Navbar />
-      <main>
+      <main className="pt-16 md:pt-[4.5rem]">
         {route === 'home' && <HomePage />}
+        {route !== 'home' && <PageBanner route={route} productName={product?.name} />}
         {route !== 'home' && (
           <Suspense fallback={<RouteFallback />}>
             {route === 'register' && <RegisterPage />}

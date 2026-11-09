@@ -4,7 +4,7 @@
 
 ## Products
 
-17 core SKUs across seven categories. Full details at https://avantspecs.com/products, or view an individual product at https://avantspecs.com/product/<id>.
+17 core SKUs across seven categories. Full details at %SITE_URL%/products, or view an individual product at %SITE_URL%/product/<id>.
 
 Available now:
 
@@ -22,14 +22,14 @@ Coming soon (not yet available to quote):
 
 ## Company
 
-- About / leadership: https://avantspecs.com/about
-- How SJD TRADEHOUSE sources and documents consignments: https://avantspecs.com/house
-- Export markets served (Europe, Middle East): https://avantspecs.com/trade
-- Contact / request a quote: https://avantspecs.com/contact
+- About / leadership: %SITE_URL%/about
+- How SJD TRADEHOUSE sources and documents consignments: %SITE_URL%/house
+- Export markets served (Europe, Middle East): %SITE_URL%/trade
+- Contact / request a quote: %SITE_URL%/contact
 
 ## Guides
 
-- How to choose an essential oil export partner (documentation to expect, a vetting checklist, and buyer FAQ): https://avantspecs.com/guide/how-to-choose-an-essential-oil-export-partner
+- How to choose an essential oil export partner (documentation to expect, a vetting checklist, and buyer FAQ): %SITE_URL%/guide/how-to-choose-an-essential-oil-export-partner
 
 ## Contact
 

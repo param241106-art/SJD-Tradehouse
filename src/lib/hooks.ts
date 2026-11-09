@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { SITE_URL } from '@/lib/site';
 
 export function useReveal<T extends HTMLElement = HTMLDivElement>(
   options?: IntersectionObserverInit,
@@ -16,7 +17,7 @@ export function useReveal<T extends HTMLElement = HTMLDivElement>(
           observer.disconnect();
         }
       },
-      { threshold: 0.12, ...options },
+      { threshold: 0.05, rootMargin: '0px 0px -40px 0px', ...options },
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -115,7 +116,7 @@ export function useDocumentHead(title: string, description: string, canonicalPat
     setMeta('twitter:title', title);
     setMeta('twitter:description', description);
 
-    const canonicalUrl = `https://avantspecs.com${canonicalPath}`;
+    const canonicalUrl = `${SITE_URL}${canonicalPath}`;
     let link = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (!link) {
       link = document.createElement('link');

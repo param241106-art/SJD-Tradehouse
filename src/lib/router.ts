@@ -44,7 +44,7 @@ const pathForRoute: Record<Exclude<Route, 'product'>, string> = {
 // A custom event fired on every programmatic navigation. `popstate` alone
 // only fires on back/forward, not on pushState, so components that need to
 // react to in-app navigation (useRoute, useProductId) listen for both.
-const NAVIGATE_EVENT = 'avantspecs:navigate';
+const NAVIGATE_EVENT = 'sjd:navigate';
 
 function getBase(): string {
   // import.meta.env.BASE_URL always has a leading and trailing slash
@@ -77,7 +77,7 @@ export function productHref(productId: string): string {
 }
 
 /** The real, base-independent path for a route — always relative to the
- * production domain root (avantspecs.com), regardless of how the app is
+ * production domain root (SITE_URL), regardless of how the app is
  * currently being served (e.g. a GitHub Pages sub-path). Use this for
  * canonical URLs, not `routeHref`, which is base-aware for actual `<a href>`
  * attributes so links still work when previewed under a sub-path.

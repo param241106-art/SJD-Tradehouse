@@ -3,8 +3,12 @@ import { Search, X } from 'lucide-react';
 import { ComposableMap, Geographies, Geography, Marker, Line } from 'react-simple-maps';
 import { geoCentroid } from 'd3-geo';
 import { regions } from '@/data/content';
+import { asset } from '@/lib/site';
 
-const geoUrl = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json';
+// Self-hosted world-atlas@2.0.2 countries-110m (108 KB). The 50m version
+// (756 KB from a CDN) blocked the main thread for seconds on mobile, and the
+// extra detail is invisible at this map's size.
+const geoUrl = asset('/data/countries-110m.json');
 
 // Names as they appear in our content vs. the names used by the map's
 // country dataset, wherever the two disagree.
@@ -33,17 +37,28 @@ const connectedNames = new Set(connectedCountries.map((c) => c.mapName));
 export function InteractiveMap() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [onScreen, setOnScreen] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchFocused, setSearchFocused] = useState(false);
   const resumeTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const rootRef = useRef<HTMLDivElement>(null);
+
+  // Don't repaint the map every few seconds while nobody can see it.
+  useEffect(() => {
+    const el = rootRef.current;
+    if (!el || typeof IntersectionObserver === 'undefined') return;
+    const io = new IntersectionObserver(([entry]) => setOnScreen(entry.isIntersecting));
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   useEffect(() => {
-    if (paused) return;
+    if (paused || !onScreen) return;
     const id = setInterval(() => {
       setActiveIndex((i) => (i + 1) % connectedCountries.length);
     }, CYCLE_MS);
     return () => clearInterval(id);
-  }, [paused]);
+  }, [paused, onScreen]);
 
   useEffect(() => () => clearTimeout(resumeTimer.current), []);
 
@@ -79,7 +94,7 @@ export function InteractiveMap() {
   };
 
   return (
-    <div className="overflow-hidden rounded-md border border-line bg-surface">
+    <div ref={rootRef} className="overflow-hidden rounded-md border border-line bg-surface">
       <div className="border-b border-line px-6 py-4">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
@@ -181,18 +196,18 @@ export function InteractiveMap() {
                       onClick={() => isConnected && selectCountry(name)}
                       style={{
                         default: {
-                          fill: isActive ? '#c9943e' : isConnected ? '#3d7a58' : '#e6e1d6',
-                          stroke: '#fafaf8',
+                          fill: isActive ? '#b98632' : isConnected ? '#2f6a4a' : '#e4ded2',
+                          stroke: '#ffffff',
                           strokeWidth: 0.5,
                           outline: 'none',
                           cursor: isConnected ? 'pointer' : 'default',
                           transition: 'fill 300ms ease',
                         },
                         hover: {
-                          fill: isActive ? '#c9943e' : isConnected ? '#2a5540' : '#dcd6c9',
+                          fill: isActive ? '#b98632' : isConnected ? '#1d3d2c' : '#cbc2b3',
                           outline: 'none',
                         },
-                        pressed: { fill: '#c9943e', outline: 'none' },
+                        pressed: { fill: '#b98632', outline: 'none' },
                       }}
                     />
                   );
@@ -202,7 +217,7 @@ export function InteractiveMap() {
                   <Line
                     from={ORIGIN_COORDS}
                     to={activeCoords}
-                    stroke="#c9943e"
+                    stroke="#b98632"
                     strokeWidth={1.5}
                     strokeDasharray="4 3"
                     strokeLinecap="round"
@@ -210,12 +225,12 @@ export function InteractiveMap() {
                 )}
 
                 <Marker coordinates={ORIGIN_COORDS}>
-                  <circle r={4} fill="#1c3d2d" stroke="#c9943e" strokeWidth={1.5} />
+                  <circle r={4} fill="#12291d" stroke="#b98632" strokeWidth={1.5} />
                 </Marker>
 
                 {activeCoords && (
                   <Marker coordinates={activeCoords}>
-                    <circle r={5} fill="#c9943e" stroke="#ffffff" strokeWidth={1.5} className="animate-pulse" />
+                    <circle r={5} fill="#b98632" stroke="#ffffff" strokeWidth={1.5} className="animate-pulse" />
                   </Marker>
                 )}
               </>

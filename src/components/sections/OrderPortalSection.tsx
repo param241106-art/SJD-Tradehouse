@@ -13,7 +13,8 @@ import {
 import { Section } from '@/components/Section';
 import { useReveal } from '@/lib/hooks';
 import { availableProducts, products, volumeOptions, incotermOptions } from '@/data/content';
-import { supabase } from '@/lib/supabase';
+import { getSupabase } from '@/lib/supabase';
+import { openEmailDraft } from '@/lib/leads';
 import { navigate, routeHref, handleRouteLinkClick } from '@/lib/router';
 
 type PortalData = {
@@ -62,11 +63,12 @@ export function OrderPortalSection({ preselectedProduct, resetSignal }: Props) {
   const [flashMsg, setFlashMsg] = useState('');
   const [reference, setReference] = useState('');
   const [submitting, setSubmitting] = useState(false);
+  const [sentViaEmail, setSentViaEmail] = useState(false);
   const reveal = useReveal();
 
   useEffect(() => {
     if (preselectedProduct) {
-      setData((prev) => ({
+      setData(() => ({
         ...emptyData,
         selectedProducts: [preselectedProduct],
       }));
@@ -129,7 +131,7 @@ export function OrderPortalSection({ preselectedProduct, resetSignal }: Props) {
     for (let i = 0; i < 5; i++) {
       code += chars[Math.floor(Math.random() * chars.length)];
     }
-    return `AVS-${year}-${code}`;
+    return `SJD-${year}-${code}`;
   };
 
   const submit = async () => {
@@ -140,7 +142,35 @@ export function OrderPortalSection({ preselectedProduct, resetSignal }: Props) {
       .map((id) => products.find((p) => p.id === id)?.name)
       .filter((name): name is string => Boolean(name));
 
-    await supabase.from('rfq_submissions').insert({
+    const supabase = await getSupabase();
+    const volumeLabel = volumeOptions.find((v) => v.value === data.volume)?.label || data.volume;
+    const emailFallback = () => {
+      setSentViaEmail(true);
+      openEmailDraft(`Request for Quote ${ref}`, {
+        Reference: ref,
+        Products: productNames.join(', '),
+        Volume: volumeLabel,
+        Incoterm: data.incoterm,
+        'Destination port': data.port,
+        Company: data.company,
+        Country: data.country,
+        Name: data.name,
+        Email: data.email,
+        Phone: data.phone,
+        Notes: data.notes,
+      });
+    };
+
+    if (!supabase) {
+      // No backend configured for this deployment: hand the enquiry to the
+      // buyer's email app so the RFQ still reaches the trade desk.
+      emailFallback();
+      setSubmitting(false);
+      setCurrentStep(4);
+      return;
+    }
+
+    const { error: insertError } = await supabase.from('rfq_submissions').insert({
       reference: ref,
       products: data.selectedProducts,
       volume: data.volume,
@@ -154,12 +184,19 @@ export function OrderPortalSection({ preselectedProduct, resetSignal }: Props) {
       notes: data.notes,
     });
 
+    if (insertError) {
+      emailFallback();
+      setSubmitting(false);
+      setCurrentStep(4);
+      return;
+    }
+
     try {
       await supabase.functions.invoke('send-rfq-email', {
         body: {
           reference: ref,
           products: productNames,
-          volume: volumeOptions.find((v) => v.value === data.volume)?.label || data.volume,
+          volume: volumeLabel,
           incoterm: data.incoterm,
           port: data.port,
           company: data.company,
@@ -480,10 +517,11 @@ export function OrderPortalSection({ preselectedProduct, resetSignal }: Props) {
                 <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-tint">
                   <CheckCircle2 size={36} className="text-green" />
                 </div>
-                <h3 className="mt-6 text-2xl">Enquiry filed</h3>
-                <p className="mt-3 text-sm text-ink-secondary">
-                  Your quote request has been received. Our trade desk will respond within
-                  48 hours. Please quote this reference in any follow-up communication.
+                <h3 className="mt-6 text-2xl">{sentViaEmail ? 'Almost done: press send' : 'Enquiry filed'}</h3>
+                <p className="mx-auto mt-3 max-w-md text-sm text-ink-secondary">
+                  {sentViaEmail
+                    ? 'Your email app has opened with this quote request filled in. Send it and our trade desk will respond within 48 hours. Please quote this reference in any follow-up communication.'
+                    : 'Your quote request has been received. Our trade desk will respond within 48 hours. Please quote this reference in any follow-up communication.'}
                 </p>
                 <div className="mx-auto mt-8 max-w-sm rounded-md border-2 border-gold bg-gold-tint p-6">
                   <p className="text-xs font-semibold uppercase tracking-wider text-ink-muted">

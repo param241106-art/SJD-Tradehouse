@@ -1,3 +1,4 @@
+import { asset } from '@/lib/site';
 import { Section, CTABand } from '@/components/Section';
 
 const CURL_EXAMPLE = `curl -X POST 'https://wkpnnmjjkicsplvwcebk.supabase.co/rest/v1/rfq_submissions' \\
@@ -49,7 +50,7 @@ export function DocsRfqApiPage() {
         </p>
         <p className="mt-4 text-base leading-relaxed text-ink-secondary">
           The full machine-readable definition is published as an OpenAPI 3.0 document at{' '}
-          <a href="/openapi/rfq-submissions.json" className="text-green underline underline-offset-2">
+          <a href={asset("/openapi/rfq-submissions.json")} className="text-green underline underline-offset-2">
             /openapi/rfq-submissions.json
           </a>
           .

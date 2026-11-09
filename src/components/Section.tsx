@@ -11,13 +11,13 @@ type SectionProps = {
 
 const bgClasses = {
   plain: 'bg-bg',
-  green: 'bg-green-tint',
-  gold: 'bg-gold-tint',
+  green: 'bg-gradient-to-b from-green-tint/80 to-bg',
+  gold: 'bg-gradient-to-b from-gold-tint to-bg',
 };
 
 export function Section({ id, children, className = '', bg = 'plain' }: SectionProps) {
   return (
-    <section id={id} className={`scroll-mt-20 py-20 ${bgClasses[bg]} ${className}`}>
+    <section id={id} className={`scroll-mt-24 py-16 md:py-24 ${bgClasses[bg]} ${className}`}>
       {children}
     </section>
   );
@@ -46,11 +46,11 @@ export function SectionHeader({
   const Heading = headingLevel;
   return (
     <div className={align === 'center' ? 'mx-auto max-w-2xl text-center' : 'max-w-2xl'}>
-      <p className="eyebrow">{eyebrow}</p>
-      <Heading className="mt-3 text-4xl leading-tight md:text-5xl">{title}</Heading>
+      <p className={`eyebrow ${align === 'center' ? 'justify-center' : ''}`}>{eyebrow}</p>
+      <Heading className="mt-4 text-[2.4rem] leading-[1.08] md:text-[3.4rem]">{title}</Heading>
       <span className={`heading-accent ${align === 'center' ? 'mx-auto' : ''}`} />
       {description && (
-        <p className="mt-4 text-base leading-relaxed text-ink-secondary">{description}</p>
+        <p className="mt-5 text-base leading-relaxed text-ink-secondary md:text-lg">{description}</p>
       )}
     </div>
   );
@@ -81,11 +81,16 @@ export function CTABand({
 }: CTABandProps) {
   return (
     <div className="container-wrap">
-      <div className="rounded-lg bg-green px-8 py-12 text-center text-white md:px-16">
-        <h3 className="text-3xl text-white md:text-4xl">{title}</h3>
+      <div className="surface-dark overflow-hidden rounded-lg px-6 py-14 text-center text-white shadow-lift md:px-16 md:py-16">
+        <div className="grid-pattern pointer-events-none absolute inset-0 -z-10" aria-hidden="true" />
+        <div
+          className="pointer-events-none absolute -right-24 -top-24 -z-10 h-72 w-72 rounded-full bg-gold/20 blur-3xl"
+          aria-hidden="true"
+        />
+        <h3 className="mx-auto max-w-2xl text-3xl text-white md:text-[2.75rem] md:leading-tight">{title}</h3>
         <span className="heading-accent mx-auto" />
         {description && (
-          <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-white/80">
+          <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-white/75">
             {description}
           </p>
         )}
@@ -112,14 +117,14 @@ export function CTABand({
               <a
                 href={routeHref(secondaryRoute)}
                 onClick={(e) => handleRouteLinkClick(e, () => navigate(secondaryRoute))}
-                className="btn border border-white/40 text-white hover:bg-white/10"
+                className="btn-glass"
               >
                 {secondaryLabel}
               </a>
             ) : (
               <a
                 href={secondaryHref}
-                className="btn border border-white/40 text-white hover:bg-white/10"
+                className="btn-glass"
               >
                 {secondaryLabel}
               </a>

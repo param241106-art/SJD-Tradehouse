@@ -13,7 +13,7 @@
       // index.html). Adapted from https://github.com/rafgraph/spa-github-pages.
       var l = window.location;
       l.replace(
-        l.protocol + '//' + l.host + '/?p=' +
+        l.protocol + '//' + l.host + '%BASE_URL%?p=' +
         encodeURIComponent(l.pathname + l.search + l.hash)
       );
     </script>

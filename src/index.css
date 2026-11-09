@@ -2,13 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Self-hosted variable fonts (public/fonts, SIL OFL). Served from our own
+   origin and preloaded in index.html, so there is no third-party DNS/TLS
+   round trip to Google Fonts before text can render. The "Fallback" faces
+   are metric-adjusted local fonts so the swap from fallback to webfont
+   barely moves any text (keeps CLS near zero). */
+@font-face {
+  font-family: 'Fraunces Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('/fonts/fraunces-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304,
+    U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Manrope Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200 800;
+  src: url('/fonts/manrope-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304,
+    U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Fraunces Fallback';
+  src: local('Georgia');
+  size-adjust: 103%;
+  ascent-override: 92%;
+  descent-override: 24%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: 'Manrope Fallback';
+  src: local('Arial');
+  size-adjust: 104%;
+  ascent-override: 102%;
+  descent-override: 29%;
+  line-gap-override: 0%;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
   }
 
   body {
     @apply bg-bg font-body text-ink-secondary antialiased;
+    text-rendering: optimizeLegibility;
   }
 
   h1,
@@ -16,83 +61,128 @@
   h3,
   h4,
   h5 {
-    @apply font-heading font-semibold tracking-tight text-ink;
+    @apply font-heading font-medium tracking-tight text-ink;
+    font-optical-sizing: auto;
+  }
+
+  h1,
+  h2 {
+    letter-spacing: -0.025em;
   }
 
   ::selection {
     @apply bg-gold/30 text-ink;
   }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-gold ring-offset-2;
+  }
 }
 
 @layer components {
   .eyebrow {
-    @apply inline-flex items-center gap-2.5 font-label text-sm font-semibold uppercase tracking-[0.2em] text-gold;
+    @apply inline-flex items-center gap-2.5 font-label text-xs font-bold uppercase tracking-[0.22em] text-gold;
   }
 
   .eyebrow::before {
     content: '';
-    @apply h-0.5 w-8 rounded-full bg-gold;
+    @apply h-1.5 w-1.5 rounded-full bg-gold shadow-[0_0_0_4px_rgba(185,134,50,0.18)];
+  }
+
+  .eyebrow-light {
+    @apply eyebrow text-gold-light;
   }
 
   .heading-accent {
-    @apply mt-4 block h-1 w-14 rounded-full bg-gold;
+    @apply mt-5 block h-[3px] w-16 rounded-full bg-gradient-to-r from-gold to-gold-light;
+  }
+
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-gold-light via-gold-pale to-gold-light bg-clip-text text-transparent;
   }
 
   .container-wrap {
-    @apply mx-auto w-full max-w-wrap px-6;
+    @apply mx-auto w-full max-w-wrap px-5 sm:px-6;
   }
 
   .container-tight {
-    @apply mx-auto w-full max-w-wrap-tight px-6;
+    @apply mx-auto w-full max-w-wrap-tight px-5 sm:px-6;
   }
 
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-sm px-5 py-3 text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2;
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-bold tracking-wide transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 active:scale-[0.98];
   }
 
   .btn-gold {
-    @apply btn bg-gold text-white shadow-soft hover:bg-gold-light;
+    @apply btn bg-gradient-to-b from-gold-light to-gold text-green-deep shadow-glow hover:-translate-y-0.5 hover:shadow-[0_16px_36px_-10px_rgba(185,134,50,0.75)];
   }
 
   .btn-outline {
-    @apply btn border border-line-strong bg-transparent text-green hover:border-green hover:bg-green hover:text-white;
+    @apply btn border border-line-strong bg-white/60 text-green hover:-translate-y-0.5 hover:border-green hover:bg-green hover:text-white;
   }
 
   .btn-ghost {
     @apply btn bg-transparent text-green hover:bg-green-tint;
   }
 
+  .btn-glass {
+    @apply btn border border-white/25 bg-white/5 text-white backdrop-blur hover:-translate-y-0.5 hover:border-white/50 hover:bg-white/10;
+  }
+
   .card {
-    @apply rounded-md border border-line bg-surface shadow-soft transition-all duration-300;
+    @apply rounded-md border border-line/80 bg-surface shadow-soft transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply hover:-translate-y-1 hover:border-gold/40 hover:shadow-lift;
   }
 
   .badge {
-    @apply inline-flex items-center gap-1.5 rounded-sm border px-2.5 py-1 font-mono text-[0.65rem] uppercase tracking-wider;
+    @apply inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 font-label text-[0.65rem] font-bold uppercase tracking-wider;
   }
 
   .input-field {
-    @apply w-full rounded-sm border border-line bg-bg px-4 py-3 text-sm text-ink transition-colors placeholder:text-ink-muted focus:border-green focus:outline-none focus:ring-1 focus:ring-green;
+    @apply w-full rounded-sm border border-line bg-white px-4 py-3 text-sm text-ink transition-colors placeholder:text-ink-muted focus:border-green focus:outline-none focus:ring-2 focus:ring-green/15;
   }
 
   .input-field-error {
-    @apply border-rust focus:border-rust focus:ring-rust;
+    @apply border-rust focus:border-rust focus:ring-rust/20;
   }
 
   .label-field {
     @apply mb-1.5 block text-sm font-semibold text-ink;
   }
+
+  /* Dark, softly lit surface used by the hero, CTA bands and footer. */
+  .surface-dark {
+    @apply relative isolate bg-green text-white;
+    background-image:
+      radial-gradient(60rem 30rem at 85% -10%, rgba(226, 184, 98, 0.18), transparent 60%),
+      radial-gradient(40rem 30rem at -10% 110%, rgba(47, 106, 74, 0.55), transparent 60%);
+  }
+
+  .grid-pattern {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse at 70% 30%, black 10%, transparent 70%);
+  }
 }
 
 @layer utilities {
-  .reveal {
+  /* Scroll-reveal only hides content once JS has confirmed it is running
+     (index.html adds .js to <html>), so no-JS crawlers and the prerendered
+     snapshot never see invisible text. */
+  .js .reveal {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(20px);
     transition:
-      opacity 0.6s ease-out,
-      transform 0.6s ease-out;
+      opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+      transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
   }
 
-  .reveal.is-visible {
+  .js .reveal.is-visible {
     opacity: 1;
     transform: translateY(0);
   }
@@ -103,8 +193,8 @@
     inset: 0;
     border-radius: inherit;
     background: radial-gradient(
-      240px circle at var(--mx, 50%) var(--my, 50%),
-      rgba(201, 148, 62, 0.08),
+      260px circle at var(--mx, 50%) var(--my, 50%),
+      rgba(185, 134, 50, 0.1),
       transparent 60%
     );
     opacity: 0;
@@ -116,12 +206,24 @@
     opacity: 1;
   }
 
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mask-fade-x {
+    mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  }
+
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
     }
 
-    .reveal {
+    .js .reveal {
       opacity: 1;
       transform: none;
       transition: none;
@@ -129,6 +231,12 @@
 
     .card-glow::before {
       display: none;
+    }
+
+    .animate-marquee,
+    .animate-float,
+    .animate-fade-up {
+      animation: none !important;
     }
   }
 }

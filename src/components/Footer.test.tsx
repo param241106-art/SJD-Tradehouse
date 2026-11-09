@@ -5,9 +5,8 @@ import { createSupabaseMock } from '@/test/supabaseMock';
 
 const supabaseMock = createSupabaseMock();
 vi.mock('@/lib/supabase', () => ({
-  get supabase() {
-    return supabaseMock;
-  },
+  backendConfigured: true,
+  getSupabase: async () => supabaseMock,
 }));
 
 import { Footer } from '@/components/Footer';

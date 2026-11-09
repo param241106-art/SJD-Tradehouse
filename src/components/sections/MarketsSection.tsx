@@ -2,7 +2,7 @@ import { Globe, Award, FileText, Info, ShieldCheck, BadgeCheck, ClipboardCheck }
 import type { LucideIcon } from 'lucide-react';
 import { Section, SectionHeader, CTABand } from '@/components/Section';
 import { Picture } from '@/components/Picture';
-import { InteractiveMap } from '@/components/sections/InteractiveMap';
+import { DeferredMap } from '@/components/sections/DeferredMap';
 import { useReveal } from '@/lib/hooks';
 import { regions, shipmentDocuments, certifications } from '@/data/content';
 import type { Region, ShipmentDocument, Certification } from '@/data/content';
@@ -71,7 +71,7 @@ function DocRow({ doc, index }: { doc: ShipmentDocument; index: number }) {
       className={`flex items-start gap-4 rounded-md border border-line bg-surface p-5 reveal ${visible ? 'is-visible' : ''}`}
       style={{ transitionDelay: `${index * 50}ms` }}
     >
-      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-green-tint font-mono text-[0.65rem] font-bold text-green">
+      <div className="flex h-10 min-w-[2.5rem] shrink-0 items-center justify-center rounded-sm bg-green-tint px-1.5 font-mono text-[0.6rem] tracking-tight font-bold text-green">
         {doc.code}
       </div>
       <div>
@@ -111,7 +111,7 @@ export function MarketsSection() {
       </div>
 
       <div className="container-wrap mt-12">
-        <InteractiveMap />
+        <DeferredMap />
       </div>
 
       <div ref={certReveal.ref} className="container-wrap mt-20">

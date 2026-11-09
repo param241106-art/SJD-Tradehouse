@@ -26,6 +26,9 @@ import puppeteer from 'puppeteer';
 
 const root = path.resolve(import.meta.dirname, '..');
 const dist = path.join(root, 'dist');
+// Vite's base (see vite.config.ts). Routes live under it both on the dev
+// server below and on the deployed site.
+const BASE = process.env.BASE_PATH ?? '/';
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',
@@ -45,10 +48,15 @@ const MIME = {
   '.woff2': 'font/woff2',
 };
 
+// Reads the built sitemap (placeholders already filled in) and returns each
+// route's path relative to the base, e.g. '/', '/products/'.
 async function readSitemapPaths() {
-  const xml = await readFile(path.join(root, 'public', 'sitemap.xml'), 'utf-8');
+  const xml = await readFile(path.join(dist, 'sitemap.xml'), 'utf-8');
   const locs = [...xml.matchAll(/<loc>(.*?)<\/loc>/g)].map((m) => m[1]);
-  return locs.map((loc) => new URL(loc).pathname);
+  return locs.map((loc) => {
+    const pathname = new URL(loc).pathname;
+    return pathname.startsWith(BASE) ? '/' + pathname.slice(BASE.length) : pathname;
+  });
 }
 
 // Serves the pre-prerender dist/ output: real files (JS/CSS/images) as-is;
@@ -63,7 +71,9 @@ async function readSitemapPaths() {
 function startServer(shellHtml) {
   const server = createServer(async (req, res) => {
     const url = new URL(req.url, 'http://localhost');
-    const resolved = path.join(dist, decodeURIComponent(url.pathname));
+    let pathname = decodeURIComponent(url.pathname);
+    if (BASE !== '/' && pathname.startsWith(BASE)) pathname = '/' + pathname.slice(BASE.length);
+    const resolved = path.join(dist, pathname);
     const withinDist = resolved.startsWith(dist + path.sep);
     try {
       if (withinDist && !(await stat(resolved)).isDirectory()) {
@@ -122,7 +132,20 @@ async function settleScrollTriggeredAnimations(page) {
   await page.evaluate(() => window.scrollTo(0, 0));
 }
 
+// The single Vite stylesheet is small (~9 KB gzipped) and render-blocking.
+// Inlining it into every prerendered page removes that request from the
+// critical path, so first paint only needs the HTML itself.
+let cssCache = null;
+async function inlineStylesheet(html) {
+  const match = html.match(/<link rel="stylesheet"[^>]*href="([^"]+\.css)"[^>]*>/);
+  if (!match) return html;
+  const file = path.join(dist, match[1].replace(BASE, '/').replace(/^\//, ''));
+  cssCache ??= await readFile(file, 'utf-8');
+  return html.replace(match[0], () => `<style>${cssCache}</style>`);
+}
+
 async function writeRoute(urlPath, html) {
+  html = await inlineStylesheet(html);
   const outDir = urlPath === '/' ? dist : path.join(dist, urlPath.replace(/^\//, ''));
   await mkdir(outDir, { recursive: true });
   await writeFile(path.join(outDir, 'index.html'), html);
@@ -143,9 +166,13 @@ async function main() {
     const page = await browser.newPage();
     let count = 0;
     for (const urlPath of routes) {
-      await page.goto(`http://127.0.0.1:${port}${urlPath}`, { waitUntil: 'networkidle0' });
+      await page.goto(`http://127.0.0.1:${port}${BASE.replace(/\/$/, '')}${urlPath}`, { waitUntil: 'networkidle0' });
       await waitForRouteReady(page);
       await settleScrollTriggeredAnimations(page);
+      // The inline script in index.html adds .js to <html> on every real
+      // load; strip it from the snapshot so the static HTML never ships
+      // with scroll-reveal content hidden for crawlers that don't run JS.
+      await page.evaluate(() => document.documentElement.classList.remove('js'));
       const html = await page.content();
       await writeRoute(urlPath, html);
       count++;

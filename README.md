@@ -17,8 +17,6 @@ Run `npm run dev` for development, `npm test` for the existing test suite, or `n
 
 ## Deployment configuration
 
-This repository is a source copy; it does not deploy or change the original website. The copied deployment workflow runs manually so creating and updating this repository will not automatically publish it.
-
-Only the company name was requested to change. Existing phone numbers, email addresses, domain URLs, backend endpoint references, and the logo emblem are retained. Before deploying under a new domain, update `public/CNAME`, canonical and social URLs in `index.html`, `src/lib/hooks.ts` and `src/lib/structuredData.ts`, sitemap/robots/discovery files, and the workflow's IndexNow configuration to match the new hosting setup. Do not deploy this copy with the original domain configuration unless that is intentional.
+Hosting: the site deploys to GitHub Pages at https://param241106-art.github.io/SJD-Tradehouse/ on every push to `main` (`.github/workflows/deploy-pages.yml`). Canonical URLs, Open Graph tags, JSON-LD, sitemap, robots and discovery files are generated from the workflow's `BASE_PATH` and `SITE_URL`. To move to a custom domain, add `public/CNAME` with the domain and set `BASE_PATH: /` and `SITE_URL: https://<domain>`. Without Supabase secrets, the quote and contact forms fall back to opening a pre-filled email.
 
 GitHub repository secrets and live Supabase data are not copied by a Git import. Configure `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` in the new repository before deploying. Set up the included Supabase migrations and email function on the intended backend as needed; server-side email delivery requires its own configuration. No production credentials are included in this repository.

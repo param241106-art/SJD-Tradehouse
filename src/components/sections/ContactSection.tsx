@@ -5,7 +5,7 @@ import { Picture } from '@/components/Picture';
 import { useReveal } from '@/lib/hooks';
 import { faqs, products } from '@/data/content';
 import type { FAQItem as FAQItemType } from '@/data/content';
-import { supabase } from '@/lib/supabase';
+import { submitLead } from '@/lib/leads';
 
 function FAQItem({ faq, index }: { faq: FAQItemType; index: number }) {
   const { ref, visible } = useReveal();
@@ -62,16 +62,31 @@ export function ContactSection() {
       return;
     }
     setStatus('loading');
-    const { error } = await supabase.from('contact_submissions').insert({
-      name: form.name,
-      company: form.company,
-      email: form.email,
-      phone: form.phone,
-      country: form.country,
-      product_interest: form.productInterest,
-      message: form.message,
-    });
-    if (error) {
+    const result = await submitLead(
+      'contact_submissions',
+      {
+        name: form.name,
+        company: form.company,
+        email: form.email,
+        phone: form.phone,
+        country: form.country,
+        product_interest: form.productInterest,
+        message: form.message,
+      },
+      {
+        subject: `Enquiry from ${form.name}${form.company ? ` (${form.company})` : ''}`,
+        fields: {
+          Name: form.name,
+          Company: form.company,
+          Email: form.email,
+          Phone: form.phone,
+          Country: form.country,
+          'Product interest': form.productInterest,
+          Message: form.message,
+        },
+      },
+    );
+    if (!result.ok) {
       setStatus('error');
       setFlashMsg('Something went wrong. Please try again or email us directly.');
       setTimeout(() => setFlashMsg(''), 5000);
@@ -87,7 +102,11 @@ export function ContactSection() {
       productInterest: '',
       message: '',
     });
-    setFlashMsg('Message sent. We will respond within 48 hours.');
+    setFlashMsg(
+      result.via === 'email'
+        ? 'Your email app has opened with your message. Press send and we will respond within 48 hours.'
+        : 'Message sent. We will respond within 48 hours.',
+    );
     setTimeout(() => {
       setFlashMsg('');
       setStatus('idle');

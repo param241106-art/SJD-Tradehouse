@@ -1,103 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://avantspecs.com/</loc>
+    <loc>%SITE_URL%/</loc>
     <lastmod>2026-11-01</lastmod>
   </url>
   <url>
-    <loc>https://avantspecs.com/products/</loc>
+    <loc>%SITE_URL%/products/</loc>
     <lastmod>2026-11-01</lastmod>
   </url>
   <url>
-    <loc>https://avantspecs.com/house/</loc>
+    <loc>%SITE_URL%/house/</loc>
     <lastmod>2026-11-01</lastmod>
   </url>
   <url>
-    <loc>https://avantspecs.com/about/</loc>
+    <loc>%SITE_URL%/about/</loc>
     <lastmod>2026-11-01</lastmod>
   </url>
   <url>
-    <loc>https://avantspecs.com/trade/</loc>
+    <loc>%SITE_URL%/trade/</loc>
     <lastmod>2026-11-01</lastmod>
   </url>
   <url>
-    <loc>https://avantspecs.com/contact/</loc>
+    <loc>%SITE_URL%/contact/</loc>
     <lastmod>2026-11-01</lastmod>
   </url>
   <url>
-    <loc>https://avantspecs.com/guide/how-to-choose-an-essential-oil-export-partner/</loc>
+    <loc>%SITE_URL%/guide/how-to-choose-an-essential-oil-export-partner/</loc>
     <lastmod>2026-11-01</lastmod>
   </url>
   <url>
-    <loc>https://avantspecs.com/docs/rfq-api/</loc>
+    <loc>%SITE_URL%/docs/rfq-api/</loc>
     <lastmod>2026-11-01</lastmod>
   </url>
   <url>
-    <loc>https://avantspecs.com/product/turkish-figs/</loc>
+    <loc>%SITE_URL%/product/turkish-figs/</loc>
     <lastmod>2026-11-01</lastmod>
   </url>
   <url>
-    <loc>https://avantspecs.com/product/turkish-apricots/</loc>
+    <loc>%SITE_URL%/product/turkish-apricots/</loc>
     <lastmod>2026-11-01</lastmod>
   </url>
   <url>
-    <loc>https://avantspecs.com/product/irani-pista/</loc>
+    <loc>%SITE_URL%/product/irani-pista/</loc>
     <lastmod>2026-11-01</lastmod>
   </url>
   <url>
-    <loc>https://avantspecs.com/product/irani-mamra/</loc>
+    <loc>%SITE_URL%/product/irani-mamra/</loc>
     <lastmod>2026-11-01</lastmod>
   </url>
   <url>
-    <loc>https://avantspecs.com/product/eucalyptus-oil/</loc>
+    <loc>%SITE_URL%/product/eucalyptus-oil/</loc>
     <lastmod>2026-11-01</lastmod>
   </url>
   <url>
-    <loc>https://avantspecs.com/product/clove-bud-oil/</loc>
+    <loc>%SITE_URL%/product/clove-bud-oil/</loc>
     <lastmod>2026-11-01</lastmod>
   </url>
   <url>
-    <loc>https://avantspecs.com/product/lemongrass-oil/</loc>
+    <loc>%SITE_URL%/product/lemongrass-oil/</loc>
     <lastmod>2026-11-01</lastmod>
   </url>
   <url>
-    <loc>https://avantspecs.com/product/citronella-oil/</loc>
+    <loc>%SITE_URL%/product/citronella-oil/</loc>
     <lastmod>2026-11-01</lastmod>
   </url>
   <url>
-    <loc>https://avantspecs.com/product/black-pepper-oleoresin/</loc>
+    <loc>%SITE_URL%/product/black-pepper-oleoresin/</loc>
     <lastmod>2026-11-01</lastmod>
   </url>
   <url>
-    <loc>https://avantspecs.com/product/saffron/</loc>
+    <loc>%SITE_URL%/product/saffron/</loc>
     <lastmod>2026-11-01</lastmod>
   </url>
   <url>
-    <loc>https://avantspecs.com/product/cumin-seed/</loc>
+    <loc>%SITE_URL%/product/cumin-seed/</loc>
     <lastmod>2026-11-01</lastmod>
   </url>
   <url>
-    <loc>https://avantspecs.com/product/areca-leaf-plates/</loc>
+    <loc>%SITE_URL%/product/areca-leaf-plates/</loc>
     <lastmod>2026-11-01</lastmod>
   </url>
   <url>
-    <loc>https://avantspecs.com/product/cashew-kernels/</loc>
+    <loc>%SITE_URL%/product/cashew-kernels/</loc>
     <lastmod>2026-11-01</lastmod>
   </url>
   <url>
-    <loc>https://avantspecs.com/product/medjool-dates/</loc>
+    <loc>%SITE_URL%/product/medjool-dates/</loc>
     <lastmod>2026-11-01</lastmod>
   </url>
   <url>
-    <loc>https://avantspecs.com/product/guar-gum-powder/</loc>
+    <loc>%SITE_URL%/product/guar-gum-powder/</loc>
     <lastmod>2026-11-01</lastmod>
   </url>
   <url>
-    <loc>https://avantspecs.com/product/onion-powder/</loc>
+    <loc>%SITE_URL%/product/onion-powder/</loc>
     <lastmod>2026-11-01</lastmod>
   </url>
   <url>
-    <loc>https://avantspecs.com/product/potato-powder/</loc>
+    <loc>%SITE_URL%/product/potato-powder/</loc>
     <lastmod>2026-11-01</lastmod>
   </url>
 </urlset>

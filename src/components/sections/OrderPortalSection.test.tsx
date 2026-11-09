@@ -5,9 +5,8 @@ import { createSupabaseMock } from '@/test/supabaseMock';
 
 const supabaseMock = createSupabaseMock();
 vi.mock('@/lib/supabase', () => ({
-  get supabase() {
-    return supabaseMock;
-  },
+  backendConfigured: true,
+  getSupabase: async () => supabaseMock,
 }));
 
 import { OrderPortalSection } from '@/components/sections/OrderPortalSection';
@@ -143,7 +142,7 @@ describe('OrderPortalSection (RFQ wizard)', () => {
 
     expect(await screen.findByText('Enquiry filed')).toBeInTheDocument();
     const currentYear = new Date().getFullYear();
-    const referenceEl = screen.getByText(new RegExp(`^AVS-${currentYear}-[A-Z0-9]{5}$`));
+    const referenceEl = screen.getByText(new RegExp(`^SJD-${currentYear}-[A-Z0-9]{5}$`));
     expect(referenceEl).toBeInTheDocument();
   });
 

@@ -4,7 +4,7 @@ import { categoryLabels } from '@/data/content';
 // Single source of truth for JSON-LD @id values and the site origin, so the
 // Organization graph node emitted here and the `brand`/`publisher` refs
 // emitted elsewhere always resolve to the same @id.
-const SITE_URL = 'https://avantspecs.com';
+import { SITE_URL } from '@/lib/site';
 const ORGANIZATION_ID = `${SITE_URL}/#organization`;
 
 /**

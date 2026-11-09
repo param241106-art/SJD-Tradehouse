@@ -2,12 +2,12 @@
   "openapi": "3.0.3",
   "info": {
     "title": "SJD TRADEHOUSE RFQ Submission API",
-    "description": "Public write endpoint used by the SJD TRADEHOUSE Order Portal (see https://avantspecs.com/products) to submit a Request for Quote. This is the same PostgREST endpoint the site's own front end calls after a buyer completes the Order Portal form. Row Level Security restricts this endpoint to INSERT only — there is no public read, update, or delete access to submitted data.",
+    "description": "Public write endpoint used by the SJD TRADEHOUSE Order Portal (see %SITE_URL%/products) to submit a Request for Quote. This is the same PostgREST endpoint the site's own front end calls after a buyer completes the Order Portal form. Row Level Security restricts this endpoint to INSERT only — there is no public read, update, or delete access to submitted data.",
     "version": "1.0.0",
     "contact": {
       "name": "SJD TRADEHOUSE Trade Desk",
       "email": "param@avantspecs.com",
-      "url": "https://avantspecs.com/contact"
+      "url": "%SITE_URL%/contact"
     }
   },
   "servers": [
