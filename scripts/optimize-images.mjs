@@ -12,15 +12,9 @@ const dir = path.resolve(import.meta.dirname, '../public/images');
 // only set for images that are always shown at a fixed crop (object-cover);
 // otherwise only width is constrained and aspect ratio is preserved.
 const targets = {
-  // 512px: below this, Google won't consider the image for logo-in-search-
-  // results / Knowledge Panel display (112px minimum, but the source here
-  // was already only 96px so this is an upscale, not a real re-source —
-  // replace with a genuine higher-res original if one ever becomes available).
-  // Source is only 96px; withoutEnlargement is overridden below for this
-  // one file so it actually gets upscaled to meet Google's 112px minimum
-  // for logo-in-search-results eligibility. Replace with a genuine
-  // higher-res original if one ever becomes available.
-  'logo.jpg': { width: 512, height: 512, enlarge: true },
+  // logo.jpg is generated at 512px (Google's logo-in-search minimum is 112px)
+  // from docs/brand/sjd-tradehouse-logo-original.jpg; this is a no-op resize.
+  'logo.jpg': { width: 512, height: 512 },
   'Rohtak.jpg': { width: 1104, height: 512 },
   'Map_Image_.jpg': { width: 1536 },
   'North_America.jpg': { width: 760 },
