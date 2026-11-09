@@ -67,7 +67,7 @@ function renderEmailHtml(data: RfqPayload): string {
           ${rowsHtml}
         </table>
         <p style="margin:20px 0 0;color:#8a8a82;font-size:12px;line-height:1.6;">
-          SJD TRADEHOUSE &middot; Rohtak, India &middot; param@avantspecs.com &middot; aadi.singh@avantspecs.com
+          SJD TRADEHOUSE &middot; Rohtak, India &middot; contact@sjdtradehouse.com &middot; info@sjdtradehouse.com
         </p>
       </div>
     </div>`;

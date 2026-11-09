@@ -4,7 +4,7 @@ import { categoryLabels } from '@/data/content';
 // Single source of truth for JSON-LD @id values and the site origin, so the
 // Organization graph node emitted here and the `brand`/`publisher` refs
 // emitted elsewhere always resolve to the same @id.
-import { SITE_URL } from '@/lib/site';
+import { SITE_URL, CONTACT } from '@/lib/site';
 const ORGANIZATION_ID = `${SITE_URL}/#organization`;
 
 /**
@@ -32,7 +32,7 @@ export function organizationSchema(team: TeamMember[], certifications: Certifica
         image: `${SITE_URL}/images/logo.jpg`,
         description:
           'SJD TRADEHOUSE is a merchant export house sourcing, testing, and shipping essential oils, oleoresins, spices, nuts, dried fruits, powders, and eco disposables to wholesale buyers, formulators, and flavour houses worldwide.',
-        email: 'param@avantspecs.com',
+        email: CONTACT.salesEmail,
         telephone: '+971-58-592-7251',
         address: {
           '@type': 'PostalAddress',
@@ -56,7 +56,7 @@ export function organizationSchema(team: TeamMember[], certifications: Certifica
           {
             '@type': 'ContactPoint',
             contactType: 'sales',
-            email: 'param@avantspecs.com',
+            email: CONTACT.salesEmail,
             telephone: '+971-58-592-7251',
             areaServed: 'Worldwide',
             availableLanguage: ['English'],
@@ -64,7 +64,7 @@ export function organizationSchema(team: TeamMember[], certifications: Certifica
           {
             '@type': 'ContactPoint',
             contactType: 'sales',
-            email: 'param@avantspecs.com',
+            email: CONTACT.salesEmail,
             telephone: '+91-99960-64220',
             areaServed: 'IN',
             availableLanguage: ['English'],
@@ -72,7 +72,7 @@ export function organizationSchema(team: TeamMember[], certifications: Certifica
           {
             '@type': 'ContactPoint',
             contactType: 'customer support',
-            email: 'aadi.singh@avantspecs.com',
+            email: CONTACT.supportEmail,
             areaServed: 'Worldwide',
             availableLanguage: ['English'],
           },

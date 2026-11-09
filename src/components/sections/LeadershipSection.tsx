@@ -42,7 +42,7 @@ export function LeadershipSection() {
 
         <div ref={teamReveal.ref} className="mt-12">
           <p className="eyebrow">Leadership</p>
-          <div className="mt-6 grid max-w-4xl gap-6 sm:grid-cols-2">
+          <div className={`mt-6 grid gap-6 ${team.length > 1 ? 'max-w-4xl sm:grid-cols-2' : 'max-w-2xl'}`}>
             {team.map((member, i) => (
               <TeamCard key={member.name} member={member} index={i} />
             ))}

@@ -40,7 +40,6 @@ const targets = {
   'Potato_Powder.jpg': { width: 760 },
   'Shipping.jpg': { width: 612 },
   'Paramjeet_Singh.jpg': { width: 128, height: 128 },
-  'Aadi_Kumar_Singh.jpg': { width: 128, height: 128 },
 };
 
 const JPEG_QUALITY = 78;

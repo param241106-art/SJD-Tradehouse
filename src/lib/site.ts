@@ -5,8 +5,8 @@ export const SITE_URL: string = (
 ).replace(/\/$/, '');
 
 export const CONTACT = {
-  salesEmail: 'param@avantspecs.com',
-  supportEmail: 'aadi.singh@avantspecs.com',
+  salesEmail: 'contact@sjdtradehouse.com',
+  supportEmail: 'info@sjdtradehouse.com',
   phoneUae: { display: '+971 58 592 7251', tel: '+971585927251' },
   phoneIndia: { display: '+91 99960 64220', tel: '+919996064220' },
   whatsapp: 'https://wa.me/971585927251',

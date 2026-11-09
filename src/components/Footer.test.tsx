@@ -83,16 +83,16 @@ describe('Footer newsletter form', () => {
   it('renders footer navigation and category links', () => {
     render(<Footer />);
     expect(screen.getByText('SJD TRADEHOUSE')).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /param@avantspecs.com/ })).toHaveAttribute(
+    expect(screen.getByRole('link', { name: /contact@sjdtradehouse.com/ })).toHaveAttribute(
       'href',
-      'mailto:param@avantspecs.com',
+      'mailto:contact@sjdtradehouse.com',
     );
   });
 
   it('hides the contact details block on the Contact page only', () => {
     window.history.pushState({}, '', `${import.meta.env.BASE_URL}contact`);
     render(<Footer />);
-    expect(screen.queryByRole('link', { name: /param@avantspecs.com/ })).not.toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: /contact@sjdtradehouse.com/ })).not.toBeInTheDocument();
     expect(screen.queryByRole('link', { name: /\+971 58 592 7251/ })).not.toBeInTheDocument();
     expect(screen.queryByRole('link', { name: /\+91 99960 64220/ })).not.toBeInTheDocument();
     window.history.pushState({}, '', import.meta.env.BASE_URL);

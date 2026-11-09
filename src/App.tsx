@@ -29,7 +29,7 @@ const routeHead: Record<Exclude<Route, 'product'>, { title: string; description:
   about: {
     title: 'About Us | SJD TRADEHOUSE',
     description:
-      'Meet the team behind SJD TRADEHOUSE: Paramjeet Singh and Aadi Kumar Singh built SJD TRADEHOUSE to connect Indian-origin botanical producers directly with international formulators and flavour houses.',
+      'Meet the people behind SJD TRADEHOUSE: founder Paramjeet Singh built SJD TRADEHOUSE to connect Indian-origin botanical producers directly with international formulators and flavour houses.',
   },
   trade: {
     title: 'Trade & Markets | SJD TRADEHOUSE',

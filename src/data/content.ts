@@ -372,11 +372,6 @@ export const team: TeamMember[] = [
     role: 'Chief Executive Officer',
     bio: 'Paramjeet founded SJD TRADEHOUSE after seeing local farmers and small distillers sell high-quality essential oils for a fraction of their real worth, simply because they had no direct route to international buyers. He built SJD TRADEHOUSE to close that gap, putting in place the testing, documentation, and trade relationships needed so Indian-origin botanicals reach global formulators on fair terms. He leads the company’s trade relationships and growth.',
   },
-  {
-    name: 'Aadi Kumar Singh',
-    role: 'Chief Operating Officer',
-    bio: 'Aadi joined SJD TRADEHOUSE as COO and owns the day-to-day: sourcing logistics, lab coordination, and keeping every shipment’s paperwork airtight. While Paramjeet focuses on trade relationships and growth, Aadi makes sure the operational side never becomes the reason a buyer’s order slips.',
-  },
 ];
 
 export const faqs: FAQItem[] = [
