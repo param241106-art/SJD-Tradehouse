@@ -1,13 +1,10 @@
 name: Deploy to GitHub Pages
 
-# Production deploy for avantspecs.com via GitHub Pages custom domain.
-# A custom domain serves from the domain root, so this uses the default
-# base:'/' from vite.config.ts (no sub-path override needed). Every push to
-# main deploys live.
+# Manual deployment for the SJD TRADEHOUSE copy. Configure its hosting domain
+# and repository secrets before running this workflow; see README.md.
+# The original domain-root layout is retained (base: '/').
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:

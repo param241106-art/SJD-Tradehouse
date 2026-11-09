@@ -54,13 +54,13 @@ export function Footer() {
             <div className="flex items-center gap-2.5">
               <Picture
                 src="/images/logo.jpg"
-                alt="AvantSpecs logo"
+                alt="SJD TRADEHOUSE logo"
                 width={96}
                 height={96}
                 className="h-10 w-10 rounded-sm object-cover"
               />
               <div className="leading-none">
-                <p className="font-heading text-base font-semibold text-white">AvantSpecs</p>
+                <p className="font-heading text-base font-semibold text-white">SJD TRADEHOUSE</p>
                 <p className="font-mono text-[0.6rem] uppercase tracking-wider text-gold-light">
                   Merchant Trading
                 </p>
@@ -182,7 +182,7 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 sm:flex-row">
           <p className="text-xs text-white/50">
-            &copy; {new Date().getFullYear()} AvantSpecs. All rights reserved.
+            &copy; {new Date().getFullYear()} SJD TRADEHOUSE. All rights reserved.
           </p>
           <p className="text-xs text-white/50">
             Rohtak, India &middot; param@avantspecs.com &middot; aadi.singh@avantspecs.com

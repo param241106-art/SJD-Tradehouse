@@ -1,11 +1,11 @@
 {
   "openapi": "3.0.3",
   "info": {
-    "title": "AvantSpecs RFQ Submission API",
-    "description": "Public write endpoint used by the AvantSpecs Order Portal (see https://avantspecs.com/products) to submit a Request for Quote. This is the same PostgREST endpoint the site's own front end calls after a buyer completes the Order Portal form. Row Level Security restricts this endpoint to INSERT only — there is no public read, update, or delete access to submitted data.",
+    "title": "SJD TRADEHOUSE RFQ Submission API",
+    "description": "Public write endpoint used by the SJD TRADEHOUSE Order Portal (see https://avantspecs.com/products) to submit a Request for Quote. This is the same PostgREST endpoint the site's own front end calls after a buyer completes the Order Portal form. Row Level Security restricts this endpoint to INSERT only — there is no public read, update, or delete access to submitted data.",
     "version": "1.0.0",
     "contact": {
-      "name": "AvantSpecs Trade Desk",
+      "name": "SJD TRADEHOUSE Trade Desk",
       "email": "param@avantspecs.com",
       "url": "https://avantspecs.com/contact"
     }
@@ -21,7 +21,7 @@
       "post": {
         "operationId": "createRfqSubmission",
         "summary": "Submit a Request for Quote",
-        "description": "Creates a new RFQ record. Requires the project's public anon API key (safe to expose client-side; RLS grants this key INSERT-only access to this table, no SELECT/UPDATE/DELETE). A best-effort confirmation email is sent separately by the AvantSpecs front end after a successful insert — that email step is internal and not part of this public API surface.",
+        "description": "Creates a new RFQ record. Requires the project's public anon API key (safe to expose client-side; RLS grants this key INSERT-only access to this table, no SELECT/UPDATE/DELETE). A best-effort confirmation email is sent separately by the SJD TRADEHOUSE front end after a successful insert — that email step is internal and not part of this public API surface.",
         "security": [{ "supabaseAnonKey": [] }],
         "parameters": [
           {

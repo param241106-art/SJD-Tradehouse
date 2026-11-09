@@ -238,14 +238,14 @@ export function ContactSection() {
           <div className="overflow-hidden rounded-md border border-line">
             <Picture
               src="/images/Rohtak.jpg"
-              alt="AvantSpecs office in Rohtak, India"
+              alt="SJD TRADEHOUSE office in Rohtak, India"
               width={1024}
               height={512}
               className="h-64 w-full object-cover"
             />
             <div className="bg-surface p-6">
               <p className="flex items-center gap-2 text-sm font-semibold text-ink">
-                <MapPin size={16} className="text-gold" /> AvantSpecs
+                <MapPin size={16} className="text-gold" /> SJD TRADEHOUSE
               </p>
               <p className="mt-1 text-sm text-ink-secondary">Rohtak, India 124001</p>
               <p className="mt-3 text-sm text-ink-muted">

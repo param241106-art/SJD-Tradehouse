@@ -11,44 +11,44 @@ import type { Route } from '@/lib/router';
 
 const routeHead: Record<Exclude<Route, 'product'>, { title: string; description: string }> = {
   home: {
-    title: 'Botanical Export House India | AvantSpecs',
+    title: 'Botanical Export House India | SJD TRADEHOUSE',
     description:
-      'AvantSpecs is a botanical export house in India, a merchant export house sourcing, GC-MS testing, and shipping essential oils, oleoresins, spices, nuts, dried fruits, powders, and eco disposables to wholesale buyers worldwide. As a documented, COA-backed essential oil and spice exporter, every consignment ships fully documented to spec.',
+      'SJD TRADEHOUSE is a botanical export house in India, a merchant export house sourcing, GC-MS testing, and shipping essential oils, oleoresins, spices, nuts, dried fruits, powders, and eco disposables to wholesale buyers worldwide. As a documented, COA-backed essential oil and spice exporter, every consignment ships fully documented to spec.',
   },
   register: {
-    title: 'Products | AvantSpecs',
+    title: 'Products | SJD TRADEHOUSE',
     description:
-      'Browse AvantSpecs’ full product range: dried fruits, nuts, essential oils, oleoresins, spices, powders, and eco disposables. Filter by category or search by name or Latin binomial.',
+      'Browse SJD TRADEHOUSE’ full product range: dried fruits, nuts, essential oils, oleoresins, spices, powders, and eco disposables. Filter by category or search by name or Latin binomial.',
   },
   house: {
-    title: 'The House | AvantSpecs',
+    title: 'The House | SJD TRADEHOUSE',
     description:
-      'How AvantSpecs sources, tests, and documents every consignment — from origin procurement to lab verification to the certificate set your customs clearance needs.',
+      'How SJD TRADEHOUSE sources, tests, and documents every consignment — from origin procurement to lab verification to the certificate set your customs clearance needs.',
   },
   about: {
-    title: 'About Us | AvantSpecs',
+    title: 'About Us | SJD TRADEHOUSE',
     description:
-      'Meet the team behind AvantSpecs: Paramjeet Singh and Aadi Kumar Singh built AvantSpecs to connect Indian-origin botanical producers directly with international formulators and flavour houses.',
+      'Meet the team behind SJD TRADEHOUSE: Paramjeet Singh and Aadi Kumar Singh built SJD TRADEHOUSE to connect Indian-origin botanical producers directly with international formulators and flavour houses.',
   },
   trade: {
-    title: 'Trade & Markets | AvantSpecs',
+    title: 'Trade & Markets | SJD TRADEHOUSE',
     description:
-      'The export markets AvantSpecs serves, with region-specific documentation: REACH compliance for Europe, Halaal certification for the Middle East, and more.',
+      'The export markets SJD TRADEHOUSE serves, with region-specific documentation: REACH compliance for Europe, Halaal certification for the Middle East, and more.',
   },
   contact: {
-    title: 'Contact | AvantSpecs',
+    title: 'Contact | SJD TRADEHOUSE',
     description:
-      'Get in touch with the AvantSpecs trade desk to request a quote, ask about a specification, or start a new export relationship.',
+      'Get in touch with the SJD TRADEHOUSE trade desk to request a quote, ask about a specification, or start a new export relationship.',
   },
   guide: {
-    title: 'How to Choose an Essential Oil Export Partner | AvantSpecs',
+    title: 'How to Choose an Essential Oil Export Partner | SJD TRADEHOUSE',
     description:
       'A buyer’s essential oil exporter documentation checklist covering COA, TDS, and SDS, plus a step-by-step framework for how to vet a spice export supplier in India: what documentation to expect, how testing should work, and the certificate set your destination market requires.',
   },
   'docs-rfq-api': {
-    title: 'RFQ Submission API Reference | AvantSpecs',
+    title: 'RFQ Submission API Reference | SJD TRADEHOUSE',
     description:
-      'API reference for the AvantSpecs RFQ submission endpoint: required headers, request body fields, an example request, and a link to the full OpenAPI definition.',
+      'API reference for the SJD TRADEHOUSE RFQ submission endpoint: required headers, request body fields, an example request, and a link to the full OpenAPI definition.',
   },
 };
 
@@ -91,12 +91,12 @@ export default function App() {
     route === 'product'
       ? product
         ? {
-            title: `${product.seoTitle} | AvantSpecs`,
+            title: `${product.seoTitle} | SJD TRADEHOUSE`,
             description: product.description,
             canonicalPath: canonicalPathForProduct(product.id),
           }
         : {
-            title: 'Product Not Found | AvantSpecs',
+            title: 'Product Not Found | SJD TRADEHOUSE',
             description: routeHead.register.description,
             canonicalPath: canonicalPathForRoute('register'),
           }

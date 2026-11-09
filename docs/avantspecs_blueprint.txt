@@ -1,4 +1,4 @@
-AVANTSPECS — WEBSITE BLUEPRINT
+SJD TRADEHOUSE — WEBSITE BLUEPRINT
 (Structure, components, and data model for rebuilding in Bolt)
 =====================================================
 

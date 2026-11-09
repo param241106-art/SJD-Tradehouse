@@ -94,7 +94,7 @@ export function HomeSection() {
             </h1>
             <span className="heading-accent" />
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-secondary">
-              AvantSpecs is a merchant export house and wholesale botanical ingredients
+              SJD TRADEHOUSE is a merchant export house and wholesale botanical ingredients
               supplier, sourcing, testing, and shipping botanical ingredients to formulators
               and flavour houses worldwide. Every consignment arrives with a complete paper
               trail, from origin to your dock.
@@ -143,7 +143,7 @@ export function HomeSection() {
 
       <div ref={valuesReveal.ref} className="container-wrap py-20">
         <div className={`reveal ${valuesReveal.visible ? 'is-visible' : ''} mx-auto max-w-2xl`}>
-          <p className="eyebrow">Why AvantSpecs</p>
+          <p className="eyebrow">Why SJD TRADEHOUSE</p>
           <h2 className="mt-3 text-4xl leading-tight md:text-5xl">
             A merchant export house built to bridge origin and formulation
           </h2>

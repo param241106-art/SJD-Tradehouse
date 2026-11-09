@@ -1,4 +1,4 @@
-AVANTSPECS — UI/UX DESIGN DOCUMENT
+SJD TRADEHOUSE — UI/UX DESIGN DOCUMENT
 =====================================================
 Companion to the "users", "blueprint", and "roadmap" files. This document
 covers the visual design system, layout rules, interaction/motion

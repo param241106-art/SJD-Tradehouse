@@ -12,7 +12,7 @@ const nameAliases: Record<string, string> = {
   UAE: 'United Arab Emirates',
 };
 
-const ORIGIN_NAME = 'AvantSpecs, Rohtak';
+const ORIGIN_NAME = 'SJD TRADEHOUSE, Rohtak';
 const ORIGIN_COORDS: [number, number] = [76.61, 28.89];
 
 const CYCLE_MS = 2600;

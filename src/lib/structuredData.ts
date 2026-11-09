@@ -20,8 +20,8 @@ export function organizationSchema(team: TeamMember[], certifications: Certifica
       {
         '@type': 'Organization',
         '@id': ORGANIZATION_ID,
-        name: 'AvantSpecs',
-        alternateName: 'AvantSpecs — Merchant Trading',
+        name: 'SJD TRADEHOUSE',
+        alternateName: 'SJD TRADEHOUSE — Merchant Trading',
         url: `${SITE_URL}/`,
         logo: {
           '@type': 'ImageObject',
@@ -31,7 +31,7 @@ export function organizationSchema(team: TeamMember[], certifications: Certifica
         },
         image: `${SITE_URL}/images/logo.jpg`,
         description:
-          'AvantSpecs is a merchant export house sourcing, testing, and shipping essential oils, oleoresins, spices, nuts, dried fruits, powders, and eco disposables to wholesale buyers, formulators, and flavour houses worldwide.',
+          'SJD TRADEHOUSE is a merchant export house sourcing, testing, and shipping essential oils, oleoresins, spices, nuts, dried fruits, powders, and eco disposables to wholesale buyers, formulators, and flavour houses worldwide.',
         email: 'param@avantspecs.com',
         telephone: '+971-58-592-7251',
         address: {
@@ -82,7 +82,7 @@ export function organizationSchema(team: TeamMember[], certifications: Certifica
         '@type': 'WebSite',
         '@id': `${SITE_URL}/#website`,
         url: `${SITE_URL}/`,
-        name: 'AvantSpecs',
+        name: 'SJD TRADEHOUSE',
         description:
           'Merchant export house sourcing, testing, and shipping essential oils, oleoresins, spices, nuts, dried fruits, and powders to wholesale buyers worldwide.',
         publisher: { '@id': ORGANIZATION_ID },

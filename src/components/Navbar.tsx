@@ -53,14 +53,14 @@ export function Navbar() {
           >
             <Picture
               src="/images/logo.jpg"
-              alt="AvantSpecs logo"
+              alt="SJD TRADEHOUSE logo"
               width={96}
               height={96}
               loading="eager"
               className="h-10 w-10 rounded-sm object-cover"
             />
             <div className="leading-none">
-              <p className="font-heading text-base font-semibold text-white">AvantSpecs</p>
+              <p className="font-heading text-base font-semibold text-white">SJD TRADEHOUSE</p>
               <p className="font-mono text-[0.6rem] uppercase tracking-wider text-gold-light">
                 Merchant Trading
               </p>
@@ -106,13 +106,13 @@ export function Navbar() {
             >
               <Picture
                 src="/images/logo.jpg"
-                alt="AvantSpecs logo"
+                alt="SJD TRADEHOUSE logo"
                 width={96}
                 height={96}
                 loading="eager"
                 className="h-10 w-10 rounded-sm object-cover"
               />
-              <p className="font-heading text-base font-semibold text-ink">AvantSpecs</p>
+              <p className="font-heading text-base font-semibold text-ink">SJD TRADEHOUSE</p>
             </a>
             <button
               type="button"

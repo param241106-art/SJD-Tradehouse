@@ -1,4 +1,4 @@
-# Test Results — AvantSpecs
+# Test Results — SJD TRADEHOUSE
 
 Last run: **2026-07-29**, on Windows 11, Node v24.18.0, npm 11.16.0, Vitest 4.1.10.
 
@@ -152,10 +152,10 @@ No output — **0 errors**.
 ```
 > eslint .
 
-C:\Users\ragha\Downloads\AvantSpecs - Copy\src\components\sections\OrderPortalSection.tsx
+C:\Users\ragha\Downloads\SJD TRADEHOUSE - Copy\src\components\sections\OrderPortalSection.tsx
   69:16  error  'prev' is defined but never used  @typescript-eslint/no-unused-vars
 
-C:\Users\ragha\Downloads\AvantSpecs - Copy\src\pages\RegisterPage.tsx
+C:\Users\ragha\Downloads\SJD TRADEHOUSE - Copy\src\pages\RegisterPage.tsx
   3:10  error  'navigate' is defined but never used  @typescript-eslint/no-unused-vars
 
 ✖ 2 problems (2 errors, 0 warnings)

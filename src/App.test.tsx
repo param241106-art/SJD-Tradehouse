@@ -47,6 +47,6 @@ describe('App routing', () => {
 
   it('renders the footer on every page', () => {
     render(<App />);
-    expect(screen.getByText(/AvantSpecs\. All rights reserved\./)).toBeInTheDocument();
+    expect(screen.getByText(/SJD TRADEHOUSE\. All rights reserved\./)).toBeInTheDocument();
   });
 });

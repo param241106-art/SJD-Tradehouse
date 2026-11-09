@@ -1,4 +1,4 @@
-AVANTSPECS — BACKLINK OUTREACH KIT
+SJD TRADEHOUSE — BACKLINK OUTREACH KIT
 Prepared from the 2026-08-22 SEO audit (Backlink category: 15/100, Tier 0 —
 avantspecs.com has no detectable signal in Common Crawl's web graph, which
 is normal for a new/small site but means zero external authority right now).
@@ -23,8 +23,8 @@ spam policies penalize, and would actively hurt rankings rather than help.
    more than the exact wording; inconsistent NAP data is itself a negative
    trust signal)
 ===========================================================================
-Business name:     AvantSpecs
-Legal/alt name:     AvantSpecs — Merchant Trading
+Business name:     SJD TRADEHOUSE
+Legal/alt name:     SJD TRADEHOUSE — Merchant Trading
 Website:            https://avantspecs.com/
 Category:           Botanical Ingredients Exporter / Merchant Export House
                      (alt: Essential Oils & Spices Exporter, Agro Export House)
@@ -40,7 +40,7 @@ Export markets:     Europe (REACH-compliant docs), Middle East (Halaal-certified
 2. SHORT DESCRIPTION (~40 words) — for directories with a tight character
    limit (tagline/meta fields)
 ===========================================================================
-AvantSpecs is a merchant export house in Rohtak, India, sourcing, GC-MS
+SJD TRADEHOUSE is a merchant export house in Rohtak, India, sourcing, GC-MS
 testing, and shipping essential oils, oleoresins, spices, nuts, powders,
 and eco disposables to wholesale buyers worldwide. Every consignment ships
 fully documented with COA, TDS, and SDS.
@@ -48,7 +48,7 @@ fully documented with COA, TDS, and SDS.
 ===========================================================================
 3. LONG DESCRIPTION (~180 words) — for "About Us" / company-profile fields
 ===========================================================================
-AvantSpecs is a merchant export house based in Rohtak, Haryana, India. We
+SJD TRADEHOUSE is a merchant export house based in Rohtak, Haryana, India. We
 are not a manufacturer — we are a merchant exporter, which means our job is
 to source the right product from origin, verify it with GC-MS constituent
 profiling and microbial/heavy-metal testing, document it, and deliver it to
@@ -101,11 +101,11 @@ crawl.
 5. Google Business Profile (business.google.com)
    Free. Not a classic "backlink" in the SEO sense, but it's the single
    highest-trust NAP citation available and feeds Google's own knowledge
-   graph for the "AvantSpecs" entity — directly helps the GEO/AI-citability
+   graph for the "SJD TRADEHOUSE" entity — directly helps the GEO/AI-citability
    score too (an AI system checking "does this business exist" finds this
    first).
 
-6. APEDA registration listing (apeda.gov.in), if AvantSpecs holds or
+6. APEDA registration listing (apeda.gov.in), if SJD TRADEHOUSE holds or
    pursues APEDA registration (relevant for agricultural/processed-food
    exports from India) — a .gov.in citation carries real authority.
 

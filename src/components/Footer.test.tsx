@@ -83,7 +83,7 @@ describe('Footer newsletter form', () => {
 
   it('renders footer navigation and category links', () => {
     render(<Footer />);
-    expect(screen.getByText('AvantSpecs')).toBeInTheDocument();
+    expect(screen.getByText('SJD TRADEHOUSE')).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /param@avantspecs.com/ })).toHaveAttribute(
       'href',
       'mailto:param@avantspecs.com',

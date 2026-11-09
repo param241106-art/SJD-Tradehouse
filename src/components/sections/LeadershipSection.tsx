@@ -34,7 +34,7 @@ export function LeadershipSection() {
         <div ref={introReveal.ref} className={`reveal ${introReveal.visible ? 'is-visible' : ''}`}>
           <SectionHeader
             eyebrow="About Us"
-            title="The people behind AvantSpecs"
+            title="The people behind SJD TRADEHOUSE"
             description="A newly launched, boutique trade house based in Rohtak, India, run by a small team with named contacts you can reach directly."
             headingLevel="h1"
           />

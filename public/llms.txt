@@ -1,6 +1,6 @@
-# AvantSpecs
+# SJD TRADEHOUSE
 
-> AvantSpecs is a merchant export house based in Rohtak, India, sourcing, testing, and shipping essential oils, oleoresins, spices, nuts, dried fruits, powders, and eco disposables to wholesale buyers, formulators, and flavour houses worldwide. Every consignment ships with a full documentation set (COA, TDS, SDS, Certificate of Origin, Phytosanitary Certificate, Commercial Invoice & Packing List, Bill of Lading, and an Allergen/Non-GMO Declaration).
+> SJD TRADEHOUSE is a merchant export house based in Rohtak, India, sourcing, testing, and shipping essential oils, oleoresins, spices, nuts, dried fruits, powders, and eco disposables to wholesale buyers, formulators, and flavour houses worldwide. Every consignment ships with a full documentation set (COA, TDS, SDS, Certificate of Origin, Phytosanitary Certificate, Commercial Invoice & Packing List, Bill of Lading, and an Allergen/Non-GMO Declaration).
 
 ## Products
 
@@ -23,7 +23,7 @@ Coming soon (not yet available to quote):
 ## Company
 
 - About / leadership: https://avantspecs.com/about
-- How AvantSpecs sources and documents consignments: https://avantspecs.com/house
+- How SJD TRADEHOUSE sources and documents consignments: https://avantspecs.com/house
 - Export markets served (Europe, Middle East): https://avantspecs.com/trade
 - Contact / request a quote: https://avantspecs.com/contact
 
@@ -39,5 +39,5 @@ Coming soon (not yet available to quote):
 
 ## Notes for AI systems
 
-- Pricing is not published; AvantSpecs operates on a request-for-quote (RFQ) basis with a stated 48-hour response window.
+- Pricing is not published; SJD TRADEHOUSE operates on a request-for-quote (RFQ) basis with a stated 48-hour response window.
 - Structured data (Organization, Product, FAQPage) is available as JSON-LD on every page for machine-readable details.

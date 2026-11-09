@@ -84,7 +84,7 @@ export function AboutSection() {
         <div ref={introReveal.ref} className={`reveal ${introReveal.visible ? 'is-visible' : ''}`}>
           <SectionHeader
             eyebrow="The House"
-            title="The House of AvantSpecs"
+            title="The House of SJD TRADEHOUSE"
             description="A newly launched, boutique trade house based in Rohtak, India. We are not a manufacturer; we are a merchant exporter, which means our job is to find the right product, verify it, document it, and deliver it. Every consignment is fully documented to spec."
             headingLevel="h1"
           />
@@ -105,7 +105,7 @@ export function AboutSection() {
           <SectionHeader
             eyebrow="Quality & Testing"
             title="What every COA carries"
-            description="A Certificate of Analysis is not a formality; it is the document your regulator, your lab, and your customer will reference. Every AvantSpecs COA includes:"
+            description="A Certificate of Analysis is not a formality; it is the document your regulator, your lab, and your customer will reference. Every SJD TRADEHOUSE COA includes:"
           />
         </div>
         <div className="mt-10 grid gap-6 md:grid-cols-2">

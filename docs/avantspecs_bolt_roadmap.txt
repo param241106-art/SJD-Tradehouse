@@ -1,4 +1,4 @@
-AVANTSPECS — STEP-BY-STEP BUILD ROADMAP FOR BOLT
+SJD TRADEHOUSE — STEP-BY-STEP BUILD ROADMAP FOR BOLT
 =====================================================
 Use this alongside the "users" and "blueprint" files. Build in this order
 so each phase is testable before moving to the next. Give each step to

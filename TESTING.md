@@ -1,6 +1,6 @@
-# Testing Guide — AvantSpecs
+# Testing Guide — SJD TRADEHOUSE
 
-AvantSpecs is a Vite + React 18 + TypeScript single-page marketing/trade site
+SJD TRADEHOUSE is a Vite + React 18 + TypeScript single-page marketing/trade site
 with hash-based client-side routing (`src/lib/router.ts`) and three
 Supabase-backed lead-capture forms: the newsletter signup (`Footer.tsx`), the
 contact form (`ContactSection.tsx`), and the multi-step RFQ "Order Portal"

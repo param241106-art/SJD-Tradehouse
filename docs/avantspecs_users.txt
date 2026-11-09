@@ -1,4 +1,4 @@
-AVANTSPECS — WEBSITE USERS / TARGET AUDIENCE
+SJD TRADEHOUSE — WEBSITE USERS / TARGET AUDIENCE
 =====================================================
 This site is B2B — there are no end-consumer shoppers. Every visitor is
 either a business buyer, a partner, or internal staff. Below are the
@@ -43,12 +43,12 @@ Needs from the site:
 
 3. TERTIARY USER: EXISTING / RETURNING TRADE PARTNER
 ------------------------------------------------------
-- A buyer who already has a relationship with AvantSpecs and returns to:
+- A buyer who already has a relationship with SJD TRADEHOUSE and returns to:
   - Check new-crop availability or market notes (footer newsletter)
   - Request specs on an additional product via "Request Specs" links
   - Reach the trade desk directly by phone/WhatsApp or email
 
-4. INTERNAL / OPERATIONAL USER: THE AVANTSPECS TRADE DESK
+4. INTERNAL / OPERATIONAL USER: THE SJD TRADEHOUSE TRADE DESK
 ------------------------------------------------------
 - Receives RFQ portal submissions and contact form submissions (via
   Formspree-forwarded emails)

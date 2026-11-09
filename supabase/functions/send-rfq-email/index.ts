@@ -51,7 +51,7 @@ function renderEmailHtml(data: RfqPayload): string {
   return `
     <div style="font-family:Arial,Helvetica,sans-serif;max-width:560px;margin:0 auto;background:#fafaf8;padding:32px 20px;">
       <div style="background:#1c3d2d;border-radius:8px 8px 0 0;padding:24px 28px;">
-        <p style="margin:0;color:#e0b055;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;">AvantSpecs</p>
+        <p style="margin:0;color:#e0b055;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;">SJD TRADEHOUSE</p>
         <h1 style="margin:8px 0 0;color:#ffffff;font-size:20px;">Your enquiry has been received</h1>
       </div>
       <div style="background:#ffffff;border:1px solid #e0dbd2;border-top:none;padding:24px 28px;">
@@ -67,7 +67,7 @@ function renderEmailHtml(data: RfqPayload): string {
           ${rowsHtml}
         </table>
         <p style="margin:20px 0 0;color:#8a8a82;font-size:12px;line-height:1.6;">
-          AvantSpecs &middot; Rohtak, India &middot; param@avantspecs.com &middot; aadi.singh@avantspecs.com
+          SJD TRADEHOUSE &middot; Rohtak, India &middot; param@avantspecs.com &middot; aadi.singh@avantspecs.com
         </p>
       </div>
     </div>`;
@@ -103,9 +103,9 @@ Deno.serve(async (req) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: Deno.env.get('RESEND_FROM_EMAIL') || 'AvantSpecs <onboarding@resend.dev>',
+        from: Deno.env.get('RESEND_FROM_EMAIL') || 'SJD TRADEHOUSE <onboarding@resend.dev>',
         to: [data.email],
-        subject: `Your AvantSpecs enquiry: ${data.reference}`,
+        subject: `Your SJD TRADEHOUSE enquiry: ${data.reference}`,
         html: renderEmailHtml(data),
       }),
     });

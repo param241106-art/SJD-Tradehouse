@@ -132,7 +132,7 @@ export function GuidePage() {
 
       <div className="mt-20">
         <CTABand
-          title="Ready to vet AvantSpecs against this checklist?"
+          title="Ready to vet SJD TRADEHOUSE against this checklist?"
           description="Request a quote through the Order Portal and see the document set, testing standards, and response time for yourself."
           primaryLabel="Request a Quote"
           primaryRoute="register"

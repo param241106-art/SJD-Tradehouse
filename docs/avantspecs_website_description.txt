@@ -1,10 +1,10 @@
-AVANTSPECS — WEBSITE DESCRIPTION & FUNCTIONAL SPEC
+SJD TRADEHOUSE — WEBSITE DESCRIPTION & FUNCTIONAL SPEC
 (For rebuilding the site in Bolt.new)
 =====================================================
 
 1. COMPANY OVERVIEW
 --------------------
-Name: AvantSpecs
+Name: SJD TRADEHOUSE
 Tagline: "Merchant Trading"
 Type: Merchant export house (B2B, not a manufacturer) based in Rohtak, India (PIN 124001)
 Contact: trade@avantspecs.com · +971 58 592 7251 · +91 99960 64220
@@ -53,7 +53,7 @@ C) PRODUCT REGISTER (#products)
    - Bottom CTA band inviting custom/unlisted specification requests
 
 D) ABOUT / THE HOUSE (#about)
-   - H1 "The House of AvantSpecs"
+   - H1 "The House of SJD TRADEHOUSE"
    - Company story / mission section ("Built to bridge origin and formulation")
    - 3-Step process section ("Three steps, fully documented"):
      Sourcing & Procurement → Testing & Quality Control → Freight & Delivery
@@ -76,7 +76,7 @@ E) TRADE & MARKETS (#markets)
      consignment (COA, TDS, SDS, COO, Phytosanitary Cert, Commercial
      Invoice/Packing List, Bill of Lading, Allergen/Non-GMO Declaration)
    - Compliance note callout: buyer specifies destination market at RFQ
-     stage and AvantSpecs maps the exact certificate set required
+     stage and SJD TRADEHOUSE maps the exact certificate set required
    - CTA band → Order Portal / Contact
 
 F) ORDER / RFQ PORTAL (#portal-page) — the core interactive feature
@@ -110,7 +110,7 @@ G) CONTACT (#contact)
      client-side validated (HTML5 required + custom check), submits via
      fetch() to a separate Formspree endpoint, shows a success flash
      message, resets the form after submit
-   - Office location image + caption ("AvantSpecs – Rohtak, India 124001")
+   - Office location image + caption ("SJD TRADEHOUSE – Rohtak, India 124001")
    - FAQ accordion/grid section: MOQ, shipment lead times by region,
      samples policy, documentation list, how to get a quote
 

@@ -86,7 +86,7 @@ export const products: Product[] = [
     origin: 'Jordan',
     originCountry: 'Jordan',
     description:
-      'Large, soft, caramel-sweet Phoenix dactylifera Medjool dates, tree-ripened, hand-sorted, and graded by size for retail packing, confectionery, and food manufacturing, with consistent moisture content and a naturally rich texture. AvantSpecs supplies wholesale Jordan Medjool dates as a bulk Medjool dates supplier to importers and food brands worldwide.',
+      'Large, soft, caramel-sweet Phoenix dactylifera Medjool dates, tree-ripened, hand-sorted, and graded by size for retail packing, confectionery, and food manufacturing, with consistent moisture content and a naturally rich texture. SJD TRADEHOUSE supplies wholesale Jordan Medjool dates as a bulk Medjool dates supplier to importers and food brands worldwide.',
     coaAvailable: true,
     photoUrl: '/images/Medjool_Dates.jpg',
   },
@@ -100,7 +100,7 @@ export const products: Product[] = [
     origin: 'Turkey',
     originCountry: 'Turkey',
     description:
-      'Soft, naturally sweet Ficus carica dried figs from Turkey, sun dried and graded by size for retail packing, confectionery, bakery, and food manufacturing. AvantSpecs supplies wholesale Turkish dried figs as a bulk dried figs supplier to importers and food brands worldwide.',
+      'Soft, naturally sweet Ficus carica dried figs from Turkey, sun dried and graded by size for retail packing, confectionery, bakery, and food manufacturing. SJD TRADEHOUSE supplies wholesale Turkish dried figs as a bulk dried figs supplier to importers and food brands worldwide.',
     coaAvailable: true,
     photoUrl: '/images/Turkish_Figs.jpg',
   },
@@ -114,7 +114,7 @@ export const products: Product[] = [
     origin: 'Turkey',
     originCountry: 'Turkey',
     description:
-      'Bright, naturally sweet Prunus armeniaca dried apricots from Turkey, sun dried and graded by size for retail packing, snack mixes, bakery, and food manufacturing. AvantSpecs supplies wholesale Turkish dried apricots as a bulk dried apricots supplier to importers and food brands worldwide.',
+      'Bright, naturally sweet Prunus armeniaca dried apricots from Turkey, sun dried and graded by size for retail packing, snack mixes, bakery, and food manufacturing. SJD TRADEHOUSE supplies wholesale Turkish dried apricots as a bulk dried apricots supplier to importers and food brands worldwide.',
     coaAvailable: true,
     photoUrl: '/images/Turkish_Apricots.jpg',
   },
@@ -128,7 +128,7 @@ export const products: Product[] = [
     origin: 'Iran',
     originCountry: 'Iran',
     description:
-      'Rich, buttery Pistacia vera pistachios (pista) from Iran, cleaned and graded by size for retail packing, confectionery, bakery, and food manufacturing. AvantSpecs supplies wholesale Iranian pistachios as a bulk pista supplier to importers and food brands.',
+      'Rich, buttery Pistacia vera pistachios (pista) from Iran, cleaned and graded by size for retail packing, confectionery, bakery, and food manufacturing. SJD TRADEHOUSE supplies wholesale Iranian pistachios as a bulk pista supplier to importers and food brands.',
     coaAvailable: true,
     photoUrl: '/images/Irani_Pista.jpg',
   },
@@ -142,7 +142,7 @@ export const products: Product[] = [
     origin: 'Iran',
     originCountry: 'Iran',
     description:
-      'Small, concave Prunus dulcis Mamra almonds from Iran, valued for their rich flavour and natural oil content, cleaned and graded for retail packing, gifting, and food manufacturing. AvantSpecs supplies wholesale Iranian Mamra almonds as a bulk Mamra supplier to importers and food brands.',
+      'Small, concave Prunus dulcis Mamra almonds from Iran, valued for their rich flavour and natural oil content, cleaned and graded for retail packing, gifting, and food manufacturing. SJD TRADEHOUSE supplies wholesale Iranian Mamra almonds as a bulk Mamra supplier to importers and food brands.',
     coaAvailable: true,
     photoUrl: '/images/Irani_Mamra.jpg',
   },
@@ -155,7 +155,7 @@ export const products: Product[] = [
     extractionMethod: 'Steam Distilled',
     origin: 'Himachal Pradesh & Uttarakhand',
     description:
-      'A high-cineole Eucalyptus globulus oil suited for pharmaceutical-grade formulations, chest rubs, and antiseptic applications, with consistent 1,8-cineole content batch over batch. AvantSpecs supplies it in bulk to wholesale buyers as a steam-distilled eucalyptus oil exporter based in India.',
+      'A high-cineole Eucalyptus globulus oil suited for pharmaceutical-grade formulations, chest rubs, and antiseptic applications, with consistent 1,8-cineole content batch over batch. SJD TRADEHOUSE supplies it in bulk to wholesale buyers as a steam-distilled eucalyptus oil exporter based in India.',
     moq: '25 kg',
     coaAvailable: true,
     photoUrl: 'https://images.pexels.com/photos/6720282/pexels-photo-6720282.jpeg?auto=compress&cs=tinysrgb&w=800',
@@ -170,7 +170,7 @@ export const products: Product[] = [
     extractionMethod: 'Steam Distilled',
     origin: 'Tamil Nadu & Karnataka',
     description:
-      'Rich in eugenol, this Syzygium aromaticum clove bud oil is ideal for dental care manufacturing, fragrances, and flavour formulations, sourced from hand-picked buds for a superior aroma profile. As a clove bud oil exporter based in India, AvantSpecs is a bulk clove oil supplier serving wholesale eugenol buyers.',
+      'Rich in eugenol, this Syzygium aromaticum clove bud oil is ideal for dental care manufacturing, fragrances, and flavour formulations, sourced from hand-picked buds for a superior aroma profile. As a clove bud oil exporter based in India, SJD TRADEHOUSE is a bulk clove oil supplier serving wholesale eugenol buyers.',
     moq: '25 kg',
     coaAvailable: true,
     photoUrl: '/images/Clove_Buds.jpg',
@@ -185,7 +185,7 @@ export const products: Product[] = [
     extractionMethod: 'Steam Distilled',
     origin: 'Kerala & Assam',
     description:
-      'A citrusy, grassy-sweet Cymbopogon flexuosus oil with high citral content (75-85%), widely used in soap manufacturing, detergents, insect repellents, and flavour applications, with a bright, clean aroma. AvantSpecs exports it wholesale from India as a bulk lemongrass oil supplier.',
+      'A citrusy, grassy-sweet Cymbopogon flexuosus oil with high citral content (75-85%), widely used in soap manufacturing, detergents, insect repellents, and flavour applications, with a bright, clean aroma. SJD TRADEHOUSE exports it wholesale from India as a bulk lemongrass oil supplier.',
     moq: '25 kg',
     coaAvailable: true,
     photoUrl: '/images/Lemon_Grass.jpg',
@@ -200,7 +200,7 @@ export const products: Product[] = [
     extractionMethod: 'Steam Distilled',
     origin: 'Assam & West Bengal',
     description:
-      'A classic Cymbopogon winterianus mosquito-repellent oil with strong geraniol and citronellal content, used in candles, topical repellents, and industrial insect-control formulations. AvantSpecs is a bulk citronella oil supplier, exporting wholesale citronella oil from India to candle and repellent manufacturers worldwide.',
+      'A classic Cymbopogon winterianus mosquito-repellent oil with strong geraniol and citronellal content, used in candles, topical repellents, and industrial insect-control formulations. SJD TRADEHOUSE is a bulk citronella oil supplier, exporting wholesale citronella oil from India to candle and repellent manufacturers worldwide.',
     moq: '25 kg',
     coaAvailable: true,
     photoUrl: '/images/Citronella_Oil.jpg',
@@ -215,7 +215,7 @@ export const products: Product[] = [
     extractionMethod: 'Solvent Extracted',
     origin: 'Kerala & Karnataka',
     description:
-      'A concentrated, full-spectrum Piper nigrum oleoresin capturing both pungency (piperine 40%) and aroma, used in food seasoning, sauces, and nutraceutical formulations. A bulk black pepper oleoresin supplier, AvantSpecs exports wholesale piperine oleoresin from India to food and nutraceutical manufacturers.',
+      'A concentrated, full-spectrum Piper nigrum oleoresin capturing both pungency (piperine 40%) and aroma, used in food seasoning, sauces, and nutraceutical formulations. A bulk black pepper oleoresin supplier, SJD TRADEHOUSE exports wholesale piperine oleoresin from India to food and nutraceutical manufacturers.',
     moq: '10 kg',
     coaAvailable: true,
     photoUrl: '/images/Black_Pepper_Oleoresin.jpg',
@@ -230,7 +230,7 @@ export const products: Product[] = [
     extractionMethod: 'Hand-Harvested & Sun Dried',
     origin: 'Kashmir',
     description:
-      'Premium all-red Crocus sativus saffron threads with high crocin, picrocrocin, and safranal content for strong color, bitterness, and aroma, hand-picked and sun dried for a consistent grade. As a saffron exporter in India, AvantSpecs supplies bulk saffron and wholesale Kashmir saffron to formulators worldwide.',
+      'Premium all-red Crocus sativus saffron threads with high crocin, picrocrocin, and safranal content for strong color, bitterness, and aroma, hand-picked and sun dried for a consistent grade. As a saffron exporter in India, SJD TRADEHOUSE supplies bulk saffron and wholesale Kashmir saffron to formulators worldwide.',
     moq: '500 g',
     coaAvailable: true,
     photoUrl: '/images/Saffron.jpg',
@@ -245,7 +245,7 @@ export const products: Product[] = [
     extractionMethod: 'Cleaned & Sieved',
     origin: 'Gujarat & Rajasthan',
     description:
-      'Bold, earthy Cuminum cyminum cumin seed, cleaned and sieved to a consistent grade for whole-seed use or in-house milling, widely used in spice blends, seasonings, and flavour applications. AvantSpecs exports wholesale cumin seed from India as a bulk cumin seed supplier to spice blenders worldwide.',
+      'Bold, earthy Cuminum cyminum cumin seed, cleaned and sieved to a consistent grade for whole-seed use or in-house milling, widely used in spice blends, seasonings, and flavour applications. SJD TRADEHOUSE exports wholesale cumin seed from India as a bulk cumin seed supplier to spice blenders worldwide.',
     moq: '25 kg',
     coaAvailable: true,
     photoUrl: '/images/Cumin.jpg',
@@ -260,7 +260,7 @@ export const products: Product[] = [
     extractionMethod: 'Heat-Pressed',
     origin: 'Karnataka & Kerala',
     description:
-      'Fully compostable Areca catechu tableware heat-pressed from fallen areca palm leaf sheaths, with no chemical treatment or binding agents, sturdy, microwave-safe, and available in round and square profiles. AvantSpecs is an areca leaf plates wholesale supplier and bulk compostable tableware exporter, manufacturing biodegradable tableware for export from India.',
+      'Fully compostable Areca catechu tableware heat-pressed from fallen areca palm leaf sheaths, with no chemical treatment or binding agents, sturdy, microwave-safe, and available in round and square profiles. SJD TRADEHOUSE is an areca leaf plates wholesale supplier and bulk compostable tableware exporter, manufacturing biodegradable tableware for export from India.',
     moq: '5,000 pieces',
     coaAvailable: false,
     photoUrl: '/images/Areca_Plates.jpg',
@@ -275,7 +275,7 @@ export const products: Product[] = [
     extractionMethod: 'Roasted & Graded',
     origin: 'Kerala & Goa',
     description:
-      'Whole Anacardium occidentale cashew kernels, roasted and hand-graded to standard export grades (W240/W320), with consistent size, color, and moisture content for retail packing and food manufacturing. A bulk cashew kernels exporter in India, AvantSpecs supplies wholesale roasted cashew kernels to buyers worldwide.',
+      'Whole Anacardium occidentale cashew kernels, roasted and hand-graded to standard export grades (W240/W320), with consistent size, color, and moisture content for retail packing and food manufacturing. A bulk cashew kernels exporter in India, SJD TRADEHOUSE supplies wholesale roasted cashew kernels to buyers worldwide.',
     moq: '25 kg',
     coaAvailable: true,
     photoUrl: '/images/Cashews.jpg',
@@ -290,7 +290,7 @@ export const products: Product[] = [
     extractionMethod: 'Milled & Sieved',
     origin: 'Rajasthan & Gujarat',
     description:
-      'High-viscosity Cyamopsis tetragonoloba guar gum powder milled from guar split for food, textile, and industrial thickening applications, available in multiple mesh sizes and viscosity grades. AvantSpecs is a bulk guar gum powder supplier and exporter in India, supplying wholesale guar gum as a food thickener.',
+      'High-viscosity Cyamopsis tetragonoloba guar gum powder milled from guar split for food, textile, and industrial thickening applications, available in multiple mesh sizes and viscosity grades. SJD TRADEHOUSE is a bulk guar gum powder supplier and exporter in India, supplying wholesale guar gum as a food thickener.',
     moq: '25 kg',
     coaAvailable: true,
     photoUrl: '/images/Guar_Gum.jpg',
@@ -305,7 +305,7 @@ export const products: Product[] = [
     extractionMethod: 'Dehydrated & Milled',
     origin: 'Maharashtra & Gujarat',
     description:
-      'Dehydrated and finely milled Allium cepa onion powder with strong, consistent flavour for seasoning blends, snack coatings, and ready-to-eat food manufacturing. As a bulk dehydrated onion powder supplier, AvantSpecs exports wholesale onion powder seasoning from India.',
+      'Dehydrated and finely milled Allium cepa onion powder with strong, consistent flavour for seasoning blends, snack coatings, and ready-to-eat food manufacturing. As a bulk dehydrated onion powder supplier, SJD TRADEHOUSE exports wholesale onion powder seasoning from India.',
     moq: '25 kg',
     coaAvailable: true,
     photoUrl: '/images/Onion_Powder.jpg',
@@ -320,7 +320,7 @@ export const products: Product[] = [
     extractionMethod: 'Dehydrated & Milled',
     origin: 'Uttar Pradesh & Punjab',
     description:
-      'Fine dehydrated Solanum tuberosum potato powder for snack manufacturing, instant food mixes, and as a binding agent, with a clean, neutral flavour and low moisture content for extended shelf life. AvantSpecs exports wholesale potato powder from India as a bulk dehydrated potato powder supplier.',
+      'Fine dehydrated Solanum tuberosum potato powder for snack manufacturing, instant food mixes, and as a binding agent, with a clean, neutral flavour and low moisture content for extended shelf life. SJD TRADEHOUSE exports wholesale potato powder from India as a bulk dehydrated potato powder supplier.',
     moq: '25 kg',
     coaAvailable: true,
     photoUrl: '/images/Potato_Powder.jpg',
@@ -370,12 +370,12 @@ export const team: TeamMember[] = [
   {
     name: 'Paramjeet Singh',
     role: 'Chief Executive Officer',
-    bio: 'Paramjeet founded AvantSpecs after seeing local farmers and small distillers sell high-quality essential oils for a fraction of their real worth, simply because they had no direct route to international buyers. He built AvantSpecs to close that gap, putting in place the testing, documentation, and trade relationships needed so Indian-origin botanicals reach global formulators on fair terms. He leads the company’s trade relationships and growth.',
+    bio: 'Paramjeet founded SJD TRADEHOUSE after seeing local farmers and small distillers sell high-quality essential oils for a fraction of their real worth, simply because they had no direct route to international buyers. He built SJD TRADEHOUSE to close that gap, putting in place the testing, documentation, and trade relationships needed so Indian-origin botanicals reach global formulators on fair terms. He leads the company’s trade relationships and growth.',
   },
   {
     name: 'Aadi Kumar Singh',
     role: 'Chief Operating Officer',
-    bio: 'Aadi joined AvantSpecs as COO and owns the day-to-day: sourcing logistics, lab coordination, and keeping every shipment’s paperwork airtight. While Paramjeet focuses on trade relationships and growth, Aadi makes sure the operational side never becomes the reason a buyer’s order slips.',
+    bio: 'Aadi joined SJD TRADEHOUSE as COO and owns the day-to-day: sourcing logistics, lab coordination, and keeping every shipment’s paperwork airtight. While Paramjeet focuses on trade relationships and growth, Aadi makes sure the operational side never becomes the reason a buyer’s order slips.',
   },
 ];
 
@@ -431,7 +431,7 @@ export const guideChecklist: ChecklistItem[] = [
   {
     title: 'Batch-specific testing, not a generic spec sheet',
     description:
-      'Ask whether they run GC-MS constituent profiling plus microbial and heavy-metal panels on every batch, and whether the COA you receive is for your actual lot or a template. AvantSpecs generates a batch-specific Certificate of Analysis before any consignment is cleared to ship.',
+      'Ask whether they run GC-MS constituent profiling plus microbial and heavy-metal panels on every batch, and whether the COA you receive is for your actual lot or a template. SJD TRADEHOUSE generates a batch-specific Certificate of Analysis before any consignment is cleared to ship.',
   },
   {
     title: 'Traceability to origin',
@@ -494,6 +494,6 @@ export const guideFaqs: FAQItem[] = [
   {
     question: "What's the difference between an essential oil manufacturer and a merchant export house?",
     answer:
-      'A manufacturer or distiller processes the raw material but may not handle international documentation, freight, or destination-market compliance. A merchant export house like AvantSpecs does not manufacture; it sources from origin, tests and verifies each batch, and handles the documentation and logistics needed to get a compliant shipment to your dock.',
+      'A manufacturer or distiller processes the raw material but may not handle international documentation, freight, or destination-market compliance. A merchant export house like SJD TRADEHOUSE does not manufacture; it sources from origin, tests and verifies each batch, and handles the documentation and logistics needed to get a compliant shipment to your dock.',
   },
 ];

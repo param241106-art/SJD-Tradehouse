@@ -1,5 +1,5 @@
 /*
-# Create AvantSpecs lead-capture tables (single-tenant, no auth)
+# Create SJD TRADEHOUSE lead-capture tables (single-tenant, no auth)
 
 1. New Tables
 - `rfq_submissions` — stores Order Portal (Request for Quote) submissions.

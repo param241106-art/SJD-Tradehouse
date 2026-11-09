@@ -41,7 +41,7 @@ export function DocsRfqApiPage() {
         <h1 className="mt-3 text-4xl leading-tight md:text-5xl">RFQ Submission API</h1>
         <span className="heading-accent" />
         <p className="mt-4 text-base leading-relaxed text-ink-secondary">
-          This is the same endpoint the AvantSpecs Order Portal calls when a buyer submits a
+          This is the same endpoint the SJD TRADEHOUSE Order Portal calls when a buyer submits a
           Request for Quote. It accepts a single public write operation — creating a new RFQ
           record — and nothing else. Row Level Security on the underlying table grants the
           public anon key INSERT-only access: there is no public read, update, or delete

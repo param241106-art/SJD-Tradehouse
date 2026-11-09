@@ -48,7 +48,7 @@ const NAVIGATE_EVENT = 'avantspecs:navigate';
 
 function getBase(): string {
   // import.meta.env.BASE_URL always has a leading and trailing slash
-  // (e.g. "/" or "/AvantSpecs/"), matching Vite's `base` config. Resolving
+  // (e.g. "/" or "/SJD TRADEHOUSE/"), matching Vite's `base` config. Resolving
   // against it keeps routing correct whether the app is served from the
   // domain root or a sub-path.
   return import.meta.env.BASE_URL;
