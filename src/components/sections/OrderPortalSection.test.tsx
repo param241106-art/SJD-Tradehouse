@@ -62,7 +62,7 @@ describe('OrderPortalSection (RFQ wizard)', () => {
 
   it('leaves coming-soon products out of the product picker', () => {
     render(<OrderPortalSection preselectedProduct={null} resetSignal={0} />);
-    expect(screen.getByRole('button', { name: 'Irani Mamra' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Afghani Mamra' })).toBeInTheDocument();
     expect(screen.queryByRole('button', { name: 'Eucalyptus Oil' })).not.toBeInTheDocument();
   });
 

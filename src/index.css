@@ -2275,7 +2275,7 @@
 }
 
 /* Two-column hero is tight on small laptops: drop the badge before it can
-   collide with the pistachio card. */
+   collide with the walnut card. */
 @media (min-width: 1024px) and (max-width: 1180px) {
   .hero-glass {
     display: none;

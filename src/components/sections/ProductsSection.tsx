@@ -30,7 +30,7 @@ export function ProductsSection({ onRequestSpecs, headingLevel }: Props) {
         q === '' ||
         p.name.toLowerCase().includes(q) ||
         p.latinBinomial.toLowerCase().includes(q) ||
-        // Lets buyers find "Irani Pista" by "pistachio" and "Irani Mamra" by "almond".
+        // Lets buyers find "Afghani Walnuts" by "walnut" and "Afghani Mamra" by "almond".
         p.description.toLowerCase().includes(q);
       return matchesCategory && matchesSearch;
     });

@@ -27,13 +27,13 @@ const notes: Record<string, string> = {
   'medjool-dates': 'Soft texture, rich caramel notes. Tree-ripened and hand-sorted.',
   'turkish-figs': 'Sun-dried and naturally sweet.',
   'turkish-apricots': 'Golden colour, beautifully balanced.',
-  'irani-pista': 'Distinctive flavour, buttery texture.',
-  'irani-mamra': 'Naturally rich, carefully graded.',
+  'afghani-mamra': 'Naturally rich, carefully graded.',
+  'afghani-walnuts': 'Light, buttery kernels with a mild finish.',
 };
 
 const origins = [
   {
-    country: 'Jordan',
+    country: 'Egypt',
     text: 'Large, soft, caramel-sweet Medjool dates, tree-ripened and hand-sorted before they are graded.',
     products: ['medjool-dates'],
   },
@@ -43,9 +43,9 @@ const origins = [
     products: ['turkish-figs', 'turkish-apricots'],
   },
   {
-    country: 'Iran',
-    text: 'Buttery pistachios and concave Mamra almonds, prized for their flavour and natural oil.',
-    products: ['irani-pista', 'irani-mamra'],
+    country: 'Afghanistan',
+    text: 'Concave Mamra almonds and mild, buttery walnuts, prized for their flavour and natural oil.',
+    products: ['afghani-mamra', 'afghani-walnuts'],
   },
 ];
 
@@ -133,7 +133,7 @@ export function HomeSection() {
                 <dd>COA</dd>
               </div>
               <div>
-                <dt>Origins: Jordan, Turkey, Iran</dt>
+                <dt>Origins: Egypt, Turkey, Afghanistan</dt>
                 <dd>3</dd>
               </div>
             </dl>
@@ -144,7 +144,7 @@ export function HomeSection() {
             <figure className="hero-arch">
               <Picture
                 src="/images/Medjool_Dates.jpg"
-                alt="Rich, caramel-brown Medjool dates sourced from Jordan"
+                alt="Rich, caramel-brown Medjool dates sourced from Egypt"
                 width={760}
                 height={507}
                 loading="eager"
@@ -153,7 +153,7 @@ export function HomeSection() {
                 className="hero-arch-img"
               />
               <figcaption>
-                <span>Origin · Jordan</span>
+                <span>Origin · Egypt</span>
                 Medjool Dates
               </figcaption>
             </figure>
@@ -176,13 +176,13 @@ export function HomeSection() {
             </div>
 
             <a
-              href={productHref('irani-pista')}
-              onClick={(e) => handleRouteLinkClick(e, () => navigateToProduct('irani-pista'))}
+              href={productHref('afghani-walnuts')}
+              onClick={(e) => handleRouteLinkClick(e, () => navigateToProduct('afghani-walnuts'))}
               className="hero-card"
             >
               <Picture
-                src="/images/Irani_Pista.jpg"
-                alt="Iranian pistachios"
+                src="/images/Afghani_Walnuts.jpg"
+                alt="Afghan walnuts, whole and cracked"
                 width={760}
                 height={507}
                 loading="eager"
@@ -191,8 +191,8 @@ export function HomeSection() {
               />
               <span className="hero-card-body">
                 <span>
-                  <small>Iran</small>
-                  Irani Pista
+                  <small>Afghanistan</small>
+                  Afghani Walnuts
                 </span>
                 <span className="hero-card-arrow" aria-hidden="true">
                   <ArrowUpRight size={17} />
@@ -349,8 +349,8 @@ export function HomeSection() {
         <div ref={story.ref} className={`container-wrap story ${story.className}`}>
           <div className="story-collage">
             <Picture
-              src="/images/Irani_Mamra.jpg"
-              alt="Iranian Mamra almonds on natural linen"
+              src="/images/Afghani_Mamra.jpg"
+              alt="Afghan Mamra almonds on natural linen"
               width={760}
               height={570}
               wrapperClassName="story-main"

@@ -54,9 +54,9 @@ describe('ProductsSection', () => {
   it('finds products by a term that only appears in the description', async () => {
     const user = userEvent.setup();
     render(<ProductsSection onRequestSpecs={vi.fn()} />);
-    await user.type(screen.getByLabelText('Search products'), 'pistachio');
-    expect(screen.getByText('Irani Pista')).toBeInTheDocument();
-    expect(screen.queryByText('Irani Mamra')).not.toBeInTheDocument();
+    await user.type(screen.getByLabelText('Search products'), 'walnut');
+    expect(screen.getByText('Afghani Walnuts')).toBeInTheDocument();
+    expect(screen.queryByText('Afghani Mamra')).not.toBeInTheDocument();
   });
 
   it('calls onRequestSpecs with the product id when "Request Specs" is clicked', async () => {
@@ -88,8 +88,8 @@ describe('ProductsSection', () => {
       'medjool-dates',
       'turkish-figs',
       'turkish-apricots',
-      'irani-pista',
-      'irani-mamra',
+      'afghani-mamra',
+      'afghani-walnuts',
     ]);
   });
 
