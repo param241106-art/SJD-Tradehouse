@@ -4,29 +4,29 @@ export default {
   theme: {
     extend: {
       colors: {
-        bg: '#f7f5ef',
-        surface: '#ffffff',
+        bg: '#f5f2ea',
+        surface: '#fcfaf5',
         ink: {
-          DEFAULT: '#15170f',
-          secondary: '#45483d',
-          muted: '#7c7f72',
+          DEFAULT: '#272c22',
+          secondary: '#5c6054',
+          muted: '#737467',
         },
         green: {
-          deep: '#0b1a12',
-          DEFAULT: '#12291d',
-          mid: '#1d3d2c',
-          light: '#2f6a4a',
-          tint: '#e7f0ea',
+          deep: '#1c241d',
+          DEFAULT: '#293a2b',
+          mid: '#3c4c36',
+          light: '#4c6042',
+          tint: '#e8eade',
         },
         gold: {
-          DEFAULT: '#b98632',
-          light: '#e2b862',
-          pale: '#f3dfb1',
+          DEFAULT: '#8d6d36',
+          light: '#d6bb85',
+          pale: '#ebd9b6',
           tint: '#fbf4e4',
         },
         rust: '#a3462a',
         line: {
-          DEFAULT: '#e4ded2',
+          DEFAULT: '#dedbce',
           strong: '#cbc2b3',
         },
       },
@@ -38,13 +38,13 @@ export default {
         label: ['"Manrope Variable"', '"Manrope Fallback"', 'system-ui', 'sans-serif'],
       },
       maxWidth: {
-        wrap: '1240px',
+        wrap: '1328px',
         'wrap-tight': '900px',
       },
       borderRadius: {
-        sm: '10px',
-        md: '16px',
-        lg: '28px',
+        sm: '3px',
+        md: '5px',
+        lg: '8px',
       },
       boxShadow: {
         soft: '0 1px 2px rgba(18,41,29,0.04), 0 8px 24px -8px rgba(18,41,29,0.12)',

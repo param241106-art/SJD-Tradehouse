@@ -53,7 +53,7 @@ export function ProductsSection({ onRequestSpecs, headingLevel }: Props) {
         <div ref={headerReveal.ref} className={`reveal ${headerReveal.visible ? 'is-visible' : ''}`}>
           <SectionHeader
             eyebrow="Products"
-            title="Browse our range"
+            title="The collection"
             description={`${products.length} core products. Filter by category or search by product name or Latin binomial. Click "Request Specs" on any available product to start a quote.`}
             headingLevel={headingLevel}
           />
@@ -61,7 +61,7 @@ export function ProductsSection({ onRequestSpecs, headingLevel }: Props) {
       </div>
 
       <div className="container-wrap mt-10">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="catalog-filters flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div className="no-scrollbar -mx-5 flex gap-2 overflow-x-auto px-5 pb-1 sm:mx-0 sm:flex-wrap sm:px-0">
             {tabs.map((tab) => (
               <button
@@ -79,7 +79,7 @@ export function ProductsSection({ onRequestSpecs, headingLevel }: Props) {
               </button>
             ))}
           </div>
-          <div className="relative sm:w-72">
+          <div className="relative w-full shrink-0 lg:w-64">
             <Search
               size={17}
               className="absolute left-3 top-1/2 -translate-y-1/2 text-ink-muted"
@@ -148,7 +148,7 @@ function ProductCard({
   return (
     <div
       ref={ref}
-      className={`card card-hover group relative flex flex-col overflow-hidden reveal ${visible ? 'is-visible' : ''}`}
+      className={`catalog-card card card-hover group relative flex flex-col overflow-hidden reveal ${visible ? 'is-visible' : ''}`}
       style={{ transitionDelay: `${(index % 3) * 80}ms` }}
     >
       <a
@@ -185,7 +185,7 @@ function ProductCard({
             Coming Soon
           </span>
         ) : (
-          <span className="badge absolute right-3 top-3 border-gold-light bg-gradient-to-b from-gold-light to-gold text-green-deep">
+          <span className="badge absolute right-3 top-3 border-gold-light bg-gold-light text-green-deep">
             Available
           </span>
         )}
@@ -200,7 +200,7 @@ function ProductCard({
             {product.name}
           </a>
         </h3>
-        <p className="mt-2 text-sm leading-relaxed text-ink-secondary">{product.description}</p>
+        <p className="catalog-description mt-2 text-sm leading-relaxed text-ink-secondary">{product.description}</p>
         <div className="mt-4 flex flex-wrap gap-2">
           <span className="badge border-line bg-bg text-ink-secondary">{product.extractionMethod}</span>
           {product.moq && (

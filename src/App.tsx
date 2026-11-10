@@ -140,7 +140,7 @@ export default function App() {
     <div className="min-h-screen bg-bg">
       <ScrollProgress />
       <Navbar />
-      <main className="pt-16 md:pt-[4.5rem]">
+      <main id="main-content" tabIndex={-1} className="site-main">
         {route === 'home' && <HomePage />}
         {route !== 'home' && <PageBanner route={route} productName={product?.name} />}
         {route !== 'home' && (

@@ -14,37 +14,35 @@ const labels: Record<Route, string> = {
   'docs-rfq-api': 'RFQ API',
 };
 
-/** Slim dark band under the navbar on inner pages: continues the header
- * surface and shows a breadcrumb trail. */
+/** Quiet breadcrumb trail connecting the inner pages to the house. */
 export function PageBanner({ route, productName }: { route: Route; productName?: string }) {
   return (
-    <div className="surface-dark overflow-hidden">
-      <div className="grid-pattern pointer-events-none absolute inset-0 -z-10 opacity-60" aria-hidden="true" />
+    <div className="page-breadcrumb overflow-hidden">
       <nav aria-label="Breadcrumb" className="container-wrap flex items-center gap-2 py-4 text-sm">
         <a
           href={routeHref('home')}
           onClick={(e) => handleRouteLinkClick(e, () => navigate('home'))}
-          className="text-white/60 transition-colors hover:text-white"
+          className="text-ink-secondary transition-colors hover:text-green"
         >
           Home
         </a>
-        <ChevronRight size={14} className="text-white/30" aria-hidden="true" />
+        <ChevronRight size={14} className="text-ink-muted" aria-hidden="true" />
         {route === 'product' ? (
           <>
             <a
               href={routeHref('register')}
               onClick={(e) => handleRouteLinkClick(e, () => navigate('register'))}
-              className="text-white/60 transition-colors hover:text-white"
+              className="text-ink-secondary transition-colors hover:text-green"
             >
               Products
             </a>
-            <ChevronRight size={14} className="text-white/30" aria-hidden="true" />
-            <span className="font-semibold text-gold-light" aria-current="page">
+            <ChevronRight size={14} className="text-ink-muted" aria-hidden="true" />
+            <span className="font-semibold text-green" aria-current="page">
               {productName ?? 'Product'}
             </span>
           </>
         ) : (
-          <span className="font-semibold text-gold-light" aria-current="page">
+          <span className="font-semibold text-green" aria-current="page">
             {labels[route]}
           </span>
         )}

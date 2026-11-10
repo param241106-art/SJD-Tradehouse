@@ -11,8 +11,8 @@ type SectionProps = {
 
 const bgClasses = {
   plain: 'bg-bg',
-  green: 'bg-gradient-to-b from-green-tint/80 to-bg',
-  gold: 'bg-gradient-to-b from-gold-tint to-bg',
+  green: 'bg-green-tint/40',
+  gold: 'bg-gold-tint/50',
 };
 
 export function Section({ id, children, className = '', bg = 'plain' }: SectionProps) {
@@ -81,7 +81,7 @@ export function CTABand({
 }: CTABandProps) {
   return (
     <div className="container-wrap">
-      <div className="surface-dark overflow-hidden rounded-lg px-6 py-14 text-center text-white shadow-lift md:px-16 md:py-16">
+      <div className="surface-dark editorial-cta overflow-hidden rounded-lg px-6 py-14 text-center text-white shadow-lift md:px-16 md:py-16">
         <div className="grid-pattern pointer-events-none absolute inset-0 -z-10" aria-hidden="true" />
         <div
           className="pointer-events-none absolute -right-24 -top-24 -z-10 h-72 w-72 rounded-full bg-gold/20 blur-3xl"

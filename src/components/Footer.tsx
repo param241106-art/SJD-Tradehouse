@@ -52,7 +52,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="surface-dark overflow-hidden bg-green-deep text-white">
+    <footer className="site-footer surface-dark overflow-hidden bg-green-deep text-white">
       <div className="grid-pattern pointer-events-none absolute inset-0 -z-10 opacity-50" aria-hidden="true" />
 
       {/* Closing CTA */}
@@ -62,7 +62,7 @@ export function Footer() {
             <div className="max-w-2xl">
               <p className="eyebrow-light">Start a consignment</p>
               <h2 className="mt-4 text-4xl leading-[1.05] text-white md:text-6xl">
-                Ready when your <span className="text-gradient-gold">next order</span> is.
+                Good things begin<br />with <em className="text-gold-light">a conversation.</em>
               </h2>
               <p className="mt-5 max-w-xl text-base leading-relaxed text-white/65">
                 Tell us the product, volume and destination. Our trade desk replies with a quote
@@ -86,6 +86,7 @@ export function Footer() {
         </div>
       )}
 
+      <div className="footer-signature container-wrap" aria-hidden="true" data-wordmark="SJD TRADEHOUSE"><span>GOOD ORIGINS. GREAT POSSIBILITIES.</span></div>
       <div className="container-wrap py-14">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.3fr_0.8fr_0.8fr_1.3fr]">
           <div>
@@ -106,8 +107,7 @@ export function Footer() {
               </div>
             </div>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/60">
-              A merchant export house sourcing, testing, and shipping essential oils and
-              oleoresins to wholesale buyers worldwide.
+              A merchant export house connecting fine dried fruits, nuts and botanical ingredients with wholesale buyers worldwide.
             </p>
             {route !== 'contact' && (
               <div className="mt-6 space-y-3">

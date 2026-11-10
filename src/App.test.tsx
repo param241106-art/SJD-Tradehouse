@@ -20,7 +20,7 @@ describe('App routing', () => {
 
   it('renders the home page by default', () => {
     render(<App />);
-    expect(screen.getByText('Select products')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 1, name: /Fine origins/ })).toBeInTheDocument();
   });
 
   it('navigates to the House page via the navbar', async () => {
