@@ -1,9 +1,9 @@
 name: Deploy to GitHub Pages
 
 # Builds and deploys to GitHub Pages on every push to main.
-# Served at https://param241106-art.github.io/SJD-Tradehouse/ for now. To move
-# to a custom domain: add public/CNAME, then set BASE_PATH to '/' and SITE_URL
-# to 'https://<domain>' below. No code changes are needed.
+# Served at https://sjdtradehouse.com (custom domain set in the repo's Pages
+# settings; DNS at GoDaddy). To go back to the github.io URL, remove the custom
+# domain and set BASE_PATH to /SJD-Tradehouse/ and SITE_URL to its URL below.
 
 on:
   push:
@@ -34,8 +34,8 @@ jobs:
 
       - run: npm run build
         env:
-          BASE_PATH: /SJD-Tradehouse/
-          SITE_URL: https://param241106-art.github.io/SJD-Tradehouse
+          BASE_PATH: /
+          SITE_URL: https://sjdtradehouse.com
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
 

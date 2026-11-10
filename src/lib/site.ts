@@ -1,7 +1,7 @@
 /** Absolute site origin + base path, no trailing slash. Set at build time
  * from the SITE_URL environment variable (see vite.config.ts). */
 export const SITE_URL: string = (
-  import.meta.env.VITE_SITE_URL ?? 'https://param241106-art.github.io/SJD-Tradehouse'
+  import.meta.env.VITE_SITE_URL ?? 'https://sjdtradehouse.com'
 ).replace(/\/$/, '');
 
 export const CONTACT = {

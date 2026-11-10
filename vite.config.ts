@@ -9,11 +9,11 @@ import path from 'node:path';
 // the GitHub Pages project URL to a custom domain is a two-variable change in
 // .github/workflows/deploy-pages.yml — no code edits:
 //   BASE_PATH  URL path prefix the app lives under ('/' on a custom domain,
-//              '/SJD-Tradehouse/' on param241106-art.github.io).
+//              '/SJD-Tradehouse/' without one, on param241106-art.github.io).
 //   SITE_URL   Absolute origin + base, no trailing slash. Used for canonical
 //              URLs, Open Graph tags, JSON-LD, sitemap.xml and robots.txt.
 const BASE_PATH = process.env.BASE_PATH ?? '/';
-const SITE_URL = (process.env.SITE_URL ?? 'https://param241106-art.github.io/SJD-Tradehouse').replace(
+const SITE_URL = (process.env.SITE_URL ?? 'https://sjdtradehouse.com').replace(
   /\/$/,
   '',
 );
