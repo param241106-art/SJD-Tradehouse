@@ -47,10 +47,10 @@ export function SectionHeader({
   return (
     <div className={align === 'center' ? 'mx-auto max-w-2xl text-center' : 'max-w-2xl'}>
       <p className={`eyebrow ${align === 'center' ? 'justify-center' : ''}`}>{eyebrow}</p>
-      <Heading className="mt-4 text-[2.4rem] leading-[1.08] md:text-[3.4rem]">{title}</Heading>
+      <Heading className={`section-title ${headingLevel === 'h1' ? 'is-page-title' : ''}`}>{title}</Heading>
       <span className={`heading-accent ${align === 'center' ? 'mx-auto' : ''}`} />
       {description && (
-        <p className="mt-5 text-base leading-relaxed text-ink-secondary md:text-lg">{description}</p>
+        <p className="mt-6 text-base leading-relaxed text-ink-secondary md:text-lg">{description}</p>
       )}
     </div>
   );
@@ -81,13 +81,8 @@ export function CTABand({
 }: CTABandProps) {
   return (
     <div className="container-wrap">
-      <div className="surface-dark editorial-cta overflow-hidden rounded-lg px-6 py-14 text-center text-white shadow-lift md:px-16 md:py-16">
-        <div className="grid-pattern pointer-events-none absolute inset-0 -z-10" aria-hidden="true" />
-        <div
-          className="pointer-events-none absolute -right-24 -top-24 -z-10 h-72 w-72 rounded-full bg-gold/20 blur-3xl"
-          aria-hidden="true"
-        />
-        <h3 className="mx-auto max-w-2xl text-3xl text-white md:text-[2.75rem] md:leading-tight">{title}</h3>
+      <div className="cta-band px-6 py-14 text-center text-white md:px-16 md:py-20">
+        <h3 className="mx-auto max-w-2xl text-3xl font-normal text-white md:text-[3rem] md:leading-[1.08]">{title}</h3>
         <span className="heading-accent mx-auto" />
         {description && (
           <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-white/75">
@@ -96,19 +91,19 @@ export function CTABand({
         )}
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           {primaryOnClick ? (
-            <button type="button" onClick={primaryOnClick} className="btn-gold">
+            <button type="button" onClick={primaryOnClick} className="btn-lux">
               {primaryLabel}
             </button>
           ) : primaryRoute ? (
             <a
               href={routeHref(primaryRoute)}
               onClick={(e) => handleRouteLinkClick(e, () => navigate(primaryRoute))}
-              className="btn-gold"
+              className="btn-lux"
             >
               {primaryLabel}
             </a>
           ) : (
-            <a href={primaryHref} className="btn-gold">
+            <a href={primaryHref} className="btn-lux">
               {primaryLabel}
             </a>
           )}
@@ -117,14 +112,14 @@ export function CTABand({
               <a
                 href={routeHref(secondaryRoute)}
                 onClick={(e) => handleRouteLinkClick(e, () => navigate(secondaryRoute))}
-                className="btn-glass"
+                className="btn-lux-ghost"
               >
                 {secondaryLabel}
               </a>
             ) : (
               <a
                 href={secondaryHref}
-                className="btn-glass"
+                className="btn-lux-ghost"
               >
                 {secondaryLabel}
               </a>

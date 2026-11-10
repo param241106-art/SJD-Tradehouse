@@ -1,108 +1,487 @@
-import { useState } from 'react';
-import { ArrowDown, ArrowRight, ArrowUpRight, Globe2 } from 'lucide-react';
-import { navigate, navigateToProduct, productHref, routeHref, handleRouteLinkClick } from '@/lib/router';
+import { useRef } from 'react';
+import {
+  ArrowLeft,
+  ArrowRight,
+  ArrowUpRight,
+  BadgeCheck,
+  FileCheck2,
+  FlaskConical,
+  Handshake,
+  Quote,
+  ScanSearch,
+  Ship,
+} from 'lucide-react';
+import {
+  navigate,
+  navigateToOrderPortal,
+  navigateToProduct,
+  productHref,
+  routeHref,
+  handleRouteLinkClick,
+} from '@/lib/router';
 import { Picture } from '@/components/Picture';
-import { availableProducts } from '@/data/content';
+import { availableProducts, categoryLabels, products } from '@/data/content';
+import { useReveal } from '@/lib/hooks';
 
 const notes: Record<string, string> = {
-  'medjool-dates': 'Soft texture. Rich caramel notes.',
-  'turkish-figs': 'Sun-dried. Naturally sweet.',
-  'turkish-apricots': 'Golden colour. Beautifully balanced.',
-  'irani-pista': 'Distinctive flavour. Rich, buttery texture.',
-  'irani-mamra': 'Naturally rich. Carefully graded.',
+  'medjool-dates': 'Soft texture, rich caramel notes. Tree-ripened and hand-sorted.',
+  'turkish-figs': 'Sun-dried and naturally sweet.',
+  'turkish-apricots': 'Golden colour, beautifully balanced.',
+  'irani-pista': 'Distinctive flavour, buttery texture.',
+  'irani-mamra': 'Naturally rich, carefully graded.',
 };
 
+const origins = [
+  {
+    country: 'Jordan',
+    text: 'Large, soft, caramel-sweet Medjool dates, tree-ripened and hand-sorted before they are graded.',
+    products: ['medjool-dates'],
+  },
+  {
+    country: 'Turkey',
+    text: 'Sun-dried figs and golden apricots, graded by size for retail packing and manufacturing.',
+    products: ['turkish-figs', 'turkish-apricots'],
+  },
+  {
+    country: 'Iran',
+    text: 'Buttery pistachios and concave Mamra almonds, prized for their flavour and natural oil.',
+    products: ['irani-pista', 'irani-mamra'],
+  },
+];
+
+const upcomingIds = [
+  'saffron',
+  'clove-bud-oil',
+  'cashew-kernels',
+  'cumin-seed',
+  'lemongrass-oil',
+  'areca-leaf-plates',
+];
+
+const steps = [
+  { title: 'Source', icon: ScanSearch, text: 'The right origin and the right grade. We start with your specification, volume and market.' },
+  { title: 'Verify', icon: FlaskConical, text: 'Every lot is checked against the agreed spec, with the lab report for your actual batch.' },
+  { title: 'Document', icon: FileCheck2, text: 'COA, origin and shipping documents prepared for your destination market.' },
+  { title: 'Deliver', icon: Ship, text: 'Freight and incoterm coordination, from origin to your door, with updates along the way.' },
+];
+
+const promises = [
+  { icon: FlaskConical, title: 'Lab-verified, not label-claimed', text: 'Every batch is tested before it ships, and you receive the report for your lot.' },
+  { icon: FileCheck2, title: 'Documented to spec', text: 'The full certificate set your destination market expects, prepared before dispatch.' },
+  { icon: Handshake, title: 'A personal trade desk', text: 'A quote and the full document set within 48 hours of your enquiry.' },
+];
+
+function useRevealClass<T extends HTMLElement = HTMLDivElement>() {
+  const { ref, visible } = useReveal<T>();
+  return { ref, className: `reveal ${visible ? 'is-visible' : ''}` };
+}
+
+function productById(id: string) {
+  return products.find((p) => p.id === id);
+}
+
 export function HomeSection() {
-  const [collection, setCollection] = useState<'fruits' | 'nuts'>('fruits');
-  const selected = availableProducts.filter(p => p.category === collection);
+  const collectionHead = useRevealClass();
+  const bento = useRevealClass();
+  const originsHead = useRevealClass();
+  const originGrid = useRevealClass();
+  const story = useRevealClass();
+  const processHead = useRevealClass();
+  const stepGrid = useRevealClass<HTMLOListElement>();
+  const upcomingHead = useRevealClass();
+  const rail = useRef<HTMLDivElement>(null);
+  const upcoming = upcomingIds.map(productById).filter((p) => p !== undefined);
+  const scrollRail = (dir: 1 | -1) =>
+    rail.current?.scrollBy({ left: dir * Math.min(rail.current.clientWidth * 0.8, 640), behavior: 'smooth' });
+
+  const toProducts = (e: React.MouseEvent<HTMLAnchorElement>) =>
+    handleRouteLinkClick(e, () => navigate('register'));
+
   return (
     <>
-      <section id="home" className="editorial-hero">
-        <div className="container-wrap hero-layout">
+      {/* ---------- Hero ---------- */}
+      <section id="home" className="hero" aria-labelledby="hero-heading">
+        <div className="hero-bg" aria-hidden="true" />
+        <div className="container-wrap hero-grid">
           <div className="hero-copy">
-            <p className="editorial-kicker"><span /> FROM ORIGIN. WITH INTEGRITY.</p>
-            <h1>Fine origins.<br /><em>Endless</em><br />possibilities.</h1>
-            <p className="hero-description">Fine dried fruits, nuts and botanical ingredients. Thoughtfully sourced. Carefully documented. Delivered to your world.</p>
+            <p className="hero-pill">
+              <span className="hero-pill-dot" aria-hidden="true" />
+              Merchant export house · Rohtak, India
+            </p>
+            <h1 id="hero-heading" className="hero-title">
+              Fine origins. <em>Endless</em> possibilities.
+            </h1>
+            <p className="hero-lead">
+              Premium dried fruits, nuts and botanical ingredients, thoughtfully sourced at origin,
+              carefully documented and delivered to wholesale buyers worldwide.
+            </p>
             <div className="hero-actions">
-              <a href={routeHref('register')} onClick={e => handleRouteLinkClick(e, () => navigate('register'))} className="btn-primary">Explore our collection <ArrowUpRight size={18} /></a>
-              <a href={routeHref('house')} onClick={e => handleRouteLinkClick(e, () => navigate('house'))} className="editorial-link">Meet the house <ArrowRight size={16} /></a>
+              <a href={routeHref('register')} onClick={toProducts} className="btn-lux">
+                Explore the collection <ArrowUpRight size={18} />
+              </a>
+              <button type="button" onClick={navigateToOrderPortal} className="btn-lux-ghost">
+                Request a quote <ArrowRight size={17} />
+              </button>
             </div>
-            <div className="hero-footnote"><span className="fine-rule" /><p>ROOTED IN INDIA<span>Connected to the world.</span></p></div>
+            <dl className="hero-stats">
+              <div>
+                <dt>Quote turnaround</dt>
+                <dd>48h</dd>
+              </div>
+              <div>
+                <dt>Lab report per lot</dt>
+                <dd>COA</dd>
+              </div>
+              <div>
+                <dt>Origins: Jordan, Turkey, Iran</dt>
+                <dd>3</dd>
+              </div>
+            </dl>
           </div>
-          <div className="hero-art">
-            <div className="hero-image-frame">
-              <Picture src="/images/Medjool_Dates.jpg" alt="Rich, caramel-brown Medjool dates sourced from Jordan" width={760} height={507} loading="eager" fetchPriority="high" className="hero-main-image" />
-              <div className="hero-image-caption"><span>THE ORIGIN EDIT — 01</span><p>Nature’s finest.<br /><em>Nothing ordinary.</em></p></div>
+
+          <div className="hero-visual">
+            <div className="hero-ring" aria-hidden="true" />
+            <figure className="hero-arch">
+              <Picture
+                src="/images/Medjool_Dates.jpg"
+                alt="Rich, caramel-brown Medjool dates sourced from Jordan"
+                width={760}
+                height={507}
+                loading="eager"
+                fetchPriority="high"
+                wrapperClassName="hero-arch-picture"
+                className="hero-arch-img"
+              />
+              <figcaption>
+                <span>Origin · Jordan</span>
+                Medjool Dates
+              </figcaption>
+            </figure>
+
+            <svg className="hero-stamp" viewBox="0 0 120 120" aria-hidden="true">
+              <defs>
+                <path id="stamp-circle" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0" />
+              </defs>
+              <circle cx="60" cy="60" r="58" className="hero-stamp-disc" />
+              <g className="hero-stamp-ring">
+                <text>
+                  <textPath href="#stamp-circle">SELECTED AT ORIGIN ✦ SJD TRADEHOUSE ✦ </textPath>
+                </text>
+              </g>
+              <text x="60" y="68" textAnchor="middle" className="hero-stamp-mark">SJD</text>
+            </svg>
+
+            <div className="hero-bubble" aria-hidden="true">
+              <Picture src="/images/Turkish_Apricots.jpg" alt="" width={760} height={507} className="h-full w-full object-cover" />
             </div>
-            <span className="vertical-caption">SJD TRADEHOUSE / A WORLD OF GOOD ORIGINS</span>
-            <a href={productHref('irani-pista')} onClick={e => handleRouteLinkClick(e, () => navigateToProduct('irani-pista'))} className="hero-inset">
-              <Picture src="/images/Irani_Pista.jpg" alt="Iranian pistachios" width={760} height={507} loading="eager" className="h-full w-full object-cover" />
-              <span>Irani Pista <ArrowUpRight size={16} /></span>
+
+            <a
+              href={productHref('irani-pista')}
+              onClick={(e) => handleRouteLinkClick(e, () => navigateToProduct('irani-pista'))}
+              className="hero-card"
+            >
+              <Picture
+                src="/images/Irani_Pista.jpg"
+                alt="Iranian pistachios"
+                width={760}
+                height={507}
+                loading="eager"
+                wrapperClassName="hero-card-picture"
+                className="h-full w-full object-cover"
+              />
+              <span className="hero-card-body">
+                <span>
+                  <small>Iran</small>
+                  Irani Pista
+                </span>
+                <span className="hero-card-arrow" aria-hidden="true">
+                  <ArrowUpRight size={17} />
+                </span>
+              </span>
             </a>
-            <div className="origin-stamp" aria-hidden="true"><span>SELECTED AT</span><strong>Origin</strong><span>SJD TRADEHOUSE</span></div>
+
+            <div className="hero-glass">
+              <span className="hero-glass-icon" aria-hidden="true">
+                <BadgeCheck size={20} />
+              </span>
+              <span>
+                <strong>Available to order</strong>
+                {availableProducts.length} premium lines, ready to quote
+              </span>
+            </div>
           </div>
         </div>
-        <div className="container-wrap hero-bottom"><span>DRIED FRUITS &nbsp; / &nbsp; NUTS &nbsp; / &nbsp; BOTANICALS</span><a href="#collection">Discover the collection <ArrowDown size={15} /></a></div>
       </section>
 
-      <div className="provenance-strip"><div className="container-wrap"><p>Good trade begins<br /><em>with good origins.</em></p><span>Jordan <small>MEDJOOL DATES</small></span><span>Turkey <small>FIGS & APRICOTS</small></span><span>Iran <small>PISTACHIOS & ALMONDS</small></span><span className="provenance-global"><Globe2 size={25} strokeWidth={1} /> <small>AN INDIAN HOUSE.<br />A GLOBAL OUTLOOK.</small></span></div></div>
+      {/* ---------- Marquee ---------- */}
+      <div className="marquee" aria-label="Products available to order">
+        <div className="marquee-track">
+          {[0, 1].map((copy) => (
+            <ul key={copy} className="marquee-list" aria-hidden={copy === 1 ? true : undefined}>
+              {availableProducts.map((p) => (
+                <li key={p.id}>
+                  {p.name}
+                  <small>{p.origin}</small>
+                  <span aria-hidden="true">✦</span>
+                </li>
+              ))}
+            </ul>
+          ))}
+        </div>
+      </div>
 
-      <section id="collection" className="collection-section scroll-mt-24">
+      {/* ---------- Collection ---------- */}
+      <section id="collection" className="home-section scroll-mt-24" aria-labelledby="collection-heading">
         <div className="container-wrap">
-          <div className="editorial-section-head">
-            <div><p className="editorial-kicker">01 / THE COLLECTION</p><h2>Distinct by nature.<br /><em>Selected with purpose.</em></h2></div>
-            <p>A considered collection for discerning buyers.<br className="hidden md:block" /> Explore the products available from our trade desk.</p>
-          </div>
-          <div className="collection-toolbar">
-            <div className="collection-tabs" role="group" aria-label="Featured product category">
-              <button type="button" aria-pressed={collection === 'fruits'} onClick={() => setCollection('fruits')}>Dried fruits <sup>03</sup></button>
-              <button type="button" aria-pressed={collection === 'nuts'} onClick={() => setCollection('nuts')}>Nuts <sup>02</sup></button>
+          <div ref={collectionHead.ref} className={`sec-head ${collectionHead.className}`}>
+            <div>
+              <p className="kicker">The collection</p>
+              <h2 id="collection-heading" className="display-2">
+                Distinct by nature. <em>Selected with purpose.</em>
+              </h2>
             </div>
-            <a href={routeHref('register')} onClick={e => handleRouteLinkClick(e, () => navigate('register'))} className="editorial-link">View all products <ArrowUpRight size={16} /></a>
+            <div className="sec-head-aside">
+              <p>
+                A considered collection for discerning buyers: graded, documented and ready to quote
+                from our trade desk.
+              </p>
+              <a href={routeHref('register')} onClick={toProducts} className="link-arrow">
+                View all products <ArrowUpRight size={17} />
+              </a>
+            </div>
           </div>
-          <div className="collection-grid" aria-live="polite">
-            {selected.map((product, i) => (
-              <article className="collection-card" key={product.id}>
-                <a href={productHref(product.id)} onClick={e => handleRouteLinkClick(e, () => navigateToProduct(product.id))} className="collection-image" aria-label={`Discover ${product.name}`}>
-                  <Picture src={product.photoUrl} alt={product.name} width={760} height={570} className="h-full w-full object-cover" />
-                  <span className="collection-number">0{i + 1}</span><span className="collection-arrow"><ArrowUpRight size={22} strokeWidth={1.3} /></span>
-                </a>
-                <div className="collection-meta"><span>{product.origin}</span><span>Available to order</span></div>
-                <h3><a href={productHref(product.id)} onClick={e => handleRouteLinkClick(e, () => navigateToProduct(product.id))}>{product.name}</a></h3>
-                <p>{notes[product.id]}</p>
-              </article>
+
+          <div ref={bento.ref} className={`bento ${bento.className}`}>
+            {availableProducts.map((product, i) => (
+              <a
+                key={product.id}
+                href={productHref(product.id)}
+                onClick={(e) => handleRouteLinkClick(e, () => navigateToProduct(product.id))}
+                className={`bento-card ${i === 0 ? 'is-feature' : ''}`}
+                style={{ transitionDelay: `${i * 70}ms` }}
+              >
+                <Picture
+                  src={product.photoUrl}
+                  alt={product.name}
+                  width={760}
+                  height={570}
+                  wrapperClassName="bento-picture"
+                  className="bento-img"
+                />
+                <span className="bento-top">
+                  <span className="chip">{product.origin}</span>
+                  <span className="chip chip-glass">
+                    <span className="chip-dot" aria-hidden="true" /> Available
+                  </span>
+                </span>
+                <div className="bento-body">
+                  <small>{categoryLabels[product.category]}</small>
+                  <h3>{product.name}</h3>
+                  <p className="bento-note">{notes[product.id]}</p>
+                </div>
+                <span className="bento-arrow" aria-hidden="true">
+                  <ArrowUpRight size={20} />
+                </span>
+              </a>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="house-story" aria-labelledby="house-heading">
-        <div className="container-wrap story-layout">
-          <div className="story-visual">
-            <Picture src="/images/Irani_Mamra.jpg" alt="Iranian Mamra almonds on natural linen" width={760} height={570} className="h-full w-full object-cover" />
-            <div className="story-note"><span>THE SJD PHILOSOPHY</span><p>Quality at origin.<br />Confidence at arrival.</p></div>
+      {/* ---------- Origins ---------- */}
+      <section className="origins" aria-labelledby="origins-heading">
+        <div className="origins-bg" aria-hidden="true" />
+        <div className="container-wrap">
+          <div ref={originsHead.ref} className={`sec-head ${originsHead.className}`}>
+            <div>
+              <p className="kicker kicker-light">Where it begins</p>
+              <h2 id="origins-heading" className="display-2">
+                Good trade begins <em>with good origins.</em>
+              </h2>
+            </div>
+            <div className="sec-head-aside">
+              <p>
+                We work origin by origin, buying from the regions that grow each product best, and
+                coordinating everything from our desk in India.
+              </p>
+            </div>
           </div>
-          <div className="story-copy">
-            <p className="editorial-kicker">02 / THE HOUSE</p>
-            <h2 id="house-heading">A world of ingredients.<br /><em>A personal approach.</em></h2>
-            <p>Behind every ingredient is a place, a process and a promise. We bring them together for wholesale buyers who care as much about the source as the specification.</p>
-            <p>Based in Rohtak, India, SJD TRADEHOUSE connects origin regions with food brands, importers and formulators. From the first enquiry to the final document, your consignment has our attention.</p>
-            <a href={routeHref('house')} onClick={e => handleRouteLinkClick(e, () => navigate('house'))} className="editorial-link">Discover our approach <ArrowUpRight size={17} /></a>
+
+          <div ref={originGrid.ref} className={`origin-grid ${originGrid.className}`}>
+            {origins.map((origin, i) => (
+              <article key={origin.country} className="origin-card" style={{ transitionDelay: `${i * 80}ms` }}>
+                <span className="origin-index">0{i + 1}</span>
+                <h3>{origin.country}</h3>
+                <p>{origin.text}</p>
+                <ul className="origin-products">
+                  {origin.products.map((id) => {
+                    const p = productById(id);
+                    if (!p) return null;
+                    return (
+                      <li key={id}>
+                        <a href={productHref(id)} onClick={(e) => handleRouteLinkClick(e, () => navigateToProduct(id))}>
+                          <Picture src={p.photoUrl} alt="" width={760} height={507} wrapperClassName="origin-thumb" className="h-full w-full object-cover" />
+                          {p.name}
+                        </a>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </article>
+            ))}
+            <article className="origin-card is-home" style={{ transitionDelay: '240ms' }}>
+              <span className="origin-index">04 · Home</span>
+              <h3>India</h3>
+              <p>
+                Our trade desk in Rohtak coordinates sourcing, testing, documents and freight, with
+                Indian spices and essential oils joining the collection soon.
+              </p>
+              <a href={routeHref('house')} onClick={(e) => handleRouteLinkClick(e, () => navigate('house'))} className="origin-home-link">
+                Meet the house <ArrowUpRight size={17} />
+              </a>
+            </article>
           </div>
         </div>
       </section>
 
-      <section className="journey-section" aria-labelledby="journey-heading">
+      {/* ---------- The house ---------- */}
+      <section className="home-section" aria-labelledby="house-heading">
+        <div ref={story.ref} className={`container-wrap story ${story.className}`}>
+          <div className="story-collage">
+            <Picture
+              src="/images/Irani_Mamra.jpg"
+              alt="Iranian Mamra almonds on natural linen"
+              width={760}
+              height={570}
+              wrapperClassName="story-main"
+              className="h-full w-full object-cover"
+            />
+            <Picture
+              src="/images/Shipping.jpg"
+              alt="Containers being loaded at port for export"
+              width={612}
+              height={410}
+              wrapperClassName="story-sub"
+              className="h-full w-full object-cover"
+            />
+            <div className="story-quote">
+              <Quote size={22} aria-hidden="true" />
+              <p>Quality at origin. Confidence at arrival.</p>
+              <span>The SJD philosophy</span>
+            </div>
+          </div>
+          <div className="story-copy">
+            <p className="kicker">The house</p>
+            <h2 id="house-heading" className="display-2">
+              A world of ingredients. <em>A personal approach.</em>
+            </h2>
+            <p className="story-lead">
+              Behind every ingredient is a place, a process and a promise. We bring them together for
+              food brands, importers and formulators who care as much about the source as the
+              specification.
+            </p>
+            <ul className="promise-list">
+              {promises.map(({ icon: Icon, title, text }) => (
+                <li key={title} className="promise">
+                  <span className="promise-icon" aria-hidden="true">
+                    <Icon size={20} />
+                  </span>
+                  <span>
+                    <strong>{title}</strong>
+                    {text}
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <a href={routeHref('house')} onClick={(e) => handleRouteLinkClick(e, () => navigate('house'))} className="link-arrow mt-9">
+              Discover our approach <ArrowUpRight size={17} />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- Process ---------- */}
+      <section className="process" aria-labelledby="journey-heading">
         <div className="container-wrap">
-          <div className="editorial-section-head"><div><p className="editorial-kicker">03 / FROM SOURCE TO SHIPMENT</p><h2 id="journey-heading">Considered at <em>every step.</em></h2></div><a href={routeHref('trade')} onClick={e => handleRouteLinkClick(e, () => navigate('trade'))} className="editorial-link">Explore our trade desk <ArrowUpRight size={17} /></a></div>
-          <ol className="journey-grid">
-            {[
-              ['Source', 'The right origin, the right product. We start with your requirements.'],
-              ['Verify', 'Specifications and quality documentation, reviewed for your order.'],
-              ['Document', 'A clear paper trail, prepared for your destination market.'],
-              ['Deliver', 'Freight and incoterm coordination, from origin to your destination.'],
-            ].map(([title, description], i) => <li key={title}><span className="journey-number">0{i + 1}</span><h3>{title}<ArrowUpRight size={19} strokeWidth={1} /></h3><p>{description}</p></li>)}
+          <div ref={processHead.ref} className={`sec-head ${processHead.className}`}>
+            <div>
+              <p className="kicker">From source to shipment</p>
+              <h2 id="journey-heading" className="display-2">
+                Considered at <em>every step.</em>
+              </h2>
+            </div>
+            <div className="sec-head-aside">
+              <p>One accountable desk from first enquiry to final document, so nothing gets lost between origin and arrival.</p>
+              <a href={routeHref('trade')} onClick={(e) => handleRouteLinkClick(e, () => navigate('trade'))} className="link-arrow">
+                Explore trade &amp; markets <ArrowUpRight size={17} />
+              </a>
+            </div>
+          </div>
+          <ol ref={stepGrid.ref} className={`steps ${stepGrid.className}`}>
+            {steps.map(({ title, icon: Icon, text }, i) => (
+              <li key={title} className="step" style={{ transitionDelay: `${i * 80}ms` }}>
+                <span className="step-num" aria-hidden="true">0{i + 1}</span>
+                <span className="step-icon" aria-hidden="true">
+                  <Icon size={24} strokeWidth={1.6} />
+                </span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </li>
+            ))}
           </ol>
+        </div>
+      </section>
+
+      {/* ---------- Coming soon ---------- */}
+      <section className="home-section upcoming" aria-labelledby="upcoming-heading">
+        <div className="container-wrap">
+          <div ref={upcomingHead.ref} className={`sec-head ${upcomingHead.className}`}>
+            <div>
+              <p className="kicker">The house is growing</p>
+              <h2 id="upcoming-heading" className="display-2">
+                More fine ingredients, <em>coming soon.</em>
+              </h2>
+            </div>
+            <div className="rail-controls">
+              <button type="button" onClick={() => scrollRail(-1)} aria-label="Scroll left">
+                <ArrowLeft size={19} />
+              </button>
+              <button type="button" onClick={() => scrollRail(1)} aria-label="Scroll right">
+                <ArrowRight size={19} />
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className="rail-wrap">
+          <div ref={rail} className="rail no-scrollbar">
+            {upcoming.map((p) => (
+              <a
+                key={p.id}
+                href={productHref(p.id)}
+                onClick={(e) => handleRouteLinkClick(e, () => navigateToProduct(p.id))}
+                className="rail-card"
+              >
+                <span className="rail-media">
+                  <Picture src={p.photoUrl} alt={p.name} width={760} height={507} className="h-full w-full object-cover" />
+                  <span className="chip chip-glass rail-chip">Coming soon</span>
+                </span>
+                <div className="rail-body">
+                  <small>{categoryLabels[p.category]}</small>
+                  <h3>{p.name}</h3>
+                  <p>{p.origin}</p>
+                </div>
+              </a>
+            ))}
+            <a href={routeHref('register')} onClick={toProducts} className="rail-card rail-all">
+              <span>
+                <small>{products.length} products</small>
+                Browse the full catalogue
+              </span>
+              <span className="bento-arrow" aria-hidden="true">
+                <ArrowUpRight size={20} />
+              </span>
+            </a>
+          </div>
         </div>
       </section>
     </>

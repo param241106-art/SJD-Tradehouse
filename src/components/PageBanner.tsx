@@ -17,8 +17,8 @@ const labels: Record<Route, string> = {
 /** Quiet breadcrumb trail connecting the inner pages to the house. */
 export function PageBanner({ route, productName }: { route: Route; productName?: string }) {
   return (
-    <div className="page-breadcrumb overflow-hidden">
-      <nav aria-label="Breadcrumb" className="container-wrap flex items-center gap-2 py-4 text-sm">
+    <div className="page-breadcrumb">
+      <nav aria-label="Breadcrumb" className="container-wrap flex items-center gap-2 pt-7 text-sm">
         <a
           href={routeHref('home')}
           onClick={(e) => handleRouteLinkClick(e, () => navigate('home'))}
@@ -26,7 +26,7 @@ export function PageBanner({ route, productName }: { route: Route; productName?:
         >
           Home
         </a>
-        <ChevronRight size={14} className="text-ink-muted" aria-hidden="true" />
+        <ChevronRight size={14} className="text-gold-bright" aria-hidden="true" />
         {route === 'product' ? (
           <>
             <a
@@ -36,7 +36,7 @@ export function PageBanner({ route, productName }: { route: Route; productName?:
             >
               Products
             </a>
-            <ChevronRight size={14} className="text-ink-muted" aria-hidden="true" />
+            <ChevronRight size={14} className="text-gold-bright" aria-hidden="true" />
             <span className="font-semibold text-green" aria-current="page">
               {productName ?? 'Product'}
             </span>

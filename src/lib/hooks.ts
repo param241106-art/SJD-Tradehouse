@@ -12,7 +12,11 @@ export function useReveal<T extends HTMLElement = HTMLDivElement>(
     if (!el) return;
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        // Also reveal anything already scrolled past (top above the
+        // viewport): a fast scroll or a jump to an anchor can carry an
+        // element from below the fold to above it between two observer
+        // checks, and it would otherwise stay invisible.
+        if (entry.isIntersecting || entry.boundingClientRect.top < 0) {
           setVisible(true);
           observer.disconnect();
         }
