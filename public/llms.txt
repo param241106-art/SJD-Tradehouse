@@ -22,7 +22,7 @@ Coming soon (not yet available to quote):
 
 ## Company
 
-- About / leadership: %SITE_URL%/about
+- About us: %SITE_URL%/about
 - How SJD TRADEHOUSE sources and documents consignments: %SITE_URL%/house
 - Export markets served (Europe, Middle East): %SITE_URL%/trade
 - Contact / request a quote: %SITE_URL%/contact

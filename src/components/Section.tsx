@@ -32,7 +32,7 @@ type SectionHeaderProps = {
   // a page that already has its own h1 elsewhere (e.g. HomeSection's hero),
   // so this defaults to h2 — pass "h1" only from the single SectionHeader
   // that is a standalone page's top heading (see RegisterPage, AboutSection,
-  // LeadershipSection, MarketsSection, ContactSection).
+  // AboutUsSection, MarketsSection, ContactSection).
   headingLevel?: 'h1' | 'h2';
 };
 

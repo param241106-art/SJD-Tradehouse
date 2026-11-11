@@ -29,7 +29,7 @@ const routeHead: Record<Exclude<Route, 'product'>, { title: string; description:
   about: {
     title: 'About Us | SJD TRADEHOUSE',
     description:
-      'Meet the people behind SJD TRADEHOUSE: founder Paramjeet Singh built SJD TRADEHOUSE to connect Indian-origin botanical producers directly with international formulators and flavour houses.',
+      'SJD TRADEHOUSE is a boutique trade house in Rohtak, India, connecting Indian-origin botanical producers directly with international formulators, flavour houses, and wholesale buyers.',
   },
   trade: {
     title: 'Trade & Markets | SJD TRADEHOUSE',

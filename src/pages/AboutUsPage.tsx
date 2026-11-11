@@ -1,5 +1,5 @@
-import { LeadershipSection } from '@/components/sections/LeadershipSection';
+import { AboutUsSection } from '@/components/sections/AboutUsSection';
 
 export function AboutUsPage() {
-  return <LeadershipSection />;
+  return <AboutUsSection />;
 }

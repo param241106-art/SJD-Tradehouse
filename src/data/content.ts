@@ -64,12 +64,6 @@ export type Certification = {
   description: string;
 };
 
-export type TeamMember = {
-  name: string;
-  role: string;
-  bio: string;
-};
-
 export type FAQItem = {
   question: string;
   answer: string;
@@ -364,14 +358,6 @@ export const shipmentDocuments: ShipmentDocument[] = [
   { code: 'CIPL', name: 'Commercial Invoice & Packing List', description: 'Customs declaration with itemised quantities, values, and packaging details.' },
   { code: 'BOL', name: 'Bill of Lading', description: 'Transport document issued by the carrier serving as receipt and title of goods.' },
   { code: 'ALLERGEN', name: 'Allergen & Non-GMO Declaration', description: 'Declaration confirming absence of allergens and genetically modified organisms.' },
-];
-
-export const team: TeamMember[] = [
-  {
-    name: 'Paramjeet Singh',
-    role: 'Chief Executive Officer',
-    bio: 'Paramjeet founded SJD TRADEHOUSE after seeing local farmers and small distillers sell high-quality essential oils for a fraction of their real worth, simply because they had no direct route to international buyers. He built SJD TRADEHOUSE to close that gap, putting in place the testing, documentation, and trade relationships needed so Indian-origin botanicals reach global formulators on fair terms. He leads the company’s trade relationships and growth.',
-  },
 ];
 
 export const faqs: FAQItem[] = [
