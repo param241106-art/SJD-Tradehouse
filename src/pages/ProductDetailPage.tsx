@@ -45,6 +45,7 @@ export function ProductDetailPage({ productId }: Props) {
     ...(product.comingSoon ? [{ label: 'Availability', value: 'Coming Soon' }] : []),
     { label: isExtracted ? 'Extraction Method' : 'Processing Method', value: product.extractionMethod },
     { label: 'Origin', value: product.origin },
+    ...(product.hsCode ? [{ label: 'HS Code', value: product.hsCode }] : []),
     ...(product.moq ? [{ label: 'MOQ', value: product.moq }] : []),
     { label: 'COA Available', value: product.coaAvailable ? 'Yes' : 'On request' },
   ];
@@ -61,16 +62,41 @@ export function ProductDetailPage({ productId }: Props) {
         </a>
 
         <div className="mt-8 grid gap-10 lg:grid-cols-2 lg:items-start">
-          <div className="overflow-hidden rounded-md border border-line">
-            <Picture
-              src={product.photoUrl}
-              alt={product.name}
-              width={760}
-              height={425}
-              loading="eager"
-              fetchPriority="high"
-              className="aspect-[4/3] max-h-[280px] w-full object-cover sm:max-h-none"
-            />
+          <div>
+            <div className="overflow-hidden rounded-md border border-line">
+              <Picture
+                src={product.photoUrl}
+                alt={product.name}
+                width={760}
+                height={425}
+                loading="eager"
+                fetchPriority="high"
+                className="aspect-[4/3] max-h-[280px] w-full object-cover sm:max-h-none"
+              />
+            </div>
+            {product.photoCredit && (
+              <p className="mt-2 text-xs text-ink-muted">
+                Photo:{' '}
+                <a
+                  href={product.photoCredit.sourceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-2 hover:text-green"
+                >
+                  {product.photoCredit.author}
+                </a>
+                ,{' '}
+                <a
+                  href={product.photoCredit.licenseUrl}
+                  target="_blank"
+                  rel="license noopener noreferrer"
+                  className="underline underline-offset-2 hover:text-green"
+                >
+                  {product.photoCredit.license}
+                </a>
+                , via Wikimedia Commons (cropped)
+              </p>
+            )}
           </div>
 
           <div>

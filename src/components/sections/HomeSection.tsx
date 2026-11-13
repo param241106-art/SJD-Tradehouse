@@ -31,6 +31,10 @@ const notes: Record<string, string> = {
   'afghani-walnuts': 'Light, buttery kernels with a mild finish.',
 };
 
+// The collection bento stays on these hand-picked lines (the ones with a
+// note above); the full available range is in the marquee and catalogue.
+const featuredProducts = availableProducts.filter((p) => p.id in notes);
+
 const origins = [
   {
     country: 'Egypt',
@@ -44,8 +48,8 @@ const origins = [
   },
   {
     country: 'Afghanistan',
-    text: 'Concave Mamra almonds and mild, buttery walnuts, prized for their flavour and natural oil.',
-    products: ['afghani-mamra', 'afghani-walnuts'],
+    text: 'Concave Mamra almonds, mild, buttery walnuts and naturally sweet sun-dried mulberries.',
+    products: ['afghani-mamra', 'afghani-walnuts', 'dried-mulberry'],
   },
 ];
 
@@ -215,7 +219,8 @@ export function HomeSection() {
 
       {/* ---------- Marquee ---------- */}
       <div className="marquee" aria-label="Products available to order">
-        <div className="marquee-track">
+        {/* ~9s per product keeps the scroll speed steady as the range grows. */}
+        <div className="marquee-track" style={{ animationDuration: `${availableProducts.length * 9}s` }}>
           {[0, 1].map((copy) => (
             <ul key={copy} className="marquee-list" aria-hidden={copy === 1 ? true : undefined}>
               {availableProducts.map((p) => (
@@ -252,7 +257,7 @@ export function HomeSection() {
           </div>
 
           <div ref={bento.ref} className={`bento ${bento.className}`}>
-            {availableProducts.map((product, i) => (
+            {featuredProducts.map((product, i) => (
               <a
                 key={product.id}
                 href={productHref(product.id)}

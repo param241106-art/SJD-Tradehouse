@@ -31,7 +31,7 @@ export function organizationSchema(certifications: Certification[]) {
         },
         image: `${SITE_URL}/images/logo.jpg`,
         description:
-          'SJD TRADEHOUSE is a merchant export house sourcing, testing, and shipping essential oils, oleoresins, spices, nuts, dried fruits, powders, and eco disposables to wholesale buyers, formulators, and flavour houses worldwide.',
+          'SJD TRADEHOUSE is a merchant export house sourcing, testing, and shipping essential oils, oleoresins, spices, nuts, dried fruits, grains and millets, powders, and eco disposables to wholesale buyers, formulators, and flavour houses worldwide.',
         email: CONTACT.salesEmail,
         telephone: '+971-58-592-7251',
         address: {
@@ -111,6 +111,7 @@ export function productSchema(product: Product) {
           : `${product.origin}, ${product.originCountry ?? 'India'}`,
     },
     ...(product.moq ? [{ '@type': 'PropertyValue', name: 'Minimum order quantity', value: product.moq }] : []),
+    ...(product.hsCode ? [{ '@type': 'PropertyValue', name: 'HS code', value: product.hsCode }] : []),
     {
       '@type': 'PropertyValue',
       name: 'Certificate of Analysis',

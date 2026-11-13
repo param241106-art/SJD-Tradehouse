@@ -1,15 +1,19 @@
 # SJD TRADEHOUSE
 
-> SJD TRADEHOUSE is a merchant export house based in Rohtak, India, sourcing, testing, and shipping essential oils, oleoresins, spices, nuts, dried fruits, powders, and eco disposables to wholesale buyers, formulators, and flavour houses worldwide. Every consignment ships with a full documentation set (COA, TDS, SDS, Certificate of Origin, Phytosanitary Certificate, Commercial Invoice & Packing List, Bill of Lading, and an Allergen/Non-GMO Declaration).
+> SJD TRADEHOUSE is a merchant export house based in Rohtak, India, sourcing, testing, and shipping essential oils, oleoresins, spices, nuts, dried fruits, grains and millets, powders, and eco disposables to wholesale buyers, formulators, and flavour houses worldwide. Every consignment ships with a full documentation set (COA, TDS, SDS, Certificate of Origin, Phytosanitary Certificate, Commercial Invoice & Packing List, Bill of Lading, and an Allergen/Non-GMO Declaration).
 
 ## Products
 
-17 core SKUs across seven categories. Full details at %SITE_URL%/products, or view an individual product at %SITE_URL%/product/<id>.
+31 core SKUs across eight categories. Full details at %SITE_URL%/products, or view an individual product at %SITE_URL%/product/<id>.
 
 Available now:
 
-- Dried Fruits: Medjool Dates (Egypt), Turkish Figs, Turkish Apricots
+- Dried Fruits: Medjool Dates (Egypt), Turkish Figs, Turkish Apricots, Dried Mulberry (Afghanistan)
 - Nuts: Afghani Mamra (Afghan Mamra almonds), Afghani Walnuts (Afghan walnuts)
+- Grains & Millets: Pearl Millet (Bajra), Ragi (Finger Millet), Maize (Corn), Basmati Rice
+- Spices: Black Pepper (Whole), Dried Red Chilli, Cinnamon, Cloves (Whole), Coriander Seeds, Nutmeg
+- Powders: Ginger Powder
+- Eco Disposables: Bagasse Plates, Sal Leaf Plates
 
 Coming soon (not yet available to quote):
 

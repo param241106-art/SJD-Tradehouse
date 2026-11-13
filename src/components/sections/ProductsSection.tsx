@@ -43,6 +43,7 @@ export function ProductsSection({ onRequestSpecs, headingLevel }: Props) {
     { value: 'oleoresins', label: 'Oleoresins' },
     { value: 'spices', label: 'Spices' },
     { value: 'nuts', label: 'Nuts' },
+    { value: 'grains', label: 'Grains & Millets' },
     { value: 'powders', label: 'Powders' },
     { value: 'disposables', label: 'Eco Disposables' },
   ];

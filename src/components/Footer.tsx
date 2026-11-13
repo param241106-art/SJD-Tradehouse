@@ -21,6 +21,7 @@ const categoryLinks: { label: string; route: Exclude<Route, 'product'> }[] = [
   { label: 'Oleoresins', route: 'register' },
   { label: 'Spices', route: 'register' },
   { label: 'Nuts', route: 'register' },
+  { label: 'Grains & Millets', route: 'register' },
   { label: 'Powders', route: 'register' },
   { label: 'Eco Disposables', route: 'register' },
 ];

@@ -83,13 +83,27 @@ describe('ProductsSection', () => {
     });
   });
 
-  it('keeps only the dates and the four new SKUs available', () => {
+  it('keeps exactly the intended products available to quote', () => {
     expect(products.filter((p) => !p.comingSoon).map((p) => p.id)).toEqual([
       'medjool-dates',
       'turkish-figs',
       'turkish-apricots',
       'afghani-mamra',
       'afghani-walnuts',
+      'dried-mulberry',
+      'pearl-millet',
+      'ragi',
+      'maize',
+      'basmati-rice',
+      'black-pepper',
+      'dried-red-chilli',
+      'cinnamon',
+      'cloves',
+      'coriander-seeds',
+      'nutmeg',
+      'ginger-powder',
+      'bagasse-plates',
+      'sal-leaf-plates',
     ]);
   });
 

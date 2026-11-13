@@ -7,7 +7,7 @@ export type Product = {
   // cards, the CTA button, and image alt text.
   seoTitle: string;
   latinBinomial: string;
-  category: 'oils' | 'oleoresins' | 'spices' | 'nuts' | 'fruits' | 'powders' | 'disposables';
+  category: 'oils' | 'oleoresins' | 'spices' | 'nuts' | 'fruits' | 'grains' | 'powders' | 'disposables';
   extractionMethod:
     | 'Steam Distilled'
     | 'Solvent Extracted'
@@ -18,6 +18,7 @@ export type Product = {
     | 'Cleaned & Sieved'
     | 'Roasted & Graded'
     | 'Milled & Sieved'
+    | 'Milled & Polished'
     | 'Dehydrated & Milled'
     | 'Heat-Pressed';
   origin: string;
@@ -26,8 +27,14 @@ export type Product = {
   description: string;
   // Omitted while a product's minimum order quantity is still to be confirmed.
   moq?: string;
+  // Indian ITC-HS tariff code, shown on the product page.
+  hsCode?: string;
   coaAvailable: boolean;
   photoUrl: string;
+  // Attribution for a photo used under a Creative Commons licence (shown
+  // under the photo on the product page). Drop it when the photo is replaced
+  // with one of our own.
+  photoCredit?: { author: string; license: string; licenseUrl: string; sourceUrl: string };
   // Listed for visibility but not yet quotable: shows a "Coming Soon" badge,
   // hides the quote CTAs, and is left out of the Order Portal. Delete this
   // line from a product to make it available.
@@ -40,6 +47,7 @@ export const categoryLabels: Record<Product['category'], string> = {
   spices: 'Spice',
   nuts: 'Nut',
   fruits: 'Dried Fruit',
+  grains: 'Grain & Millet',
   powders: 'Powder',
   disposables: 'Eco Disposable',
 };
@@ -139,6 +147,227 @@ export const products: Product[] = [
       'Mild, buttery Juglans regia walnuts from Afghanistan, cleaned and graded by size for retail packing, gifting, bakery, confectionery, and food manufacturing. SJD TRADEHOUSE supplies wholesale Afghan walnuts as a bulk walnut supplier to importers and food brands.',
     coaAvailable: true,
     photoUrl: '/images/Afghani_Walnuts.jpg',
+  },
+  {
+    id: 'dried-mulberry',
+    name: 'Dried Mulberry',
+    seoTitle: 'Afghan Dried Mulberries Supplier',
+    latinBinomial: 'Morus alba',
+    category: 'fruits',
+    extractionMethod: 'Sun Dried & Graded',
+    origin: 'Afghanistan',
+    originCountry: 'Afghanistan',
+    description:
+      'Naturally sweet Morus alba white mulberries from Afghanistan, sun dried and cleaned for snacking, trail mixes, bakery, and breakfast cereals, with a chewy texture and a honey-like flavour. SJD TRADEHOUSE supplies wholesale Afghan dried mulberries as a bulk dried mulberry supplier to importers and food brands.',
+    hsCode: '0813 40 90',
+    coaAvailable: true,
+    photoUrl: '/images/Dried_Mulberry.jpg',
+    photoCredit: {
+      author: 'Zeynel Cebeci',
+      license: 'CC BY-SA 4.0',
+      licenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0/',
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:Dried_mulberries,_Malatya_01.jpg',
+    },
+  },
+  {
+    id: 'pearl-millet',
+    name: 'Pearl Millet (Bajra)',
+    seoTitle: 'Pearl Millet (Bajra) Exporter India',
+    latinBinomial: 'Pennisetum glaucum',
+    category: 'grains',
+    extractionMethod: 'Cleaned & Graded',
+    origin: 'Rajasthan & Haryana',
+    description:
+      'Hardy, nutrient-dense Pennisetum glaucum pearl millet, cleaned and graded for flour milling, multigrain blends, and animal feed, naturally gluten-free and rich in iron and fibre. SJD TRADEHOUSE exports wholesale bajra from India as a bulk pearl millet supplier to millers and food manufacturers.',
+    hsCode: '1008 29 20',
+    coaAvailable: true,
+    photoUrl: '/images/Pearl_Millet.jpg',
+  },
+  {
+    id: 'ragi',
+    name: 'Ragi (Finger Millet)',
+    seoTitle: 'Ragi (Finger Millet) Exporter India',
+    latinBinomial: 'Eleusine coracana',
+    category: 'grains',
+    extractionMethod: 'Cleaned & Graded',
+    origin: 'Karnataka & Tamil Nadu',
+    description:
+      'Small, reddish-brown Eleusine coracana finger millet, cleaned and graded for flour milling, health foods, porridges, and baby food, naturally gluten-free and valued for its high calcium content. SJD TRADEHOUSE exports wholesale ragi from India as a bulk finger millet supplier.',
+    hsCode: '1008 29 30',
+    coaAvailable: true,
+    photoUrl: '/images/Ragi.jpg',
+    photoCredit: {
+      author: 'Sengai Podhuvan',
+      license: 'CC BY-SA 3.0',
+      licenseUrl: 'https://creativecommons.org/licenses/by-sa/3.0/',
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:Food_grain_finger_millet.jpg',
+    },
+  },
+  {
+    id: 'maize',
+    name: 'Maize (Corn)',
+    seoTitle: 'Maize Exporter India',
+    latinBinomial: 'Zea mays',
+    category: 'grains',
+    extractionMethod: 'Cleaned & Graded',
+    origin: 'Karnataka & Madhya Pradesh',
+    description:
+      'Dried Zea mays maize kernels, cleaned and graded for starch and flour milling, poultry and animal feed, and food processing, with moisture and foreign-matter levels checked against the agreed specification. SJD TRADEHOUSE exports wholesale maize from India as a bulk maize supplier.',
+    hsCode: '1005 90 11',
+    coaAvailable: true,
+    photoUrl: '/images/Maize.jpg',
+  },
+  {
+    id: 'basmati-rice',
+    name: 'Basmati Rice',
+    seoTitle: 'Basmati Rice Exporter India',
+    latinBinomial: 'Oryza sativa',
+    category: 'grains',
+    extractionMethod: 'Milled & Polished',
+    origin: 'Haryana & Punjab',
+    description:
+      'Long-grain Oryza sativa basmati rice with a delicate aroma and grains that lengthen on cooking, milled, polished, and sorted for retail packing, food service, and ready-meal manufacturing. SJD TRADEHOUSE exports wholesale Indian basmati rice as a bulk basmati rice supplier to importers worldwide.',
+    hsCode: '1006 30 92',
+    coaAvailable: true,
+    photoUrl: '/images/Basmati_Rice.jpg',
+  },
+  {
+    id: 'black-pepper',
+    name: 'Black Pepper (Whole)',
+    seoTitle: 'Black Pepper Exporter India',
+    latinBinomial: 'Piper nigrum',
+    category: 'spices',
+    extractionMethod: 'Sun Dried & Graded',
+    origin: 'Kerala & Karnataka',
+    description:
+      'Bold, pungent Piper nigrum whole black peppercorns, sun dried and graded by size and bulk density for grinding, spice blends, seasonings, and retail packing. SJD TRADEHOUSE exports wholesale whole black pepper from India as a bulk black pepper supplier to spice processors worldwide.',
+    hsCode: '0904 11 30',
+    coaAvailable: true,
+    photoUrl: '/images/Black_Pepper.jpg',
+  },
+  {
+    id: 'dried-red-chilli',
+    name: 'Dried Red Chilli',
+    seoTitle: 'Dried Red Chilli Exporter India',
+    latinBinomial: 'Capsicum annuum',
+    category: 'spices',
+    extractionMethod: 'Sun Dried & Graded',
+    origin: 'Andhra Pradesh & Telangana',
+    description:
+      'Whole Capsicum annuum dried red chillies, sun dried and graded for colour and pungency, used in spice blends, chilli powder milling, sauces, and food manufacturing. SJD TRADEHOUSE exports wholesale dried red chillies from India as a bulk dried chilli supplier.',
+    hsCode: '0904 21 10',
+    coaAvailable: true,
+    photoUrl: '/images/Dried_Red_Chilli.jpg',
+  },
+  {
+    id: 'cinnamon',
+    name: 'Cinnamon',
+    seoTitle: 'Cinnamon Exporter India',
+    latinBinomial: 'Cinnamomum verum',
+    category: 'spices',
+    extractionMethod: 'Hand-Harvested & Sun Dried',
+    origin: 'Kerala',
+    description:
+      'Sweet, aromatic Cinnamomum verum cinnamon bark, peeled by hand, rolled into quills, and sun dried for baking, confectionery, beverages, and spice blends. SJD TRADEHOUSE exports wholesale cinnamon from India as a bulk cinnamon supplier.',
+    hsCode: '0906 11 10',
+    coaAvailable: true,
+    photoUrl: '/images/Cinnamon.jpg',
+  },
+  {
+    id: 'cloves',
+    name: 'Cloves (Whole)',
+    seoTitle: 'Cloves Exporter India',
+    latinBinomial: 'Syzygium aromaticum',
+    category: 'spices',
+    extractionMethod: 'Hand-Harvested & Sun Dried',
+    origin: 'Kerala & Tamil Nadu',
+    description:
+      'Whole Syzygium aromaticum clove buds, hand-picked before they flower and sun dried to a deep brown, rich in eugenol for spice blends, baking, meat processing, and oral-care formulations. SJD TRADEHOUSE exports wholesale whole cloves from India as a bulk clove supplier.',
+    hsCode: '0907 10 20',
+    coaAvailable: true,
+    photoUrl: '/images/Clove_Buds.jpg',
+  },
+  {
+    id: 'coriander-seeds',
+    name: 'Coriander Seeds',
+    seoTitle: 'Coriander Seeds Exporter India',
+    latinBinomial: 'Coriandrum sativum',
+    category: 'spices',
+    extractionMethod: 'Cleaned & Sieved',
+    origin: 'Rajasthan & Madhya Pradesh',
+    description:
+      'Warm, citrusy Coriandrum sativum coriander seeds, cleaned and sieved to a consistent grade for whole-seed use, in-house milling, spice blends, and pickling. SJD TRADEHOUSE exports wholesale coriander seeds from India as a bulk coriander seed supplier to spice blenders worldwide.',
+    hsCode: '0909 21 90',
+    coaAvailable: true,
+    photoUrl: '/images/Coriander_Seeds.jpg',
+  },
+  {
+    id: 'nutmeg',
+    name: 'Nutmeg',
+    seoTitle: 'Nutmeg Exporter India',
+    latinBinomial: 'Myristica fragrans',
+    category: 'spices',
+    extractionMethod: 'Hand-Harvested & Sun Dried',
+    origin: 'Kerala',
+    description:
+      'Whole Myristica fragrans nutmeg, harvested from ripe fruit, sun dried, and graded by size, with a warm, sweet aroma for baking, spice blends, beverages, and meat processing. SJD TRADEHOUSE exports wholesale nutmeg from India as a bulk nutmeg supplier.',
+    hsCode: '0908 11 20',
+    coaAvailable: true,
+    photoUrl: '/images/Nutmeg.jpg',
+  },
+  {
+    id: 'ginger-powder',
+    name: 'Ginger Powder',
+    seoTitle: 'Ginger Powder Exporter India',
+    latinBinomial: 'Zingiber officinale',
+    category: 'powders',
+    extractionMethod: 'Dehydrated & Milled',
+    origin: 'Kerala & Karnataka',
+    description:
+      'Finely milled Zingiber officinale ginger powder made from dried ginger rhizomes, with a warm, pungent flavour for spice blends, bakery, beverages, and seasoning manufacturing. SJD TRADEHOUSE exports wholesale dry ginger powder from India as a bulk ginger powder supplier.',
+    hsCode: '0910 12 10',
+    coaAvailable: true,
+    photoUrl: '/images/Ginger_Powder.jpg',
+  },
+  {
+    id: 'bagasse-plates',
+    name: 'Bagasse Plates',
+    seoTitle: 'Bagasse Plates Wholesale Supplier',
+    latinBinomial: 'Saccharum officinarum',
+    category: 'disposables',
+    extractionMethod: 'Heat-Pressed',
+    origin: 'Uttar Pradesh & Maharashtra',
+    description:
+      'Sturdy, compostable Saccharum officinarum tableware moulded from sugarcane bagasse, the fibre left after juice extraction, heat-pressed into plates that hold up to hot, oily, and wet food. SJD TRADEHOUSE is a bagasse plates wholesale supplier, exporting biodegradable tableware from India in bulk.',
+    hsCode: '4823 70 90',
+    coaAvailable: false,
+    photoUrl: '/images/Bagasse_Plates.jpg',
+    photoCredit: {
+      author: 'Ekoe Sarua',
+      license: 'CC BY-SA 4.0',
+      licenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0/',
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:Ekoe.org_(3).jpg',
+    },
+  },
+  {
+    id: 'sal-leaf-plates',
+    name: 'Sal Leaf Plates',
+    seoTitle: 'Sal Leaf Plates Wholesale Supplier',
+    latinBinomial: 'Shorea robusta',
+    category: 'disposables',
+    extractionMethod: 'Heat-Pressed',
+    origin: 'Odisha & Jharkhand',
+    description:
+      'Traditional, fully compostable Shorea robusta tableware made from dried sal leaves, stitched together and pressed into sturdy plates and bowls. SJD TRADEHOUSE is a sal leaf plates wholesale supplier, exporting biodegradable leaf tableware from India in bulk.',
+    hsCode: '4602 19 90',
+    coaAvailable: false,
+    photoUrl: '/images/Sal_Leaf_Plates.jpg',
+    photoCredit: {
+      author: 'Janak Bhatta',
+      license: 'CC BY-SA 4.0',
+      licenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0/',
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:Duna_Tapari.jpg',
+    },
   },
   {
     id: 'eucalyptus-oil',

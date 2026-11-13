@@ -14,12 +14,12 @@ const routeHead: Record<Exclude<Route, 'product'>, { title: string; description:
   home: {
     title: 'Botanical Export House India | SJD TRADEHOUSE',
     description:
-      'SJD TRADEHOUSE is a botanical export house in India, a merchant export house sourcing, GC-MS testing, and shipping essential oils, oleoresins, spices, nuts, dried fruits, powders, and eco disposables to wholesale buyers worldwide. As a documented, COA-backed essential oil and spice exporter, every consignment ships fully documented to spec.',
+      'SJD TRADEHOUSE is a botanical export house in India, a merchant export house sourcing, GC-MS testing, and shipping essential oils, oleoresins, spices, nuts, dried fruits, grains and millets, powders, and eco disposables to wholesale buyers worldwide. As a documented, COA-backed essential oil and spice exporter, every consignment ships fully documented to spec.',
   },
   register: {
     title: 'Products | SJD TRADEHOUSE',
     description:
-      'Browse SJD TRADEHOUSE’ full product range: dried fruits, nuts, essential oils, oleoresins, spices, powders, and eco disposables. Filter by category or search by name or Latin binomial.',
+      'Browse SJD TRADEHOUSE’ full product range: dried fruits, nuts, grains and millets, essential oils, oleoresins, spices, powders, and eco disposables. Filter by category or search by name or Latin binomial.',
   },
   house: {
     title: 'The House | SJD TRADEHOUSE',
